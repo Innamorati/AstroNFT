@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BodyFather = styled.section`
   width: 100%;
   height: 150vh;
-  padding: 5rem;
+  padding: 6rem;
   margin: 0;
   box-sizing: border-box;
   display: flex;
@@ -93,7 +93,7 @@ export const Image = styled.div`
 `;
 //conteiner wp
 export const conteinerIconWP = styled.div`
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row-reverse;
 `;

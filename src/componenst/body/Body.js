@@ -12,7 +12,6 @@ import {
   IconWP,
   conteinerWP,
   BodyConteinerTab,
-  conteinerIconWP,
 } from "../../styles/StyleBody";
 
 export default function Body() {
@@ -105,13 +104,13 @@ export default function Body() {
             </Paragraph>
           </TextConteiner>
         </BodyConteinerTab>
-        <conteinerIconWP>
+        <conteinerWP>
           <IconWP
             style={{
               backgroundImage: `url(${iconWP})`,
             }}
           />
-        </conteinerIconWP>
+        </conteinerWP>
       </BodyFather>
     </>
   );

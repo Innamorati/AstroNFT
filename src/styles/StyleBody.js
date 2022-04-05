@@ -1,8 +1,9 @@
 import styled from "styled-components";
+const NavLink = styled.a``;
 
 export const BodyFather = styled.section`
   width: 100%;
-  height: 150vh;
+  height: auto;
   padding: 6rem;
   margin: 0;
   box-sizing: border-box;
@@ -20,20 +21,20 @@ export const BodyConteiner = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1060px) {
+  @media (max-width: 1081px) {
     display: none;
   }
 `;
 
 export const BodyConteinerTab = styled.div`
-  @media (max-width: 1060px) {
+  @media (max-width: 1081px) {
     display: visible;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  @media (min-width: 1060px) {
+  @media (min-width: 1081px) {
     display: none;
   }
 `;
@@ -45,6 +46,9 @@ export const TextConteiner = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  @media (max-width: 800px) {
+    min-width: 300px;
+  }
 `;
 
 //Titulos del body
@@ -90,18 +94,54 @@ export const Image = styled.div`
   border-radius: 1rem 1rem 1rem 1rem;
   margin: 1rem;
   border: solid 1px white;
+  @media (max-width: 430px) {
+    width: 290px;
+    height: 290px;
+    background-position: center;
+  }
+  /* &:hover {
+    background-color: black;
+  } */
 `;
 //conteiner wp
-export const conteinerIconWP = styled.div`
+export const conteinerWP = styled.div`
   width: auto;
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: end;
 `;
 //icono de whattsApp
-export const IconWP = styled.img`
-  width: 1rem;
-  height: 1rem;
-  padding: 1.5rem;
+export const IconWP = styled.button`
+  background-color: white;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
   background-repeat: no-repeat;
   object-fit: cover;
+`;
+export const Button = styled.button`
+  padding: 0.8em 1.8em;
+  border: 2px solid #17c3b2;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #17c3b2;
+`;
+export const boton = styled.button`
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17c3b2;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
 `;

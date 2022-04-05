@@ -10,8 +10,8 @@ import {
   Paragraph,
   TextConteiner,
   IconWP,
-  conteinerWP,
   BodyConteinerTab,
+  StyledNavLink,
 } from "../../styles/StyleBody";
 
 export default function Body() {
@@ -104,13 +104,13 @@ export default function Body() {
             </Paragraph>
           </TextConteiner>
         </BodyConteinerTab>
-        <conteinerWP>
+        <BodyConteiner>
           <IconWP
             style={{
               backgroundImage: `url(${iconWP})`,
             }}
           />
-        </conteinerWP>
+        </BodyConteiner>
       </BodyFather>
     </>
   );

@@ -19,8 +19,7 @@ import {
   TextConteiner,
   IconWP,
   SocialMedia,
-  contactUs,
-  inAstroNFT,
+  ContactUs,
   AstroNFT,
   Footer,
   IconSocial,
@@ -99,13 +98,13 @@ export default function Body() {
             <Paragraph2>© Copyrights. All rights reserved</Paragraph2>{" "}
           </AstroNFT>
         </AstroNFT>
-        <contactUs>
+        <ContactUs>
           <Paragraph2>Contact Us</Paragraph2>
           <Paragraph2>
             Contact us if you have any ideas or specific requests at:
             info@astronft.com
           </Paragraph2>
-        </contactUs>
+        </ContactUs>
         <SocialMedia>
           <IconSocial
             style={{

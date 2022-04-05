@@ -114,7 +114,7 @@ export const IconWP = styled.div`
 //Footer
 export const Footer = styled.div`
   width: 100%;
-  height: 7rem;
+  height: 9rem;
   background-color: #494949;
   display: flex;
   justify-content: center;
@@ -129,10 +129,13 @@ export const SocialMedia = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const contactUs = styled.div`
+export const ContactUs = styled.div`
   padding: 1rem;
   width: 33%;
   background-color: #494949;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const AstroNFT = styled.div`
@@ -141,7 +144,7 @@ export const AstroNFT = styled.div`
   width: auto;
   background-color: #494949;
   display: flex;
-  flex-wrap: wrap;
+
   justify-content: center;
   align-items: center;
 `;

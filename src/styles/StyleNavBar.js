@@ -10,6 +10,10 @@ background-color: aliceblue;
 export const LogoAstroNFT = styled.div`
     display: flex;
     align-items: center;
+
+    a{
+        text-decoration: none;
+    }
 `;
 
 export const LogoText = styled.h2`
@@ -38,6 +42,10 @@ export const NavBarButtons = styled.div`
     display: flex;
     justify-content: space-between;
     width: 20em;
+
+    a{
+        text-decoration: none;
+    }
 `
 export const NavButton = styled.button`
     align-items: center;

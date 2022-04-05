@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from "./pages/Contact";
 import SideNavBar from "./components/SideNavBar";
+import SignUp from "./pages/SingUp"
+import SingUp from "./pages/SingUp";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/signup" element={<SingUp />} />
       </Routes>
 
 

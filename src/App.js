@@ -1,5 +1,5 @@
 import "./App.css";
-import Body from "./componenst/body/Body";
+import Body from "../src/commponents/body/Body";
 
 function App() {
   return (

@@ -1,17 +1,24 @@
 import React from "react";
 import astro from "../../Assest/image1.png";
 import astro2 from "../../Assest/image2.jpg";
-import iconWP from "../../Assest/whatsapp.png";
+import iconWP from "../../Assest/wsp2.png";
+import instagram from "../../Assest/instagram.png";
+
 import {
   Text,
   BodyConteiner,
+  BodyConteiner2,
+  BodyConteiner3,
   Image,
   BodyFather,
   Paragraph,
   TextConteiner,
   IconWP,
-  BodyConteinerTab,
-  StyledNavLink,
+  SocialMedia,
+  contactUs,
+  AstroNFT,
+  Footer,
+  IconSocial,
 } from "../../styles/StyleBody";
 
 export default function Body() {
@@ -40,7 +47,7 @@ export default function Body() {
             </Paragraph>
           </TextConteiner>
         </BodyConteiner>
-        <BodyConteiner>
+        <BodyConteiner2>
           <TextConteiner>
             <Text>Lorem ipsum dolor sit amet, consectetur</Text>
             <Paragraph>
@@ -60,58 +67,36 @@ export default function Body() {
               backgroundImage: `url(${astro2})`,
             }}
           />
-        </BodyConteiner>
-        {/* BODY EN PANTALLA DE TAB */}
-        <BodyConteinerTab>
-          <Image
-            style={{
-              backgroundImage: `url(${astro}) `,
-            }}
-          />
-          <TextConteiner>
-            <Text>Lorem ipsum dolor sit amet, consectetur</Text>
-            <Paragraph>
-              Proin turpis mauris elementum adipiscing leo. At mauris
-              pellentesque eget imperdiet. Porttitor aliquet iaculis sed arcu
-              diam et, sit. Cras ut proin quis consequat fringilla orci, velit,
-              quis. Malesuada tellus facilisi odio lectus blandit morbi risus.
-              Quis mattis proin pretium accumsan, scelerisque luctus.nulla.
-              Vitae est duis vitae lacus, purus molestie tellus. Feugiat odio
-              varius ullamcorper pulvinar sagittis sed vulputate quis. Odio
-              urna, id amet quam interdum elementum sed. Senectus sollicitudin
-              tortor, mi, a quis
-            </Paragraph>
-          </TextConteiner>
-        </BodyConteinerTab>
-        <BodyConteinerTab>
-          <Image
-            style={{
-              backgroundImage: `url(${astro2})`,
-            }}
-          />
-          <TextConteiner>
-            <Text>Lorem ipsum dolor sit amet, consectetur</Text>
-            <Paragraph>
-              Proin turpis mauris elementum adipiscing leo. At mauris
-              pellentesque eget imperdiet. Porttitor aliquet iaculis sed arcu
-              diam et, sit. Cras ut proin quis consequat fringilla orci, velit,
-              quis. Malesuada tellus facilisi odio lectus blandit morbi risus.
-              Quis mattis proin pretium accumsan, scelerisque luctus.nulla.
-              Vitae est duis vitae lacus, purus molestie tellus. Feugiat odio
-              varius ullamcorper pulvinar sagittis sed vulputate quis. Odio
-              urna, id amet quam interdum elementum sed. Senectus sollicitudin
-              tortor, mi, a quis
-            </Paragraph>
-          </TextConteiner>
-        </BodyConteinerTab>
-        <BodyConteiner>
+        </BodyConteiner2>
+        <BodyConteiner3>
           <IconWP
             style={{
               backgroundImage: `url(${iconWP})`,
             }}
           />
-        </BodyConteiner>
+        </BodyConteiner3>
+        {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
       </BodyFather>
+      <Footer>
+        <SocialMedia>
+          <div>AstroNFT</div>
+          <div>© Copyrights. All rights reserved</div>
+        </SocialMedia>
+        <contactUs>
+          <div>Contact Us</div>
+          <div>
+            Contact us if you have any ideas or specific requests at:
+            info@astronft.com
+          </div>
+        </contactUs>
+        <AstroNFT>
+          <IconSocial
+            style={{
+              backgroundImage: `url(${instagram})`,
+            }}
+          />
+        </AstroNFT>
+      </Footer>
     </>
   );
 }

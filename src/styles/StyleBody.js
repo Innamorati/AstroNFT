@@ -1,18 +1,16 @@
 import styled from "styled-components";
-const NavLink = styled.a``;
 
 export const BodyFather = styled.section`
   width: 100%;
-  height: auto;
-  padding: 6rem;
-  margin: 0;
+  min-height: 100vh;
+  padding: 3rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
 `;
 //contenedor de las imagenes del astronauta y el texto
 export const BodyConteiner = styled.div`
-  padding: 0;
+  padding: 3rem;
   margin: 0;
   background-color: white;
   color: white;
@@ -21,21 +19,23 @@ export const BodyConteiner = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1081px) {
-    display: none;
+  @media (max-width: 1060px) {
+    flex-direction: column-reverse;
   }
 `;
 
-export const BodyConteinerTab = styled.div`
-  @media (max-width: 1081px) {
-    display: visible;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const BodyConteiner2 = styled.div`
+  padding: 3rem;
+  margin: 0;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  @media (max-width: 1060px) {
     flex-direction: column;
-  }
-  @media (min-width: 1081px) {
-    display: none;
   }
 `;
 
@@ -46,9 +46,6 @@ export const TextConteiner = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  @media (max-width: 800px) {
-    min-width: 300px;
-  }
 `;
 
 //Titulos del body
@@ -94,54 +91,50 @@ export const Image = styled.div`
   border-radius: 1rem 1rem 1rem 1rem;
   margin: 1rem;
   border: solid 1px white;
-  @media (max-width: 430px) {
-    width: 290px;
-    height: 290px;
-    background-position: center;
-  }
-  /* &:hover {
-    background-color: black;
-  } */
 `;
 //conteiner wp
-export const conteinerWP = styled.div`
-  width: auto;
-  display: flex;
-  justify-content: end;
+export const BodyConteiner3 = styled.div`
+  width: 100%;
 `;
 //icono de whattsApp
-export const IconWP = styled.button`
-  background-color: white;
-  border: 0;
-  width: 2rem;
-  height: 2rem;
+export const IconWP = styled.div`
+  /* display: flex !important;
+  justify-content: center !important; */
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 1.5rem;
   background-repeat: no-repeat;
+  background-size: contain;
   object-fit: cover;
+  cursor: pointer;
 `;
-export const Button = styled.button`
-  padding: 0.8em 1.8em;
-  border: 2px solid #17c3b2;
-  position: relative;
-  overflow: hidden;
-  background-color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  transition: 0.3s;
-  z-index: 1;
-  font-family: inherit;
-  color: #17c3b2;
+//Footer
+export const Footer = styled.div`
+  width: 100%;
+  height: 4rem;
+  background-color: #494949;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  color: white;
 `;
-export const boton = styled.button`
-  content: "";
-  width: 0;
-  height: 300%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: #17c3b2;
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
+//Div redes
+export const SocialMedia = styled.div`
+  width: 33%;
+  background-color: #494949;
+`;
+export const contactUs = styled.div`
+  width: 33%;
+  background-color: #494949;
+`;
+export const AstroNFT = styled.div`
+  width: 33%;
+  background-color: #494949;
+`;
+export const IconSocial = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
 `;

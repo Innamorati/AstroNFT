@@ -7,6 +7,7 @@ export const BodyFather = styled.section`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  font-family: "Ubuntu";
 `;
 //contenedor de las imagenes del astronauta y el texto
 export const BodyConteiner = styled.div`

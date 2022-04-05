@@ -19,7 +19,7 @@ export const BodyConteiner = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1060px) {
+  @media (max-width: 1080px) {
     flex-direction: column-reverse;
   }
 `;
@@ -34,7 +34,7 @@ export const BodyConteiner2 = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1060px) {
+  @media (max-width: 1080px) {
     flex-direction: column;
   }
 `;
@@ -114,7 +114,7 @@ export const IconWP = styled.div`
 //Footer
 export const Footer = styled.div`
   width: 100%;
-  height: 4rem;
+  height: 7rem;
   background-color: #494949;
   display: flex;
   justify-content: center;
@@ -125,16 +125,57 @@ export const Footer = styled.div`
 export const SocialMedia = styled.div`
   width: 33%;
   background-color: #494949;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const contactUs = styled.div`
+  padding: 1rem;
   width: 33%;
   background-color: #494949;
 `;
+
 export const AstroNFT = styled.div`
-  width: 33%;
+  margin: 0.2rem;
+  padding: 0.3rem;
+  width: auto;
   background-color: #494949;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
-export const IconSocial = styled.img`
+
+export const IconSocial = styled.div`
+  margin: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+`;
+//Parrafos body
+export const Paragraph2 = styled.p`
+  position: static;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 10px 0px;
+  margin-left: 1rem;
+`;
+export const IconAstroFoot = styled.div`
+  margin: 0.3rem;
   width: 1.5rem;
   height: 1.5rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  cursor: pointer;
 `;

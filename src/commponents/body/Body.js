@@ -3,12 +3,16 @@ import astro from "../../Assest/image1.png";
 import astro2 from "../../Assest/image2.jpg";
 import iconWP from "../../Assest/wsp2.png";
 import instagram from "../../Assest/instagram.png";
+import facebook from "../../Assest/facebook.png";
+import twitter from "../../Assest/twitter.png";
+import Favicon from "../../Assest/logo.png";
 
 import {
   Text,
   BodyConteiner,
   BodyConteiner2,
   BodyConteiner3,
+  IconAstroFoot,
   Image,
   BodyFather,
   Paragraph,
@@ -16,9 +20,11 @@ import {
   IconWP,
   SocialMedia,
   contactUs,
+  inAstroNFT,
   AstroNFT,
   Footer,
   IconSocial,
+  Paragraph2,
 } from "../../styles/StyleBody";
 
 export default function Body() {
@@ -78,24 +84,46 @@ export default function Body() {
         {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
       </BodyFather>
       <Footer>
-        <SocialMedia>
-          <div>AstroNFT</div>
-          <div>© Copyrights. All rights reserved</div>
-        </SocialMedia>
+        <AstroNFT>
+          <AstroNFT>
+            <IconAstroFoot
+              style={{
+                backgroundImage: `url(${Favicon})`,
+                objectFit: "cover",
+              }}
+            />
+            <Paragraph2>AstroNFT</Paragraph2>
+          </AstroNFT>
+
+          <AstroNFT>
+            <Paragraph2>© Copyrights. All rights reserved</Paragraph2>{" "}
+          </AstroNFT>
+        </AstroNFT>
         <contactUs>
-          <div>Contact Us</div>
-          <div>
+          <Paragraph2>Contact Us</Paragraph2>
+          <Paragraph2>
             Contact us if you have any ideas or specific requests at:
             info@astronft.com
-          </div>
+          </Paragraph2>
         </contactUs>
-        <AstroNFT>
+        <SocialMedia>
           <IconSocial
             style={{
               backgroundImage: `url(${instagram})`,
             }}
           />
-        </AstroNFT>
+          <IconSocial
+            style={{
+              backgroundImage: `url(${facebook})`,
+            }}
+          />
+          <IconSocial
+            style={{
+              backgroundImage: `url(${twitter})`,
+              objectFit: "contain",
+            }}
+          />
+        </SocialMedia>
       </Footer>
     </>
   );

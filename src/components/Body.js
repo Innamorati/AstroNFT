@@ -25,7 +25,7 @@ import {
   IconSocial,
   Paragraph2,
   InAstroNFT,
-} from "../../styles/StyleBody";
+} from "../styles/StyleBody";
 
 export default function Body() {
   return (

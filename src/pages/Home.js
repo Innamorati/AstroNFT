@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Body from '../components/Body';
 const Home = () => {
     return ( 
         <>
-    <p> estas en home</p>
+    <Body />
     </>
     );
 }

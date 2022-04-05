@@ -1,11 +1,11 @@
 import React from "react";
-import astro from "../../Assest/image1.png";
-import astro2 from "../../Assest/image2.jpg";
-import iconWP from "../../Assest/wsp2.png";
-import instagram from "../../Assest/instagram.png";
-import facebook from "../../Assest/facebook.png";
-import twitter from "../../Assest/twitter.png";
-import Favicon from "../../Assest/logo.png";
+import astro from "../Assest/image1.png";
+import astro2 from "../Assest/image2.jpg";
+import iconWP from "../Assest/wsp2.png";
+import instagram from "../Assest/instagram.png";
+import facebook from "../Assest/facebook.png";
+import twitter from "../Assest/twitter.png";
+import Favicon from "../Assest/logo.png";
 
 import {
   Text,

@@ -111,7 +111,10 @@ export const DropdownSign = styled.button`
     .btn-primary {
         background-color: white;
     }
-
+    .dropdown-menu {
+        min-width: 5rem !important;
+    }
+    
     div.dropdown-menu.show {
         text-align:center;
     }
@@ -143,4 +146,15 @@ export const LogoAstroNFTResponsive = styled.div`
             text-decoration: none;
         }
 }
+`;
+
+export const ShoppingCart = styled.div`
+    display: none;
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+        flex-direction: row;
+        width: 100%;
 `;

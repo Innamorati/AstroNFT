@@ -24,6 +24,7 @@ import {
   Footer,
   IconSocial,
   Paragraph2,
+  InAstroNFT,
 } from "../../styles/StyleBody";
 
 export default function Body() {
@@ -84,7 +85,7 @@ export default function Body() {
       </BodyFather>
       <Footer>
         <AstroNFT>
-          <AstroNFT>
+          <InAstroNFT>
             <IconAstroFoot
               style={{
                 backgroundImage: `url(${Favicon})`,
@@ -92,7 +93,7 @@ export default function Body() {
               }}
             />
             <Paragraph2>AstroNFT</Paragraph2>
-          </AstroNFT>
+          </InAstroNFT>
 
           <AstroNFT>
             <Paragraph2>© Copyrights. All rights reserved</Paragraph2>{" "}

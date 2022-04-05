@@ -19,7 +19,8 @@ export const BodyConteiner = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1060px) {
+
+  @media (max-width: 1080px) {
     flex-direction: column-reverse;
   }
 `;
@@ -34,7 +35,8 @@ export const BodyConteiner2 = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  @media (max-width: 1060px) {
+
+  @media (max-width: 1080px) {
     flex-direction: column;
   }
 `;
@@ -111,5 +113,78 @@ export const IconWP = styled.div`
   object-fit: cover;
   cursor: pointer;
 `;
-
-
+//Footer
+export const Footer = styled.div`
+  width: 100%;
+  height: 9rem;
+  background-color: #494949;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  color: white;
+`;
+//Div redes footer
+export const SocialMedia = styled.div`
+  width: 20%;
+  background-color: #494949;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+//div contacto footer
+export const ContactUs = styled.div`
+  padding: 1rem;
+  width: 20%;
+  background-color: #494949;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+//div logo y copyright
+export const AstroNFT = styled.div`
+  margin: 0.2rem;
+  width: auto;
+  background-color: #494949;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+//div dentro de logo y nombre en footer
+export const InAstroNFT = styled.div`
+  display: flex;
+`;
+// iconos de redes en footer
+export const IconSocial = styled.div`
+  margin: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+`;
+//Texto
+export const Paragraph2 = styled.p`
+  position: static;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 10px 0px;
+  margin-left: 1rem;
+`;
+export const IconAstroFoot = styled.div`
+  margin: 0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+`;

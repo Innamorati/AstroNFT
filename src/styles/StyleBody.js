@@ -121,7 +121,7 @@ export const Footer = styled.div`
   justify-content: space-around;
   color: white;
 `;
-//Div redes
+//Div redes footer
 export const SocialMedia = styled.div`
   width: 20%;
   background-color: #494949;
@@ -129,6 +129,7 @@ export const SocialMedia = styled.div`
   justify-content: center;
   align-items: center;
 `;
+//div contacto footer
 export const ContactUs = styled.div`
   padding: 1rem;
   width: 20%;
@@ -137,7 +138,7 @@ export const ContactUs = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-
+//div logo y copyright
 export const AstroNFT = styled.div`
   margin: 0.2rem;
   width: auto;
@@ -147,10 +148,11 @@ export const AstroNFT = styled.div`
   justify-content: center;
   align-items: center;
 `;
+//div dentro de logo y nombre en footer
 export const InAstroNFT = styled.div`
   display: flex;
 `;
-
+// iconos de redes en footer
 export const IconSocial = styled.div`
   margin: 0.3rem;
   width: 1rem;
@@ -160,7 +162,7 @@ export const IconSocial = styled.div`
   padding: 0.2rem;
   cursor: pointer;
 `;
-//Parrafos body
+//Texto
 export const Paragraph2 = styled.p`
   position: static;
   font-family: "Ubuntu";

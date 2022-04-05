@@ -11,7 +11,7 @@ export const LogoAstroNFT = styled.div`
     display: flex;
     align-items: center;
 
-    a{
+    a {
         text-decoration: none;
     }
 `;
@@ -21,7 +21,7 @@ export const LogoText = styled.h2`
     color: black;
     text-decoration: none;
     margin-left: 0.5em;
-`
+`;
 export const NavBarAstroNFT = styled.div`
     display: flex;
     align-items: center;
@@ -41,12 +41,12 @@ export const NavBarAstroNFT = styled.div`
 export const NavBarButtons = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 20em;
+    width: 25em;
 
-    a{
+    a {
         text-decoration: none;
     }
-`
+`;
 export const NavButton = styled.button`
     align-items: center;
     background-color: #FFFFFF;
@@ -74,7 +74,7 @@ export const NavIconButtons = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 10em;
+    width: 15em;
 `;
 export const NotUnderlined = styled.a`
     text-decoration: none;
@@ -86,4 +86,75 @@ export const VerticalNavBar = styled.nav`
         justify-content: flex-end;
         wdith: 100%;
     }
-`
+`;
+export const DropdownSign = styled.button`
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background-color: white;
+
+    button{
+        padding: 0;
+        border: none;
+    }
+
+    .btn {
+        background-color: white;
+    }
+
+    .show>.btn-primary.dropdown-toggle {
+        border: none;
+        background-color: white;
+    }
+
+    .btn-primary {
+        background-color: white;
+    }
+    .dropdown-menu {
+        min-width: 5rem !important;
+    }
+    
+    div.dropdown-menu.show {
+        text-align:center;
+    }
+
+    a.dropdown-item {
+        font-weight: bold;
+    }
+`;
+
+export const SideNav = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    .bg-light {
+        background-color: white !important;
+    }
+`;
+
+export const LogoAstroNFTResponsive = styled.div`
+    display: none;
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        wdith: 100%;
+        margin-left: 1em;
+
+        a {
+            text-decoration: none;
+        }
+}
+`;
+
+export const ShoppingCart = styled.div`
+    display: none;
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+        flex-direction: row;
+        width: 100%;
+`;

@@ -4,8 +4,8 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from "./pages/Contact";
 import SideNavBar from "./components/SideNavBar";
-import SignUp from "./pages/SingUp"
-import SingUp from "./pages/SingUp";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/signup" element={<SingUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
 
 

@@ -2,29 +2,18 @@ import React from "react";
 import astro from "../Assest/image1.png";
 import astro2 from "../Assest/image2.jpg";
 import iconWP from "../Assest/wsp2.png";
-import instagram from "../Assest/instagram.png";
-import facebook from "../Assest/facebook.png";
-import twitter from "../Assest/twitter.png";
-import Favicon from "../Assest/logo.png";
+import FooterComp from "../components/Footer";
 
 import {
   Text,
   BodyConteiner,
   BodyConteiner2,
   BodyConteiner3,
-  IconAstroFoot,
   Image,
   BodyFather,
   Paragraph,
   TextConteiner,
   IconWP,
-  SocialMedia,
-  ContactUs,
-  AstroNFT,
-  Footer,
-  IconSocial,
-  Paragraph2,
-  InAstroNFT,
 } from "../styles/StyleBody";
 
 export default function Body() {
@@ -36,6 +25,7 @@ export default function Body() {
           <Image
             style={{
               backgroundImage: `url(${astro}) `,
+              backgroundPosition: "center center",
             }}
           />
           <TextConteiner>
@@ -71,6 +61,7 @@ export default function Body() {
           <Image
             style={{
               backgroundImage: `url(${astro2})`,
+              backgroundPosition: "center center",
             }}
           />
         </BodyConteiner2>
@@ -83,48 +74,7 @@ export default function Body() {
         </BodyConteiner3>
         {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
       </BodyFather>
-      <Footer>
-        <AstroNFT>
-          <InAstroNFT>
-            <IconAstroFoot
-              style={{
-                backgroundImage: `url(${Favicon})`,
-                objectFit: "cover",
-              }}
-            />
-            <Paragraph2>AstroNFT</Paragraph2>
-          </InAstroNFT>
-
-          <AstroNFT>
-            <Paragraph2>© Copyrights. All rights reserved</Paragraph2>{" "}
-          </AstroNFT>
-        </AstroNFT>
-        <ContactUs>
-          <Paragraph2>Contact Us</Paragraph2>
-          <Paragraph2>
-            Contact us if you have any ideas or specific requests at:
-            info@astronft.com
-          </Paragraph2>
-        </ContactUs>
-        <SocialMedia>
-          <IconSocial
-            style={{
-              backgroundImage: `url(${instagram})`,
-            }}
-          />
-          <IconSocial
-            style={{
-              backgroundImage: `url(${facebook})`,
-            }}
-          />
-          <IconSocial
-            style={{
-              backgroundImage: `url(${twitter})`,
-              objectFit: "contain",
-            }}
-          />
-        </SocialMedia>
-      </Footer>
+      <FooterComp />
     </>
   );
 }

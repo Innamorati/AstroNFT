@@ -22,6 +22,7 @@ export const SingUp = (props) => {
             email: event.target[2].value,
             password: event.target[3].value,
             image: event.target[4].value,
+            from: "signup"
         }
         props.userSingUp(data)
         console.log(data)
@@ -37,9 +38,9 @@ export const SingUp = (props) => {
                     <Label for="lastName" >Last name</Label>
                     <Input id="lastName" />
                     <Label for="mail" >Mail</Label>
-                    <Input id="mail" />
+                    <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
-                    <Input id="password" />
+                    <Input id="password" type="password" />
                     <Label for="mail" >Url image</Label>
                     <Input id="mail" />
                     <Input type="submit" />

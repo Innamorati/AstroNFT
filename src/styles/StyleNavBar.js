@@ -89,11 +89,12 @@ export const VerticalNavBar = styled.nav`
 `;
 export const DropdownSign = styled.button`
     display: flex;
+    width: 2rem;
     justify-content: center;
     padding: 0;
     border: none;
     background-color: white;
-
+    
     button{
         padding: 0;
         border: none;
@@ -150,6 +151,7 @@ export const LogoAstroNFTResponsive = styled.div`
 
 export const ShoppingCart = styled.div`
     display: none;
+
     @media (max-width: 600px){
         display: flex;
         justify-content: flex-end;
@@ -157,4 +159,5 @@ export const ShoppingCart = styled.div`
         align-content: center;
         flex-direction: row;
         width: 100%;
+        }
 `;

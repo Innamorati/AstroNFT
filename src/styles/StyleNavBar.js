@@ -164,3 +164,54 @@ export const SignButton = styled.div`
     color: rgba(0,0,0,0.85);
 
 `;
+
+export const SideNavButton = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    margin: 5px 5px;;
+ color: #212121;
+ z-index: 1;
+ position: relative;
+ font-weight: 500;
+ font-size: 17px;
+ transition: all 250ms;
+ overflow: hidden;
+    text-align: center;
+    a {
+        text-decoration: none;
+    }
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}
+`;
+
+export const ResponsiveNavButtons = styled.div`
+    a {
+        text-decoration: none;
+    }
+`
+export const SideNavButtonSign = styled.div`
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+    text-align: center;
+`

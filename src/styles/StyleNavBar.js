@@ -33,7 +33,7 @@ export const NavBarAstroNFT = styled.div`
     background-color: rgba(255, 255, 255, 0.322);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
 
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: none;
     }
 `;
@@ -41,7 +41,7 @@ export const NavBarAstroNFT = styled.div`
 export const NavBarButtons = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 25em;
+    width: 30em;
 
     a {
         text-decoration: none;
@@ -52,7 +52,7 @@ export const NavButton = styled.button`
     background-color: #FFFFFF;
     border: none;
     box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(0, 0, 0, 0.85) !important;
     cursor: pointer;
     display: inline-flex;
     font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -74,14 +74,14 @@ export const NavIconButtons = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 15em;
+    width: 20em;
 `;
 export const NotUnderlined = styled.a`
     text-decoration: none;
 `;
 export const VerticalNavBar = styled.nav`
     display: none;
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         wdith: 100%;
@@ -135,11 +135,11 @@ export const SideNav = styled.div`
 
 export const LogoAstroNFTResponsive = styled.div`
     display: none;
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        wdith: 100%;
+        width: 50%;
         margin-left: 1em;
 
         a {
@@ -150,11 +150,17 @@ export const LogoAstroNFTResponsive = styled.div`
 
 export const ShoppingCart = styled.div`
     display: none;
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         align-items: center;
         align-content: center;
         flex-direction: row;
         width: 100%;
+    }
+`;
+
+export const SignButton = styled.div`
+    color: rgba(0,0,0,0.85);
+
 `;

@@ -35,9 +35,9 @@ return(
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <NavButton> <LinkRouter to={'/home'} >Home</LinkRouter> </NavButton>
-          <NavButton> <LinkRouter to={'/products'} >Products</LinkRouter> </NavButton>
-          <NavButton> <LinkRouter to={'/contact'} >Contact</LinkRouter> </NavButton>
+          <LinkRouter to={'/home'}> <NavButton>Home</NavButton> </LinkRouter> 
+          <LinkRouter to={'/products'}> <NavButton>Products</NavButton> </LinkRouter> 
+          <LinkRouter to={'/contact'}> <NavButton>Contact</NavButton> </LinkRouter>
           <NavButton>
             <NavDropdown title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} id="offcanvasNavbarDropdown">
               <NavDropdown.Item> <LinkRouter to={'/signin'}>Sign In</LinkRouter> </NavDropdown.Item>

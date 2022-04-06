@@ -1,34 +1,47 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link as LinkRouter} from 'react-router-dom';
 // import { Title } from '../styles/StyleNavBar';
-import { LogoAstroNFT, LogoText, NavBarAstroNFT, NavBarButtons, NavButton, NavIconButtons, NotUnderlined } from '../styles/StyleNavBar';
+import { LogoAstroNFT, LogoText, NavBarAstroNFT, NavBarButtons, NavButton, NavIconButtons, DropdownSign, SignButton } from '../styles/StyleNavBar';
+import { DropdownButton, SplitButton, ButtonGroup, Dropdown } from 'react-bootstrap';
+
 const NavBar = () => {
+
     return ( 
 <>
 <NavBarAstroNFT>
     <LogoAstroNFT>
-        <Link to={'/home'}>
+        <LinkRouter to={'/home'}>
             <img src={process.env.PUBLIC_URL+'/assets/logo.jpg'} alt='logo'/>
-        </Link>
-        <Link to={'/home'}>
+        </LinkRouter>
+        <LinkRouter to={'/home'}>
             <LogoText>AstroNFT</LogoText>
-        </Link>
+        </LinkRouter>
     </LogoAstroNFT>
         {/* <Title>hola me llamo franco</Title> */}
     <NavBarButtons>
-    <Link to={'/products'}> 
+    <LinkRouter to={'/home'}> 
         <NavButton>
-Products
+            Home
         </NavButton>
-    </Link> 
-        <Link to={'/contact'}> 
-    <NavButton>
-Contact
-    </NavButton>
-    </Link> 
+    </LinkRouter> 
+    <LinkRouter to={'/products'}> 
+        <NavButton>
+            Products
+        </NavButton>
+    </LinkRouter> 
+    <LinkRouter to={'/contact'}> 
+        <NavButton>
+            Contact
+        </NavButton>        
+    </LinkRouter> 
     <NavIconButtons>
-        <Link to={'/products'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></Link>
-        <Link to={'/contact'}><img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/></Link>
+        <LinkRouter to={'/products'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></LinkRouter>
+        <DropdownSign>
+        <DropdownButton id="dropdown-button-drop" title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} >
+            <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
+            <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item>
+        </DropdownButton>
+        </DropdownSign>
     </NavIconButtons>
     </NavBarButtons>
 </NavBarAstroNFT>

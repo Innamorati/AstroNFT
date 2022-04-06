@@ -33,16 +33,16 @@ export const SingUp = (props) => {
         <MainContainer>
             <FormContainer>
                 <Form onSubmit={singup}>
-                    <Label for="name">Firt name</Label>
+                    <Label htmlFor="name">Firt name</Label>
                     <Input id="name" />
-                    <Label for="lastName" >Last name</Label>
+                    <Label htmlFor="lastName" >Last name</Label>
                     <Input id="lastName" />
-                    <Label for="mail" >Mail</Label>
+                    <Label htmlFor="mail" >Mail</Label>
                     <Input id="mail" type="email" />
-                    <Label for="password" >Password</Label>
+                    <Label htmlFor="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Label for="mail" >Url image</Label>
-                    <Input id="mail" />
+                    <Label htmlFor="mail" >Url image</Label>
+                    <Input id="email" />
                     <Input type="submit" />
                 </Form>
             </FormContainer>

@@ -1,5 +1,9 @@
 const initialState = {
-    user: null,
+    user: {
+        view: false,
+        message: '',
+        success: null,
+    },
 }
 
 const UserReducer = (state = initialState, action) => {

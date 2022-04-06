@@ -29,7 +29,7 @@ export const Label = styled.label`
 export const Input = styled.input`
     margin-top: .5rem;
     border: none;
-    
+    border-radius: 20px;
 `;
 
 export const Title = styled.h2`

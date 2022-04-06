@@ -162,7 +162,7 @@ export const ShoppingCart = styled.div`
 
 export const SignButton = styled.div`
     color: rgba(0,0,0,0.85);
-
+    font-weight: 500;
 `;
 
 export const SideNavButton = styled.div`

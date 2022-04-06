@@ -29,7 +29,7 @@ export const NavBarAstroNFT = styled.div`
   width: 100%;
   flex-wrap: wrap;
   text-decoration: none;
-
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
     @media (max-width: 650px){
         display: none;
     }

@@ -8,17 +8,19 @@ export const Title = styled.h1`
 `;
 
 export const LogoAstroNFT = styled.div`
-  display: flex;
-  align-items: center;
-  h2 {
-    text-decoration: none;
-  }
+    display: flex;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 export const LogoText = styled.h2`
-  font-size: 1.5em;
-  color: black;
-  margin-left: 0.5em;
+    font-size: 1.5em;
+    color: black;
+    text-decoration: none;
+    margin-left: 0.5em;
 `;
 export const NavBarAstroNFT = styled.div`
   display: flex;
@@ -37,15 +39,13 @@ export const NavBarAstroNFT = styled.div`
 `;
 
 export const NavBarButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 20em;
-  a {
-    text-decoration: none;
-  }
-  h2 {
-    text-decoration: none;
-  }
+    display: flex;
+    justify-content: space-between;
+    width: 25em;
+
+    a {
+        text-decoration: none;
+    }
 `;
 export const NavButton = styled.button`
   align-items: center;
@@ -72,19 +72,93 @@ export const NavButton = styled.button`
 `;
 
 export const NavIconButtons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 15em;
 `;
 export const NotUnderlined = styled.a`
   text-decoration: none;
 `;
 export const VerticalNavBar = styled.nav`
-  display: none;
-  @media (max-width: 600px) {
+    display: none;
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        wdith: 100%;
+    }
+`;
+export const DropdownSign = styled.button`
     display: flex;
-    justify-content: flex-end;
-    wdith: 100%;
-  }
+    width: 2rem;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background-color: white;
+    
+    button{
+        padding: 0;
+        border: none;
+    }
+
+    .btn {
+        background-color: white;
+    }
+
+    .show>.btn-primary.dropdown-toggle {
+        border: none;
+        background-color: white;
+    }
+
+    .btn-primary {
+        background-color: white;
+    }
+    .dropdown-menu {
+        min-width: 5rem !important;
+    }
+    
+    div.dropdown-menu.show {
+        text-align:center;
+    }
+
+    a.dropdown-item {
+        font-weight: bold;
+    }
+`;
+
+export const SideNav = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    .bg-light {
+        background-color: white !important;
+    }
+`;
+
+export const LogoAstroNFTResponsive = styled.div`
+    display: none;
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        wdith: 100%;
+        margin-left: 1em;
+
+        a {
+            text-decoration: none;
+        }
+}
+`;
+
+export const ShoppingCart = styled.div`
+    display: none;
+
+    @media (max-width: 600px){
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+        flex-direction: row;
+        width: 100%;
+        }
 `;

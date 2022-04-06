@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-font-size: 1.5em;
-text-align: center;
-color: palevioletred;
-background-color: aliceblue;
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+  background-color: aliceblue;
 `;
 
 export const LogoAstroNFT = styled.div`
@@ -23,15 +23,12 @@ export const LogoText = styled.h2`
     margin-left: 0.5em;
 `;
 export const NavBarAstroNFT = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-    text-decoration: none;
-    
-    background-color: rgba(255, 255, 255, 0.322);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  text-decoration: none;
 
     @media (max-width: 650px){
         display: none;
@@ -77,7 +74,7 @@ export const NavIconButtons = styled.div`
     width: 20em;
 `;
 export const NotUnderlined = styled.a`
-    text-decoration: none;
+  text-decoration: none;
 `;
 export const VerticalNavBar = styled.nav`
     display: none;
@@ -89,11 +86,12 @@ export const VerticalNavBar = styled.nav`
 `;
 export const DropdownSign = styled.button`
     display: flex;
+    width: 2rem;
     justify-content: center;
     padding: 0;
     border: none;
     background-color: white;
-
+    
     button{
         padding: 0;
         border: none;

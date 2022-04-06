@@ -32,7 +32,7 @@ export const SingUp = (props) => {
 
 
     return (
-        <MainContainer>
+        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover'}}>
             <FormContainer>
                 <Form onSubmit={singup}>
                     <Title>Sign up</Title>
@@ -49,8 +49,8 @@ export const SingUp = (props) => {
                     <SignUpButton>
                     <Input type="submit" value={"Register"}/>
                     </SignUpButton>
-                    <GoogleButton type="submit"></GoogleButton>
-                    <FacebookButton type="submit"></FacebookButton>
+                    <GoogleButton type="submit">Google</GoogleButton>
+                    <FacebookButton type="submit">Facebook</FacebookButton>
                     <CallToAction>If you already have an account <a>click here</a></CallToAction>
                 </Form>
             </FormContainer>

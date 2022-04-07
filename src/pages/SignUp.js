@@ -1,21 +1,12 @@
 import React from "react";
-import {
-    Form,
-    FormContainer,
-    Input,
-    Label,
-    MainContainer,
-    Title, SignUpButton, GoogleButton, FacebookButton, CallToAction
-} from "../styles/StyleSingUp";
-import UserAcctions from "../redux/actions/UserActions";
-import { connect } from "react-redux"
-import { Facebook, Google } from "@mui/icons-material";
+import { Form, FormContainer, Input, Label, MainContainer,Title, SignUpButton, GoogleButton, FacebookButton, CallToAction } from "../styles/StyleSign";
+import UserActions from "../redux/actions/UserActions";
+import { connect } from "react-redux";
+import {Link as LinkRouter} from 'react-router-dom';
 
+export const SignUp = (props) => {
 
-
-export const SingUp = (props) => {
-
-    const singup = (event) => {
+    const signup = (event) => {
         event.preventDefault(event)
 
         const data = {
@@ -32,9 +23,9 @@ export const SingUp = (props) => {
 
 
     return (
-        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover'}}>
+        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <FormContainer>
-                <Form onSubmit={singup}>
+                <Form onSubmit={signup}>
                     <Title>Sign up</Title>
                     <Label for="name">Username</Label>
                     <Input id="name" />
@@ -44,14 +35,16 @@ export const SingUp = (props) => {
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Label for="mail" >Url image</Label>
+                    {/* <Label>Repeat Password</Label>
+                    <Input type="password" name="confirm_password" id="confirm_password" /> */}
+                    <Label for="mail" >URL Profile Picture</Label>
                     <Input id="mail" />
                     <SignUpButton>
-                    <Input type="submit" value={"Register"}/>
+                    <button type="submit">Register</button>
                     </SignUpButton>
                     <GoogleButton type="submit">Google</GoogleButton>
                     <FacebookButton type="submit">Facebook</FacebookButton>
-                    <CallToAction>If you already have an account <a>click here</a></CallToAction>
+                    <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
                 </Form>
             </FormContainer>
         </MainContainer >
@@ -60,7 +53,7 @@ export const SingUp = (props) => {
 
 }
 const mapDispatchToProps = {
-    userSingUp: UserAcctions.userSingUp
+    userSignUp: UserActions.userSignUp,
 }
 
 const mapStateToProps = (state) => {
@@ -68,4 +61,4 @@ const mapStateToProps = (state) => {
         user: state.UserReducer.user
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SingUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

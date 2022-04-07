@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    Form,
-    FormContainer,
-    Input,
-    Label,
-    MainContainer,
-    Title, SignUpButton, GoogleButton, FacebookButton, CallToAction
-} from "../styles/StyleSingUp";
+import { Form, FormContainer, Input, Label, MainContainer, Title, SignUpButton, GoogleButton, FacebookButton, CallToAction } from "../styles/StyleSign";
+import {Link as LinkRouter} from 'react-router-dom';
 
 const SignIn = () => {
 
@@ -18,12 +12,10 @@ const SignIn = () => {
             password: event.target[2].value,
             from: "signin"
         }
-      /*   props.userSingUp(data)
-        console.log(data) */
     }
 
     return (  
-        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover'}}>
+        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/backgroundSignIn.png'}')`, backgroundSize: 'cover'}}>
             <FormContainer>
                 <Form onSubmit={singin}>
                     <Title>Welcome Back!</Title>
@@ -40,6 +32,7 @@ const SignIn = () => {
                     <GoogleButton type="submit">Google</GoogleButton>
                     <FacebookButton type="submit">Facebook</FacebookButton>
                     <CallToAction>Forgot your password? <a>click here</a></CallToAction>
+                    <CallToAction>Don't have an account? <LinkRouter to={'/signup'}>click here</LinkRouter></CallToAction>
                 </Form>
             </FormContainer>
         </MainContainer >

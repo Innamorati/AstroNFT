@@ -5,7 +5,7 @@ import Products from './pages/Products';
 import Contact from "./pages/Contact";
 import SideNavBar from "./components/SideNavBar";
 import SignIn from "./pages/SignIn";
-import SingUp from "./pages/SingUp"
+import SignUp from "./pages/SignUp"
 import CustomizedSnackbars from "./components/SnackBar";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SingUp />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>

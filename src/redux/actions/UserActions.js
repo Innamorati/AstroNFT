@@ -9,6 +9,17 @@ const UserAcctions = {
             console.log(res)
             console.log(res.data)
         }
+    },
+    userLogin: () => {
+        return async (dispatch, gerState) => {
+            const user = await axios.post('http://localhost:4000/api/user/singup', { logedUser });
+            if (user.data.success) {
+                localStorage.setItem('token', user.data.response.token)
+                dispatch({ type: 'user', payload: user.data.response.data })
+            }
+            console.log(user);
+            console.log(user.data)
+        }
     }
 }
 

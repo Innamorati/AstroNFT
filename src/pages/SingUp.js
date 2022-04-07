@@ -7,7 +7,7 @@ import {
     MainContainer,
     Title, SignUpButton, GoogleButton, FacebookButton, CallToAction
 } from "../styles/StyleSingUp";
-import UserAcctions from "../redux/actions/UserActions";
+import userActions from "../redux/actions/UserActions";
 import { connect } from "react-redux"
 import { Facebook, Google } from "@mui/icons-material";
 
@@ -36,10 +36,10 @@ export const SingUp = (props) => {
             <FormContainer>
                 <Form onSubmit={singup}>
                     <Title>Sign up</Title>
-                    <Label for="name">Username</Label>
+                    <Label for="name">First name</Label>
                     <Input id="name" />
-                    {/* <Label for="lastName" >Last name</Label> */}
-                    {/* <Input id="lastName" /> */}
+                    <Label for="lastName" >Last name</Label>
+                    <Input id="lastName" />
                     <Label for="mail" >Email</Label>
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
@@ -60,7 +60,7 @@ export const SingUp = (props) => {
 
 }
 const mapDispatchToProps = {
-    userSingUp: UserAcctions.userSingUp
+    userSingUp: userActions.userSingUp
 }
 
 const mapStateToProps = (state) => {

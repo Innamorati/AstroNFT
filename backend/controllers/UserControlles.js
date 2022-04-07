@@ -10,7 +10,7 @@ const UserControllers = {
             const existingUser = await usuario.findOne({ email })
             if (existingUser) {
                 if (existingUser.from.indexOf(from) !== -1) {
-                    res.json({ success: false, from: "signup", message: "You have already made a sign Up in this way make a Sing In" })
+                    res.json({ success: false, from: "signup", message: "You have already signed up in this way. Please, sign in" })
                 }
                 else {
                     const passwordHash = bcryptjs.hashSync(password, 15)
@@ -21,11 +21,11 @@ const UserControllers = {
                     if (from === "signup") {
                         existingUser.uniqueString = crypto.randomBytes(15).toString('hex')
                         await existingUser.save()
-                        res.json({ success: true, from: "signup", message: "Please verify your mail and then log In " })
+                        res.json({ success: true, from: "signup", message: "Please, verify your email and then log in " })
                     }
                     else {
                         existingUser.save()
-                        res.json({ success: true, from: "signup", message: "We add" + "to your means to perform sign In " })
+                        res.json({ success: true, from: "signup", message: "We add" + "to your sign in methods" })
                     }
                 }
             }
@@ -44,18 +44,18 @@ const UserControllers = {
                 })
                 if (from !== "signup") {
                     await newuser.save()
-                    res.json({ success: true, from: "Signup", message: "Congratulations, your user has been created with" + from })
+                    res.json({ success: true, from: "Signup", message: "Congratulations, your account has been created with" + from })
                 }
                 else {
                     await newuser.save()
-                    res.json({ success: true, from: "signup", message: "Please verify your mail and then log In" })
+                    res.json({ success: true, from: "signup", message: "Please, verify your email and then log in" })
                 }
             }
 
         }
         catch (error) {
             console.log(error);
-            res.json({ success: false, message: "Something went wrong try in a few minutes" })
+            res.json({ success: false, message: "Something went wrong. Try again in a few minutes" })
         }
 
     }

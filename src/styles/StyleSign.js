@@ -111,12 +111,28 @@ export const GoogleButton = styled.div`
     margin: 1rem 0;
     width: 90%;
     height: 3rem;
-    border: 1px solid #f2c94c;
+    /* border: 1px solid #f2c94c; */
+    border: 1px solid #E9E5E5;
     border-radius: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    button {
+        color: #333333 !important;
+        border: none !important;
+        box-shadow: none !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+        line-height: 125% !important;
+    }
+    
+
+
+    color: black !important;
+    box-shadow: 3px #114861 !important;
+    letter-spacing: 2px;
 
   /*   @media (max-width: 800px) {
         width: 90%;
@@ -167,3 +183,4 @@ export const CallToAction = styled.div`
 
 
 `;
+

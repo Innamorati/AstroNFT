@@ -3,6 +3,7 @@ import { Form, FormContainer, Input, Label, MainContainer,Title, SignUpButton, G
 import UserActions from "../redux/actions/UserActions";
 import { connect } from "react-redux";
 import {Link as LinkRouter} from 'react-router-dom';
+import GoogleSignUp from "../components/GoogleSignUp";
 
 export const SignUp = (props) => {
 
@@ -42,7 +43,8 @@ export const SignUp = (props) => {
                     <SignUpButton>
                     <button type="submit">Register</button>
                     </SignUpButton>
-                    <GoogleButton type="submit">Google</GoogleButton>
+                    {/* <p>- or -</p> */}
+                        <GoogleSignUp/>
                     <FacebookButton type="submit">Facebook</FacebookButton>
                     <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
                 </Form>

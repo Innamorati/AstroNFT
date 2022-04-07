@@ -23,7 +23,7 @@ const HeroCounter = () => {
                 <Count4>
                     <p>2</p>
                     <p>Floor Price</p>
-                    <p>???</p>
+                    <p>Last Month</p>
                 </Count4>
 
             </Counter>

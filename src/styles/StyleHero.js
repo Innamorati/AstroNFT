@@ -14,27 +14,21 @@ export const HeroTitle = styled.h1`
     width: 50%;
     color: white;
     font-weight: 700;
-    margin: 3rem 0 1rem 0rem;
+    margin: 2rem 0 1rem;
     text-align: center;
 
     @media (max-width: 800px) {
         font-size: 1.5rem;
         font-weight: 700;
-        margin: auto;
-        margin-bottom:1rem;
     }
 
     @media (max-width: 600px) {
         font-size: 1rem;
         font-weight:700;
-        margin: auto;
-        margin-bottom:1rem ;
     }
     @media (max-width: 350px) {
         font-size: .8rem;
         font-weight:500;
-        margin: auto;
-        margin-bottom:-5rem ;
     }
 `;
 
@@ -58,22 +52,19 @@ export const HeroParagraph = styled.p`
     flex-wrap: wrap;
     width: 50%;
     color: white;
-    margin: 1.5rem 0 1rem 0rem;
+    margin: 1rem 0 2rem;
     text-align: center;
 
-    margin-bottom:-5rem ;
     @media (max-width: 800px) {
         font-size: 1rem;
-        margin-bottom:-5rem ;
     }
     @media (max-width: 600px) {
         font-size: .8rem;
-        margin-bottom:-7rem ;
+        margin: 1rem 0 1.5rem;
     }
     @media (max-width: 350px) {
         font-size: .7rem;
-        margin: auto;
-        margin-bottom:-5rem ;
+        margin: 1rem 0 1.5rem;
     }
 `;
 
@@ -163,29 +154,12 @@ export const HeroImage = styled.div`
 export const Astronaut = styled.div`
     display: flex;
     flex-wrap: wrap;
-    /* img {
-        height: 436px;
-        width: 389px;
-    }
- */
+    
     @media (max-width: 900px) {
-
-        /* img {
-            width: 336px;
-            height: 287px;
-        } */
 
         img {
             width: 70%;
             height: 50%;
         }
     }
-/* 
-    @media (max-width: 700px) {
-        img {
-            width: 236px;
-            height: 187px;
-        }
-    } */
-    
 `;

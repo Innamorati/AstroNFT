@@ -14,6 +14,9 @@ import {
   DivArs,
 } from "../styles/StyledProducts";
 
+//ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
+// ARCHIVO STYLED PRODUCTS
+
 const Product = () => {
   return (
     <>
@@ -22,6 +25,7 @@ const Product = () => {
           style={{
             backgroundImage: `url(${product1}) `,
             backgroundPosition: "center center",
+            objectFit: "contain",
           }}
         />
         <Title>One Astro #1715</Title>

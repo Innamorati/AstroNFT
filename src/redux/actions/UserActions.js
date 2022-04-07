@@ -22,8 +22,4 @@ const UserActions = {
     }
 }
 
-<<<<<<< HEAD
 export default UserActions;
-=======
-export default userActions
->>>>>>> 933845f0c34a23d9824345f24805f386df60969d

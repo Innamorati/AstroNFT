@@ -3,7 +3,6 @@ import instagram from "../Assest/instagram.png";
 import facebook from "../Assest/facebook.png";
 import twitter from "../Assest/twitter.png";
 import Favicon from "../Assest/logo.png";
-
 import {
   IconAstroFoot,
   SocialMedia,
@@ -13,7 +12,7 @@ import {
   IconSocial,
   Paragraph2,
   InAstroNFT,
-} from "../styles/StyleBody";
+} from "../styles/StyleFooter";
 export default function FooterComp() {
   return (
     <>

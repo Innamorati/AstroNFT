@@ -28,10 +28,10 @@ export const SignUp = (props) => {
             <FormContainer>
                 <Form onSubmit={signup}>
                     <Title>Sign up</Title>
-                    <Label for="name">Username</Label>
+                    <Label for="name">First name</Label>
                     <Input id="name" />
-                    {/* <Label for="lastName" >Last name</Label> */}
-                    {/* <Input id="lastName" /> */}
+                    <Label for="lastName" >Last name</Label>
+                    <Input id="lastName" />
                     <Label for="mail" >Email</Label>
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>

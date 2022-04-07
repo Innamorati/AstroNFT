@@ -10,6 +10,7 @@ export const Title = styled.h1`
 export const LogoAstroNFT = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 0.5rem;
   h2 {
     text-decoration: none;
   }
@@ -18,12 +19,13 @@ export const LogoAstroNFT = styled.div`
 export const LogoText = styled.h2`
   font-size: 1.5em;
   color: black;
-  margin-left: 0.5em;
+  margin-left: 0.2em;
+  margin-top: 0.5rem;
 `;
 export const NavBarAstroNFT = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
   text-decoration: none;

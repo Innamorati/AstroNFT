@@ -1,6 +1,8 @@
 import React from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
+import { Accordion } from "react-bootstrap";
+import HeroProducts from "../Assest/HeroProducts.jpg";
 
 import {
   ProductsFather,
@@ -17,57 +19,87 @@ import {
   InputTextPrice,
   Categories,
   ButtonCategory,
+  DivFilterProducts,
+  Hero,
 } from "../styles/StyledProducts";
-
+//ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
+// ARCHIVO STYLED PRODUCTS
 const Products = () => {
   return (
     <>
+      <Hero
+        style={{
+          backgroundImage: `url(${HeroProducts}) `,
+          backgroundPosition: "center center",
+        }}
+      />
+
       <ProductsFather>
-        <FilterProducts>
-          <FilterClean>
-            <Title>Filters</Title>
-            <Title>Clean all</Title>
-          </FilterClean>
-          <Title2>Order</Title2>
-          <Order>
-            <option>Lowest Price</option>
-            <option>Highest price</option>
-            <option>More relevant</option>
-          </Order>
-          <SelectPrice>
-            <Title2>Price</Title2>
-            <Slider>
-              <Input
-                type="range"
-                min="0"
-                max="100"
-                onchange="rangevalue.value=value"
-              />
-            </Slider>
-          </SelectPrice>
-          <InputPrice>
-            <Title2>From</Title2>
-            <InputTextPrice />
-            <Title2>to</Title2>
-            <InputTextPrice />
-          </InputPrice>
-          <Title2>Categories</Title2>
+        <Accordion
+          style={{
+            width: "70%",
+          }}
+        >
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Filters</Accordion.Header>
+            <Accordion.Body>
+              <FilterProducts>
+                <DivFilterProducts>
+                  <FilterClean>
+                    <Title>Filters</Title>
+                    <Title>Clean all</Title>
+                  </FilterClean>
+                  <Title2>Order</Title2>
+                  <Order>
+                    <option>Lowest Price</option>
+                    <option>Highest price</option>
+                    <option>More relevant</option>
+                  </Order>
+                  <SelectPrice>
+                    <Title2>Price</Title2>
+                    <Slider>
+                      <Input
+                        type="range"
+                        min="0"
+                        max="100"
+                        onchange="rangevalue.value=value"
+                      />
+                    </Slider>
+                  </SelectPrice>
+                  <InputPrice>
+                    <Title2>From</Title2>
+                    <InputTextPrice />
+                    <Title2>to</Title2>
+                    <InputTextPrice />
+                  </InputPrice>
+                </DivFilterProducts>
 
-          <Categories>
-            <ButtonCategory>Premium</ButtonCategory>
-            <ButtonCategory>Arts</ButtonCategory>
-            <ButtonCategory>Sportss</ButtonCategory>
-            <ButtonCategory>Entertainment</ButtonCategory>
-            <ButtonCategory>Gaming</ButtonCategory>
-          </Categories>
-          <Categories>
-            <Title2>File Type</Title2>
+                <DivFilterProducts>
+                  <FilterClean>
+                    <Title2>Categories</Title2>
+                  </FilterClean>
 
-            <ButtonCategory>Image</ButtonCategory>
-            <ButtonCategory>Video</ButtonCategory>
-            <ButtonCategory>Audio</ButtonCategory>
-          </Categories>
-        </FilterProducts>
+                  <Categories>
+                    <ButtonCategory>Premium</ButtonCategory>
+                    <ButtonCategory>Arts</ButtonCategory>
+                    <ButtonCategory>Sports</ButtonCategory>
+                    <ButtonCategory>Entertainment</ButtonCategory>
+                    <ButtonCategory>Gaming</ButtonCategory>
+                    <ButtonCategory>Collectibles</ButtonCategory>
+                  </Categories>
+                  <Categories>
+                    <Title2>File Type</Title2>
+
+                    <ButtonCategory>Image</ButtonCategory>
+                    <ButtonCategory>Video</ButtonCategory>
+                    <ButtonCategory>Audio</ButtonCategory>
+                  </Categories>
+                </DivFilterProducts>
+              </FilterProducts>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+
         <ListProducts>
           {/* 1 */}
           <Product />
@@ -84,6 +116,14 @@ const Products = () => {
           {/* 1 */}
           <Product />
           {/* 2 */}
+          <Product />
+          {/* 3 */}
+          <Product />
+          {/* 3 */}
+          <Product />
+          {/* 3 */}
+          <Product />
+          {/* 3 */}
           <Product />
           {/* 3 */}
           <Product />

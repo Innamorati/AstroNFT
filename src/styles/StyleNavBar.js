@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-font-size: 1.5em;
-text-align: center;
-color: palevioletred;
-background-color: aliceblue;
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+  background-color: aliceblue;
 `;
 
 export const LogoAstroNFT = styled.div`
@@ -23,17 +23,14 @@ export const LogoText = styled.h2`
     margin-left: 0.5em;
 `;
 export const NavBarAstroNFT = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    flex-wrap: wrap;
-    text-decoration: none;
-    
-    background-color: rgba(255, 255, 255, 0.322);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
-
-    @media (max-width: 600px){
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  text-decoration: none;
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+    @media (max-width: 650px){
         display: none;
     }
 `;
@@ -41,7 +38,7 @@ export const NavBarAstroNFT = styled.div`
 export const NavBarButtons = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 25em;
+    width: 30em;
 
     a {
         text-decoration: none;
@@ -52,7 +49,7 @@ export const NavButton = styled.button`
     background-color: #FFFFFF;
     border: none;
     box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.85);
+    color: rgba(0, 0, 0, 0.85) !important;
     cursor: pointer;
     display: inline-flex;
     font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -74,14 +71,14 @@ export const NavIconButtons = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 15em;
+    width: 20em;
 `;
 export const NotUnderlined = styled.a`
-    text-decoration: none;
+  text-decoration: none;
 `;
 export const VerticalNavBar = styled.nav`
     display: none;
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         wdith: 100%;
@@ -136,11 +133,11 @@ export const SideNav = styled.div`
 
 export const LogoAstroNFTResponsive = styled.div`
     display: none;
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        wdith: 100%;
+        width: 50%;
         margin-left: 1em;
 
         a {
@@ -151,13 +148,68 @@ export const LogoAstroNFTResponsive = styled.div`
 
 export const ShoppingCart = styled.div`
     display: none;
-
-    @media (max-width: 600px){
+    @media (max-width: 650px){
         display: flex;
         justify-content: flex-end;
         align-items: center;
         align-content: center;
         flex-direction: row;
         width: 100%;
-        }
+    }
 `;
+
+export const SignButton = styled.div`
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+`;
+
+export const SideNavButton = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    margin: 5px 5px;;
+ color: #212121;
+ z-index: 1;
+ position: relative;
+ font-weight: 500;
+ font-size: 17px;
+ transition: all 250ms;
+ overflow: hidden;
+    text-align: center;
+    a {
+        text-decoration: none;
+    }
+button::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 15px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+button:hover {
+ color: #e8e8e8;
+}
+
+button:hover::before {
+ width: 100%;
+}
+`;
+
+export const ResponsiveNavButtons = styled.div`
+    a {
+        text-decoration: none;
+    }
+`
+export const SideNavButtonSign = styled.div`
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+    text-align: center;
+`

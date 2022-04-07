@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as LinkRouter } from 'react-router-dom';
-import {VerticalNavBar, LogoAstroNFTResponsive, LogoText, SideNav, NavButton, ShoppingCart} from '../styles/StyleNavBar';
+import {VerticalNavBar, LogoAstroNFTResponsive, LogoText, SideNav, ShoppingCart, SideNavButton, ResponsiveNavButtons, SideNavButtonSign} from '../styles/StyleNavBar';
 import { Navbar, Offcanvas, Nav, NavDropdown, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -35,15 +35,17 @@ return(
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <NavButton> <LinkRouter to={'/home'} >Home</LinkRouter> </NavButton>
-          <NavButton> <LinkRouter to={'/products'} >Products</LinkRouter> </NavButton>
-          <NavButton> <LinkRouter to={'/contact'} >Contact</LinkRouter> </NavButton>
-          <NavButton>
+          <ResponsiveNavButtons>
+          <LinkRouter to={'/home'}> <SideNavButton>Home</SideNavButton> </LinkRouter> 
+          <LinkRouter to={'/products'}> <SideNavButton>Products</SideNavButton> </LinkRouter> 
+          <LinkRouter to={'/contact'}> <SideNavButton>Contact</SideNavButton> </LinkRouter>
+          <SideNavButton>
             <NavDropdown title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} id="offcanvasNavbarDropdown">
-              <NavDropdown.Item> <LinkRouter to={'/signin'}>Sign In</LinkRouter> </NavDropdown.Item>
-              <NavDropdown.Item> <LinkRouter to={'/signup'}>Sign Up</LinkRouter> </NavDropdown.Item>
+              <NavDropdown.Item> <LinkRouter to={'/signin'}> <SideNavButtonSign>Sign In</SideNavButtonSign> </LinkRouter> </NavDropdown.Item>
+              <NavDropdown.Item> <LinkRouter to={'/signup'}> <SideNavButtonSign>Sign Up</SideNavButtonSign> </LinkRouter> </NavDropdown.Item>
             </NavDropdown>
-          </NavButton>
+          </SideNavButton>
+          </ResponsiveNavButtons>
         </Nav>
       </Offcanvas.Body>
     </Navbar.Offcanvas>

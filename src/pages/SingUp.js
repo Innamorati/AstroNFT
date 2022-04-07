@@ -4,10 +4,12 @@ import {
     FormContainer,
     Input,
     Label,
-    MainContainer
+    MainContainer,
+    Title, SignUpButton, GoogleButton, FacebookButton, CallToAction
 } from "../styles/StyleSingUp";
 import UserAcctions from "../redux/actions/UserActions";
 import { connect } from "react-redux"
+import { Facebook, Google } from "@mui/icons-material";
 
 
 
@@ -30,20 +32,26 @@ export const SingUp = (props) => {
 
 
     return (
-        <MainContainer>
+        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover'}}>
             <FormContainer>
                 <Form onSubmit={singup}>
-                    <Label for="name">Firt name</Label>
+                    <Title>Sign up</Title>
+                    <Label for="name">Username</Label>
                     <Input id="name" />
-                    <Label for="lastName" >Last name</Label>
-                    <Input id="lastName" />
-                    <Label for="mail" >Mail</Label>
+                    {/* <Label for="lastName" >Last name</Label> */}
+                    {/* <Input id="lastName" /> */}
+                    <Label for="mail" >Email</Label>
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
                     <Input id="password" type="password" />
                     <Label for="mail" >Url image</Label>
                     <Input id="mail" />
-                    <Input type="submit" />
+                    <SignUpButton>
+                    <Input type="submit" value={"Register"}/>
+                    </SignUpButton>
+                    <GoogleButton type="submit">Google</GoogleButton>
+                    <FacebookButton type="submit">Facebook</FacebookButton>
+                    <CallToAction>If you already have an account <a>click here</a></CallToAction>
                 </Form>
             </FormContainer>
         </MainContainer >

@@ -23,7 +23,6 @@ Height:8rem;
 border-radius:13px ;
 background-color:#ffff ;
 text-align:center ;
-padding:.5rem ;
 box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
 p:nth-child(1){
     font-size:1.7rem ;
@@ -58,7 +57,6 @@ Height:8rem;
 border-radius:13px ;
 background-color:#ffff ;
 text-align:center ;
-padding:.5rem ;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
 p:nth-child(1){
     font-size:1.7rem ;
@@ -93,7 +91,6 @@ Height:8rem;
 border-radius:13px ;
 background-color:#ffff ;
 text-align:center ;
-padding:.5rem ;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
 p:nth-child(1){
     font-size:1.7rem ;
@@ -128,7 +125,6 @@ Height:8rem;
 border-radius:13px ; 
 background-color:#ffff ;
 text-align:center ;
-padding:.5rem ;
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
 p:nth-child(1){
     font-size:1.7rem ;

@@ -18,7 +18,7 @@ export default function FooterComp() {
             <IconAstroFoot
               style={{
                 backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/logo.jpg"
+                  process.env.PUBLIC_URL + "/assets/logo.png"
                 }')`,
                 objectFit: "cover",
               }}

@@ -1,8 +1,4 @@
 import React from "react";
-import instagram from "../Assest/instagram.png";
-import facebook from "../Assest/facebook.png";
-import twitter from "../Assest/twitter.png";
-import Favicon from "../Assest/logo.png";
 import {
   IconAstroFoot,
   SocialMedia,
@@ -21,7 +17,9 @@ export default function FooterComp() {
           <InAstroNFT>
             <IconAstroFoot
               style={{
-                backgroundImage: `url(${Favicon})`,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/logo.jpg"
+                }')`,
                 objectFit: "cover",
               }}
             />
@@ -42,18 +40,24 @@ export default function FooterComp() {
         <SocialMedia>
           <IconSocial
             style={{
-              backgroundImage: `url(${instagram})`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/instagram.png"
+              }')`,
             }}
           />
           <IconSocial
             style={{
-              backgroundImage: `url(${facebook})`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/facebook.png"
+              }')`,
             }}
           />
 
           <IconSocial
             style={{
-              backgroundImage: `url(${twitter})`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/twitter.png"
+              }')`,
             }}
           />
         </SocialMedia>

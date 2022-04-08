@@ -54,6 +54,18 @@ export const FilterClean = styled.div`
     cursor: pointer;
   }
 `;
+export const TitleHead = styled.h1`
+  width: 231px;
+  height: 62px;
+  left: 616.22px;
+  top: 205px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 53.6839px;
+  line-height: 62px;
+  color: #ffffff;
+`;
 export const Title = styled.h3`
   font-family: "Ubuntu";
   font-style: normal;
@@ -272,9 +284,22 @@ export const DivArs = styled.div`
   }
 `;
 export const Hero = styled.div`
-  width: 100%;
-  min-height: 40vh;
   background-color: #83b1ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
   object-fit: cover;
-  background-repeat: no-repeat;
+`;
+export const Search = styled.input`
+  margin-bottom: 2rem;
+  width: 40%;
+  height: 3rem;
+  background-color: #f0eded;
+  border: 0;
+  text-align: center;
+  ::placeholder {
+    text-align: center;
+  }
 `;

@@ -132,10 +132,62 @@ const UserControllers = {
         }
 
     },
-    userLogin: async (req, res) => {
-        const { email, password, from } = req.body.data;
+    userSignin: async (req, res) => {
+        const { email, password, from } = req.body.data
+        try {
+            const existingUser = await usuario.findOne({ email })
+            if (!existingUser) {
+                res.json({ success: false, message: "Your user has not been found please register" })
+            }
+            else {
+                if (from !== "signin") {
+                    let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
+                    if (passwordMatch.length > 0) {
+                        const userData = {
+                            id: existingUser._id,
+                            firtsName: existingUser.firtsName,
+                            lastName: existingUser.lastName,
+                            image: existingUser.image,
+                        }
+                        await existingUser.save()
 
+                        const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
+                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
+                    }
+                    else {
+                        res.json({ success: false, form: from, message: "You have not register with " + from })
+                    }
+                }
+                else {
+                    if (existingUser.verifiedMail) {
 
+                        let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
+                        if (passwordMatch.length > 0) {
+                            const userData = {
+                                id: existingUser._id,
+                                firtsName: existingUser.firtsName,
+                                lastName: existingUser.lastName,
+                                image: existingUser.image,
+                                from: existingUser.from
+                            }
+                            const token = jwt.sign({ ...userData }, process.en.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
+                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firtsName + " " + userData.lastName })
+                        }
+                        else {
+                            res.json({ success: false, from: from, message: "The mail or password is incorrect" })
+                        }
+                    }
+                    else {
+                        res.json({ success: false, from: from, message: "Email not verified, please verify it then log in" })
+                    }
+                }
+            }
+
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, message: "Something wnet wrong try again in a few minutes" })
+        }
     }
 }
 module.exports = UserControllers

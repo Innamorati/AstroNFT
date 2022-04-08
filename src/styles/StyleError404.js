@@ -15,6 +15,19 @@ export const BackgroundError404 = styled.div`
     font-size: 9rem;
     font-weight: 700;
     color: #333333;
+
+    @media (max-width: 700px) {
+        font-size: 7rem;
+    }
+
+    @media (max-width: 500px) {
+        font-size: 5rem;
+    }
+
+    @media (max-width: 360px) {
+        font-size: 4rem;
+    }
+
     }
 
     p:nth-child(2) {
@@ -24,6 +37,14 @@ export const BackgroundError404 = styled.div`
     font-weight: 500;
     font-size: 2rem;
     color: #333333;
+
+    @media (max-width: 700px) {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 360px) {
+        font-size: 1rem;
+    }
     }
 
     a {
@@ -32,7 +53,7 @@ export const BackgroundError404 = styled.div`
 `;
 
 export const ButtonBackToHome = styled.button`
-    width: 15%;
+    width: 20%;
     height: 3rem;
     border-radius: 10px;
     background-color: #f2c94c;
@@ -42,6 +63,14 @@ export const ButtonBackToHome = styled.button`
     border: none;
     margin: auto;
     color: #333333;
+
+    @media (max-width: 560px){
+        width: 30%;
+    }
+
+    @media (max-width: 370px){
+        width: 40%;
+    }
 `;
 
 export const ImageError = styled.div`
@@ -50,4 +79,12 @@ export const ImageError = styled.div`
     align-items: center;
     height: 10%;
     width: 100%;
+
+    @media (max-width: 360px) {
+
+        img{
+            width: 70%;
+        }
+        
+    }
 `;

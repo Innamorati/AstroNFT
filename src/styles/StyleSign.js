@@ -119,12 +119,10 @@ export const FacebookButton= styled.div`
 `;
 export const CallToAction = styled.div`
     width: 90%;
-    height: 5rem;
+    height: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* margin: auto; */
-    /* margin-top: -1rem; */
     text-align: center;
 
     a {

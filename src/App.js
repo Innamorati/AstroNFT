@@ -6,7 +6,9 @@ import Contact from "./pages/Contact";
 import SideNavBar from "./components/SideNavBar";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp"
+import Cart from './pages/Cart'
 import CustomizedSnackbars from "./components/SnackBar";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>

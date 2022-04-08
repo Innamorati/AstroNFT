@@ -35,7 +35,7 @@ const NavBar = () => {
         </NavButton>        
     </LinkRouter> 
     <NavIconButtons>
-        <LinkRouter to={'/products'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></LinkRouter>
+        <LinkRouter to={'/cart'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></LinkRouter>
         <DropdownSign>
         <DropdownButton id="dropdown-button-drop" title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} >
             <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>

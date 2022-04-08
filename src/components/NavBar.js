@@ -44,8 +44,8 @@ const NavBar = (props) => {
                 title={props.user ?
                   props.user.user ?
                     <img style={{ height: '3rem', width: '3rem', borderRadius: '3rem' }} src={props.user.user.image} /> :
-                    <img src={process.env.PUBLIC_URL + '/assets / user.jpg'} /> :
-                  <img src={process.env.PUBLIC_URL + '/assets / user.jpg'} />}>
+                    <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} /> :
+                  <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} />}>
                 <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
                 <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item>
               </DropdownButton>

@@ -149,8 +149,8 @@ const UserControllers = {
                         await existingUser.save()
 
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, redirect: ("http://localhost:3000/") })
                         res.redirect("http://localhost:3000/")
+                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, redirect: ("http://localhost:3000/") })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })

@@ -6,29 +6,55 @@ export const ProductsFather = styled.div`
   background-color: white;
   margin-top: 4rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 `;
+export const DivFilterProducts = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0.7rem;
+  @media (max-width: 804px) {
+    min-width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
 export const FilterProducts = styled.div`
-  padding: 3rem;
-  width: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  @media (max-width: 804px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 export const ListProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
+  justify-content: center;
+  width: 100%;
   height: 100%;
+  @media (max-width: 1160px) {
+    width: 100%;
+  }
 `;
 export const FilterClean = styled.div`
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   h3:nth-child(2) {
     color: #3baaff;
+    cursor: pointer;
   }
 `;
 export const Title = styled.h3`
-  margin-top: 1rem;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 700;
@@ -76,8 +102,16 @@ export const Slider = styled.div`
 export const InputPrice = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  justify-content: flex-start;
+  justify-content: space-around;
+  h3:nth-child(1) {
+    margin-top: 0.6rem;
+  }
+  h3:nth-child(3) {
+    margin-top: 0.6rem;
+  }
 `;
 export const InputTextPrice = styled.input`
   width: 3rem;
@@ -102,36 +136,69 @@ export const ButtonCategory = styled.button`
 //INICIO DE LOS PRODUCTIOS
 export const ConteinerProduct = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  margin: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 25%;
   h3:nth-child(3) {
     text-align: start;
   }
+
+  @media (max-width: 1060px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 25%;
+    margin: 1rem;
+  }
+  @media (max-width: 980px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 35%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    margin: 0.3rem;
+  }
 `;
 export const ItemProduct = styled.div`
-  width: 250px;
-  height: 250px;
-  left: 309.82px;
-  top: 671px;
+  margin: 1rem;
+  width: 258px;
+  height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
-  border: solid 1px white;
   @media (max-width: 880px) {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     left: 309.82px;
     top: 671px;
     border-radius: 1rem 1rem 1rem 1rem;
     border: solid 1px white;
     margin-bottom: 1rem;
   }
+  @media (max-width: 750px) {
+    width: 258px;
+    height: 258px;
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+
   @media (max-width: 360px) {
-    width: 100px;
-    height: 100px;
-    left: 309.82px;
-    top: 671px;
+    width: 258px;
+    height: 258px;
     border-radius: 1rem 1rem 1rem 1rem;
     border: solid 1px white;
     margin-bottom: 1rem;
@@ -141,7 +208,19 @@ export const PriceUser = styled.div`
   height: 2rem;
   display: flex;
   justify-content: space-between;
-  width: 75%;
+  width: 80%;
+  @media (max-width: 750px) {
+    min-width: 70%;
+  }
+  @media (max-width: 580px) {
+    min-width: 30%;
+  }
+  @media (max-width: 580px) {
+    width: 60%;
+  }
+  @media (max-width: 400px) {
+    width: 70%;
+  }
 `;
 export const UserName = styled.h3`
   font-family: "Ubuntu";
@@ -181,8 +260,21 @@ export const ArsMadeBy = styled.h4`
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: 75%;
+  width: auto;
   display: flex;
   justify-content: space-between;
   text-align: end;
+  @media (max-width: 750px) {
+    min-width: 70%;
+  }
+  @media (max-width: 580px) {
+    min-width: 60%;
+  }
+`;
+export const Hero = styled.div`
+  width: 100%;
+  min-height: 40vh;
+  background-color: #83b1ff;
+  object-fit: cover;
+  background-repeat: no-repeat;
 `;

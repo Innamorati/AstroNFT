@@ -1,14 +1,10 @@
 import React from 'react';
+import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or } from "../styles/StyleSign";
+import { Link as LinkRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/UserActions';
-import {
-    Form,
-    FormContainer,
-    Input,
-    Label,
-    MainContainer,
-    Title, SignUpButton, GoogleButton, FacebookButton, CallToAction
-} from "../styles/StyleSingUp";
+import GoogleSignIn from '../components/GoogleSignIn';
+import FacebookSignIn from "../components/FacebookLogIn";
 
 const SignIn = (props) => {
 
@@ -20,12 +16,12 @@ const SignIn = (props) => {
             password: event.target[1].value,
             from: "signin"
         }
-        props.userLogin(data);
+        props.userLoging(data);
         // console.log(data);
     }
 
     return (
-        <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/signUpBackground.png'}')`, backgroundSize: 'cover' }}>
+        <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/backgroundSignIn.png'}')`, backgroundSize: 'cover' }}>
             <FormContainer>
                 <Form onSubmit={signin}>
                     <Title>Welcome Back!</Title>
@@ -33,15 +29,20 @@ const SignIn = (props) => {
                     <Input id="mail" type="email" />
                     <Label htmlfor="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Input type="checkbox" id="rememberMe" />
-                    <Label htmlfor="rememberMe">Remember me</Label>
-                    <SignUpButton>
-                        <Input type="submit" value={"Log In"} />
-                    </SignUpButton>
-                    <p> - or - </p>
-                    <GoogleButton type="submit">Google</GoogleButton>
-                    <FacebookButton type="submit">Facebook</FacebookButton>
+                    <RememberMe>
+                        <input type="radio" id="rememberMe" />
+                        <label for="rememberMe">Remember me</label>
+                    </RememberMe>
+                    <SignInButton>
+                        <button type="submit">Log In</button>
+                    </SignInButton>
+                    <Or>
+                        <p> - or - </p>
+                    </Or>
+                    <GoogleSignIn />
+                    <FacebookSignIn />
                     <CallToAction>Forgot your password? <a>click here</a></CallToAction>
+                    <CallToAction>Don't have an account? <LinkRouter to={'/signup'}>click here</LinkRouter></CallToAction>
                 </Form>
             </FormContainer>
         </MainContainer >
@@ -49,7 +50,7 @@ const SignIn = (props) => {
 }
 
 const mapDispatchToProps = {
-    userLogin: userActions.userLogin,
+    userLoging: userActions.userLoging,
 }
 
 export default connect(null, mapDispatchToProps)(SignIn);

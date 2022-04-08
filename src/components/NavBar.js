@@ -4,9 +4,15 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { LogoAstroNFT, LogoText, NavBarAstroNFT, NavBarButtons, NavButton, NavIconButtons, DropdownSign, SignButton } from '../styles/StyleNavBar';
 import { DropdownButton, SplitButton, ButtonGroup, Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import UserActions from '../redux/actions/UserActions';
 
 const NavBar = (props) => {
-  console.log(props.user.user)
+
+  const Logout = () => {
+    props.userLogout(props.user.user.email)
+  }
+
+  // console.log(props.user.user.email ?)
   return (
     <>
       <NavBarAstroNFT>
@@ -46,8 +52,11 @@ const NavBar = (props) => {
                     <img style={{ height: '3rem', width: '3rem', borderRadius: '3rem' }} src={props.user.user.image} /> :
                     <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} /> :
                   <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} />}>
-                <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
-                <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item>
+                {props.user.user ? <Dropdown.Item> <SignButton onClick={Logout}>Logout</SignButton></Dropdown.Item> :
+                  <><Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
+                    <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item></>
+                }
+
               </DropdownButton>
             </DropdownSign>
           </NavIconButtons>
@@ -58,12 +67,14 @@ const NavBar = (props) => {
     </>
   );
 }
+const mapDispatchToProps = {
+  userLogout: UserActions.userLogout,
+}
 const mapStateToProps = (state) => {
   return {
     user: state.UserReducer.user
   }
 }
 
-export default connect(mapStateToProps, null)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
 
-  // < img src = { process.env.PUBLIC_URL + '/assets/user.jpg' } />

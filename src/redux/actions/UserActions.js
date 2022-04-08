@@ -1,15 +1,14 @@
 import axios from "axios";
 
-const userActions = {
+const UserActions = {
 
-    userSingUp: (data) => {
-        console.log(data)
-        return async (dispatch, gerState) => {
+    userSignUp: (data) => {
+        return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/user/singup', { data })
             dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, } })
         }
     },
-    userLogin: (data) => {
+    userLoging: (data) => {
         return async (dispatch, gerState) => {
             const res = await axios.post('http://localhost:4000/api/user/signin', { data });
             console.log(res)
@@ -20,7 +19,14 @@ const userActions = {
             console.log(res);
             console.log(res.data)
         }
+    },
+    userLogout: (data) => {
+        return async (dispatch, getState) => {
+            const user = axios.post('http://localhost:4000/api/user/logout', { data })
+            localStorage.removeItem('token')
+            dispatch({ type: 'user', payload: { user: null, view: false, message: '' } })
+        }
     }
 }
 
-export default userActions
+export default UserActions;

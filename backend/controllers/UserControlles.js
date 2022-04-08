@@ -129,7 +129,7 @@ const UserControllers = {
         }
 
     },
-    userSignin: async (req, res) => {
+    userSignin: async (req, res,) => {
         const { email, password, from } = req.body.data
         try {
             const existingUser = await usuario.findOne({ email })
@@ -145,12 +145,12 @@ const UserControllers = {
                             firtsName: existingUser.firtsName,
                             lastName: existingUser.lastName,
                             image: existingUser.image,
+                            email: existingUser.email,
                         }
                         await existingUser.save()
 
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.redirect("http://localhost:3000/")
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, redirect: ("http://localhost:3000/") })
+                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })
@@ -167,10 +167,11 @@ const UserControllers = {
                                 firstName: existingUser.firstName,
                                 lastName: existingUser.lastName,
                                 image: existingUser.image,
-                                from: existingUser.from
+                                from: existingUser.from,
+                                email: existingUser.email,
                             }
                             const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
-                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName })
+                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
                         }
                         else {
                             res.json({ success: false, from: from, message: "The mail or password is incorrect" })
@@ -187,6 +188,11 @@ const UserControllers = {
             console.log(error)
             res.json({ success: false, message: "Something wnet wrong try again in a few minutes" })
         }
+    },
+    userLogout: async (req, res) => {
+        const email = req.body.data
+        const user = await usuario.findOne({ email })
+        await user.save()
     }
 }
 module.exports = UserControllers

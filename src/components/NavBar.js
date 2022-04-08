@@ -3,9 +3,10 @@ import { Link as LinkRouter } from 'react-router-dom';
 // import { Title } from '../styles/StyleNavBar';
 import { LogoAstroNFT, LogoText, NavBarAstroNFT, NavBarButtons, NavButton, NavIconButtons, DropdownSign, SignButton } from '../styles/StyleNavBar';
 import { DropdownButton, SplitButton, ButtonGroup, Dropdown } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-const NavBar = () => {
-
+const NavBar = (props) => {
+  console.log(props.user.user)
   return (
     <>
       <NavBarAstroNFT>
@@ -18,37 +19,51 @@ const NavBar = () => {
           </LinkRouter>
         </LogoAstroNFT>
         {/* <Title>hola me llamo franco</Title> */}
-    <NavBarButtons>
-    <LinkRouter to={'/home'}> 
-        <NavButton>
-            Home
-        </NavButton>
-    </LinkRouter> 
-    <LinkRouter to={'/products'}> 
-        <NavButton>
-            Products
-        </NavButton>
-    </LinkRouter> 
-    <LinkRouter to={'/contact'}> 
-        <NavButton>
-            Contact
-        </NavButton>        
-    </LinkRouter> 
-    <NavIconButtons>
-        <LinkRouter to={'/products'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></LinkRouter>
-        <DropdownSign>
-        <DropdownButton id="dropdown-button-drop" title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} >
-            <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
-            <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item>
-        </DropdownButton>
-        </DropdownSign>
-    </NavIconButtons>
-    </NavBarButtons>
-</NavBarAstroNFT>
+        <NavBarButtons>
+          <LinkRouter to={'/home'}>
+            <NavButton>
+              Home
+            </NavButton>
+          </LinkRouter>
+          <LinkRouter to={'/products'}>
+            <NavButton>
+              Products
+            </NavButton>
+          </LinkRouter>
+          <LinkRouter to={'/contact'}>
+            <NavButton>
+              Contact
+            </NavButton>
+          </LinkRouter>
+          <NavIconButtons>
+            <LinkRouter to={'/products'}>
+              <img src={process.env.PUBLIC_URL + '/assets/shopping-cart.jpg'} />
+            </LinkRouter>
+            <DropdownSign>
+              <DropdownButton id="dropdown-button-drop"
+                title={props.user ?
+                  props.user.user ?
+                    <img style={{ height: '3rem', width: '3rem', borderRadius: '3rem' }} src={props.user.user.image} /> :
+                    <img src={process.env.PUBLIC_URL + '/assets / user.jpg'} /> :
+                  <img src={process.env.PUBLIC_URL + '/assets / user.jpg'} />}>
+                <Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
+                <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item>
+              </DropdownButton>
+            </DropdownSign>
+          </NavIconButtons>
+        </NavBarButtons>
+      </NavBarAstroNFT>
 
 
     </>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    user: state.UserReducer.user
+  }
+}
 
-export default NavBar;
+export default connect(mapStateToProps, null)(NavBar)
+
+  // < img src = { process.env.PUBLIC_URL + '/assets/user.jpg' } />

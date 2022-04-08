@@ -27,6 +27,7 @@ function CustomizedSnackbars(props) {
         dispatch({
             type: 'user',
             payload: {
+                ...props.user,
                 view: false,
                 message: '',
                 success: null,

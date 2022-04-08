@@ -5,6 +5,7 @@ dotenv.config();
 const usuario = require('../models/UserModels')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
+const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
@@ -53,10 +54,6 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
 
     transporter.sendMail(mailOptions, function (error, response) { //SE REALIZA EL ENVIO
         if (error) { console.log(error) }
-        else {
-            console.log("Mensaje enviado")
-
-        }
     })
 };
 
@@ -152,10 +149,12 @@ const UserControllers = {
                         await existingUser.save()
 
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
+                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, redirect: ("http://localhost:3000/") })
+                        res.redirect("http://localhost:3000/")
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })
+
                     }
                 }
                 else {
@@ -165,13 +164,13 @@ const UserControllers = {
                         if (passwordMatch.length > 0) {
                             const userData = {
                                 id: existingUser._id,
-                                firtsName: existingUser.firtsName,
+                                firstName: existingUser.firstName,
                                 lastName: existingUser.lastName,
                                 image: existingUser.image,
                                 from: existingUser.from
                             }
-                            const token = jwt.sign({ ...userData }, process.en.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
-                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firtsName + " " + userData.lastName })
+                            const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
+                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName })
                         }
                         else {
                             res.json({ success: false, from: from, message: "The mail or password is incorrect" })

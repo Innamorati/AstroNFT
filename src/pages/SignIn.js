@@ -21,7 +21,7 @@ const SignIn = (props) => {
             from: "signin"
         }
         props.userLogin(data);
-        console.log(data);
+        // console.log(data);
     }
 
     return (
@@ -29,12 +29,12 @@ const SignIn = (props) => {
             <FormContainer>
                 <Form onSubmit={signin}>
                     <Title>Welcome Back!</Title>
-                    <Label for="mail" >Email</Label>
+                    <Label htmlfor="mail" >Email</Label>
                     <Input id="mail" type="email" />
-                    <Label for="password" >Password</Label>
+                    <Label htmlfor="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Input type="radio" id="rememberMe" />
-                    <Label for="rememberMe">Remember me</Label>
+                    <Input type="checkbox" id="rememberMe" />
+                    <Label htmlfor="rememberMe">Remember me</Label>
                     <SignUpButton>
                         <Input type="submit" value={"Log In"} />
                     </SignUpButton>

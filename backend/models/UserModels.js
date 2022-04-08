@@ -7,7 +7,8 @@ const UserSchema = new mongoose.Schema({
     password: [{ type: String, require: true }],
     from: { type: Array },
     uniqueString: { type: String },
-    verifiedMail: { type: String, require: true }
+    verifiedMail: { type: String, require: true },
+    image: { type: String, }
 })
 
 const user = mongoose.model('user', UserSchema)

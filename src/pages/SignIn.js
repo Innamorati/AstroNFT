@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or } from "../styles/StyleSign";
-import {Link as LinkRouter} from 'react-router-dom';
+import { Link as LinkRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/UserActions';
 import GoogleSignIn from '../components/GoogleSignIn';
@@ -16,8 +16,8 @@ const SignIn = (props) => {
             password: event.target[1].value,
             from: "signin"
         }
-        props.userLogin(data);
-        console.log(data);
+        props.userLoging(data);
+        // console.log(data);
     }
 
     return (
@@ -25,22 +25,22 @@ const SignIn = (props) => {
             <FormContainer>
                 <Form onSubmit={signin}>
                     <Title>Welcome Back!</Title>
-                    <Label for="mail" >Email</Label>
+                    <Label htmlfor="mail" >Email</Label>
                     <Input id="mail" type="email" />
-                    <Label for="password" >Password</Label>
+                    <Label htmlfor="password" >Password</Label>
                     <Input id="password" type="password" />
                     <RememberMe>
-                    <input type="radio" id="rememberMe" />
-                    <label for="rememberMe">Remember me</label>
+                        <input type="radio" id="rememberMe" />
+                        <label for="rememberMe">Remember me</label>
                     </RememberMe>
                     <SignInButton>
                         <button type="submit">Log In</button>
                     </SignInButton>
                     <Or>
-                    <p> - or - </p>
+                        <p> - or - </p>
                     </Or>
-                    <GoogleSignIn/>
-                    <FacebookSignIn/>
+                    <GoogleSignIn />
+                    <FacebookSignIn />
                     <CallToAction>Forgot your password? <a>click here</a></CallToAction>
                     <CallToAction>Don't have an account? <LinkRouter to={'/signup'}>click here</LinkRouter></CallToAction>
                 </Form>
@@ -50,7 +50,7 @@ const SignIn = (props) => {
 }
 
 const mapDispatchToProps = {
-    userLogin: userActions.userLogin,
+    userLoging: userActions.userLoging,
 }
 
 export default connect(null, mapDispatchToProps)(SignIn);

@@ -27,27 +27,27 @@ function CustomizedSnackbars(props) {
         dispatch({
             type: 'user',
             payload: {
+                ...props.user,
                 view: false,
                 message: '',
                 success: null,
             }
         })
     };
-    console.log(props.user)
     return (
         <Stack spacing={2} sx={{ width: '100%' }}>
             <Snackbar open={props.user.view} autoHideDuration={3000} onClose={handleClose}>
                 {props.user.success ?
                     <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                        {props.user.messge}
+                        {props.user.message}
                     </Alert> :
                     <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                        {props.user.messge}
+                        {typeof props.user.message === "string" ? <p>{props.user.message}</p> : <ul style={{ listStyle: 'none' }}>{props.user.message.map(mensaje => <li>{mensaje.message}</li>)}</ul>}
                     </Alert>
                 }
 
             </Snackbar>
-        </Stack>
+        </Stack >
     );
 }
 const mapStateToProps = (state) => {

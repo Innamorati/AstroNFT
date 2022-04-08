@@ -179,3 +179,34 @@ export const Or = styled.p`
     text-align: center;
     margin: 2rem 1.5rem -1rem 0;
 `;
+
+export const InputPassword = styled.div`
+    div:nth-child(1){
+    margin-top: .5rem;
+    border: 1px solid #E9E5E5;
+    border-radius: 10px;
+    width: 90% !important;
+    height: 3rem;
+    padding: 0.5rem;
+    }
+
+    InputAdornment{
+        width: 90% !important;
+    }
+    
+`;
+export const PasswordDiv = styled.div`
+    display: flex;
+    align-items: center;
+
+    Input {
+        width: 75%;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        height: 50px;
+        width: 50px;
+    }
+`;

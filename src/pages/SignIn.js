@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or } from "../styles/StyleSign";
+import React, {useState} from 'react';
+import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or, InputPassword, PasswordDiv } from "../styles/StyleSign";
 import {Link as LinkRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/UserActions';
@@ -7,6 +7,13 @@ import GoogleSignIn from '../components/GoogleSignIn';
 import FacebookSignIn from "../components/FacebookLogIn";
 
 const SignIn = (props) => {
+
+    const [shown, setShown] = useState(false)
+    const switchShown = () => setShown(!shown);
+    const [password, setPassword] = useState("")
+    const onChange = ({currentTarget}) => {
+        setPassword(currentTarget.value)
+    }
 
     const signin = (event) => {
         event.preventDefault()
@@ -28,7 +35,17 @@ const SignIn = (props) => {
                     <Label for="mail" >Email</Label>
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
-                    <Input id="password" type="password" />
+                    <PasswordDiv>
+                    <Input
+                    id="password"
+                    type={shown ? 'text' : 'password'}
+                    onChange={onChange}
+                    value={password}
+                    />
+                    <button onClick={switchShown}>
+                        {shown ?  <img src={process.env.PUBLIC_URL + "/assets/eye.png"} alt="eye" width={25}/> : <img src={process.env.PUBLIC_URL + "/assets/hiddenEye.png"} alt="hiddenEye" width={25}/>}
+                    </button>
+                    </PasswordDiv> 
                     <RememberMe>
                     <input type="radio" id="rememberMe" />
                     <label for="rememberMe">Remember me</label>

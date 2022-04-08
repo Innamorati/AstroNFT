@@ -7,20 +7,23 @@ export const MainContainer = styled.div`
 
 `;
 export const FormContainer = styled.div`
-    width: 26%;
-    height: 70vh;
+    width: 32%;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     background-color: #fff;
     margin: auto;
     border-radius: 20px;
 
-
-    @media (max-width: 650px) {
+    @media (max-width: 850px) {
         width: 50%;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 550px) {
+        width: 60%;
+    }
+
+    @media (max-width: 450px) {
         width: 85%;
     }
 `;
@@ -29,35 +32,19 @@ export const Form = styled.form`
     flex-direction: column;
     margin-top: 2rem;
     width: 90%;
-
-   /*  @media (max-width: 800px) {
-        width: 16rem;
-        height: 33rem;
-    } */
 `;
 export const Label = styled.label`
     font-size: 16px;
     font-weight: 700;
     text-align: start !important;
-
-    /* @media (max-width: 800px) {
-        font-size: 13px;
-        padding-left: 1rem;
-    } */
 `;
 export const Input = styled.input`
     margin-top: .5rem;
-    /* border: 1px solid #E9E5E5; */
-    border: 1px solid black;
+    border: 1px solid #E9E5E5;
     border-radius: 10px;
     width: 90%;
     height: 3rem;
-    /* margin-bottom: 1rem; */
-    
-/*     @media (max-width: 800px) {
-        width: 90%; */
-        /* margin: auto; */
-   /*  } */
+    padding: 0.5rem;
 `;
 
 export const Title = styled.h2`
@@ -65,11 +52,6 @@ export const Title = styled.h2`
     font-weight: 700;
     text-align: center;
     margin-top: -1rem;
-
-  /*   @media (max-width: 800px) {
-        margin-top: -2.5rem;
-        font-size: 21px;
-    } */
 `
 export const SignUpButton = styled.button`
     width: 90%;
@@ -93,57 +75,34 @@ export const SignUpButton = styled.button`
         align-items: center;
         justify-content: center;
     }
-/* 
-    @media (max-width: 800px) {
-        width: 90%;
-        height: 2rem;
-        margin: auto;
-        margin-top: 1rem;
-
-        Input:nth-child(1){
-            font-size: 1rem;
-            font-weight: 500;
-        }
-    } */
 `;
 
 export const GoogleButton = styled.div`
     margin: 1rem 0;
     width: 90%;
     height: 3rem;
-    /* border: 1px solid #f2c94c; */
     border: 1px solid #E9E5E5;
     border-radius: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
 
     button {
         color: #333333 !important;
         border: none !important;
         box-shadow: none !important;
-        font-weight: 700 !important;
+        font-weight: bolder !important;
         font-size: 14px !important;
         line-height: 125% !important;
+        color: black !important;
     }
-    
-
-
-    color: black !important;
-    box-shadow: 3px #114861 !important;
-    letter-spacing: 2px;
-
-  /*   @media (max-width: 800px) {
-        width: 90%;
-        height: 2rem; */
-        /* margin: auto; */
-        /* margin-top: 1rem; */
-
-    
 `;
 
 export const FacebookButton= styled.div`
+
+    button {
     margin-bottom: 1rem;
     width: 90%;
     height: 3rem;
@@ -153,21 +112,19 @@ export const FacebookButton= styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
- /*    @media (max-width: 800px) {
-        width: 90%;
-        height: 2rem; */
-        /* margin: auto; */
-/*         margin-top: 1rem; */
-    
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    margin-bottom: 2rem !important;
+    }
 `;
 export const CallToAction = styled.div`
     width: 90%;
-    height: 10rem;
+    height: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto;
+    /* margin: auto; */
+    /* margin-top: -1rem; */
     text-align: center;
 
     a {
@@ -180,7 +137,47 @@ export const CallToAction = styled.div`
     @media (max-width: 400px) {
         font-size: 12px;
     }
-
-
 `;
+export const RememberMe = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    margin-top: 1rem;
 
+    input {
+        margin-right: 1rem;
+    }
+
+    label {
+        color: #828282;
+    }
+`
+export const SignInButton = styled.button`
+    width: 90%;
+    height: 3rem;
+    border-radius: 10px;
+    background-color: #3baaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin-top: 1rem;
+
+    button:nth-child(1){
+        background-color: #3baaff;
+        border: none;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+`;
+export const Or = styled.p`
+    text-align: center;
+    margin: 2rem 1.5rem -1rem 0;
+`;

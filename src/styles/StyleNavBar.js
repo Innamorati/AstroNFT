@@ -25,7 +25,7 @@ export const LogoText = styled.h2`
 export const NavBarAstroNFT = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   flex-wrap: wrap;
   text-decoration: none;

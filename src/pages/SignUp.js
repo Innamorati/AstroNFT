@@ -4,6 +4,7 @@ import UserActions from "../redux/actions/UserActions";
 import { connect } from "react-redux";
 import {Link as LinkRouter} from 'react-router-dom';
 import GoogleSignUp from "../components/GoogleSignUp";
+import FacebookSignUp from "../components/FacebookSignUp";
 
 export const SignUp = (props) => {
 
@@ -45,7 +46,7 @@ export const SignUp = (props) => {
                     </SignUpButton>
                     {/* <p>- or -</p> */}
                         <GoogleSignUp/>
-                    <FacebookButton type="submit">Facebook</FacebookButton>
+                        <FacebookSignUp/>
                     <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
                 </Form>
             </FormContainer>

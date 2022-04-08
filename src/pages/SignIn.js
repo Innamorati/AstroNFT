@@ -1,8 +1,10 @@
 import React from 'react';
-import { Form, FormContainer, Input, Label, MainContainer, Title, SignUpButton, GoogleButton, FacebookButton, CallToAction } from "../styles/StyleSign";
+import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or } from "../styles/StyleSign";
 import {Link as LinkRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/UserActions';
+import GoogleSignIn from '../components/GoogleSignIn';
+import FacebookSignIn from "../components/FacebookLogIn";
 
 const SignIn = (props) => {
 
@@ -19,7 +21,7 @@ const SignIn = (props) => {
     }
 
     return (
-        <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/signUpBackground.png'}')`, backgroundSize: 'cover' }}>
+        <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/backgroundSignIn.png'}')`, backgroundSize: 'cover' }}>
             <FormContainer>
                 <Form onSubmit={signin}>
                     <Title>Welcome Back!</Title>
@@ -27,14 +29,18 @@ const SignIn = (props) => {
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Input type="radio" id="rememberMe" />
-                    <Label for="rememberMe">Remember me</Label>
-                    <SignUpButton>
-                        <Input type="submit" value={"Log In"} />
-                    </SignUpButton>
+                    <RememberMe>
+                    <input type="radio" id="rememberMe" />
+                    <label for="rememberMe">Remember me</label>
+                    </RememberMe>
+                    <SignInButton>
+                        <button type="submit">Log In</button>
+                    </SignInButton>
+                    <Or>
                     <p> - or - </p>
-                    <GoogleButton type="submit">Google</GoogleButton>
-                    <FacebookButton type="submit">Facebook</FacebookButton>
+                    </Or>
+                    <GoogleSignIn/>
+                    <FacebookSignIn/>
                     <CallToAction>Forgot your password? <a>click here</a></CallToAction>
                     <CallToAction>Don't have an account? <LinkRouter to={'/signup'}>click here</LinkRouter></CallToAction>
                 </Form>

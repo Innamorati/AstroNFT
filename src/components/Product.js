@@ -1,6 +1,4 @@
 import React from "react";
-import product1 from "../Assest/product1.png";
-import IconEtherium from "../Assest/IconEth.png";
 import {
   Title,
   ItemProduct,
@@ -23,7 +21,9 @@ const Product = () => {
       <ConteinerProduct>
         <ItemProduct
           style={{
-            backgroundImage: `url(${product1}) `,
+            backgroundImage: `url('${
+              process.env.PUBLIC_URL + "/assets/product1.png"
+            }')`,
             backgroundPosition: "center center",
             objectFit: "contain",
           }}
@@ -33,7 +33,9 @@ const Product = () => {
           <DivPriceETH>
             <IconEth
               style={{
-                backgroundImage: `url(${IconEtherium}) `,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/IconEth.png"
+                }')`,
               }}
             />
             <Eth>0.121 ETH</Eth>

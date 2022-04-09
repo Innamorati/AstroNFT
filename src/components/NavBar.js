@@ -1,26 +1,6 @@
 import React from "react";
 import { Link as LinkRouter } from "react-router-dom";
 // import { Title } from '../styles/StyleNavBar';
-<<<<<<< HEAD
-import {
-  LogoAstroNFT,
-  LogoText,
-  NavBarAstroNFT,
-  NavBarButtons,
-  NavButton,
-  NavIconButtons,
-  DropdownSign,
-  SignButton,
-} from "../styles/StyleNavBar";
-import {
-  DropdownButton,
-  SplitButton,
-  ButtonGroup,
-  Dropdown,
-} from "react-bootstrap";
-
-const NavBar = () => {
-=======
 import { LogoAstroNFT, LogoText, NavBarAstroNFT, NavBarButtons, NavButton, NavIconButtons, DropdownSign, SignButton } from '../styles/StyleNavBar';
 import { DropdownButton, SplitButton, ButtonGroup, Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -33,7 +13,6 @@ const NavBar = (props) => {
   }
 
   // console.log(props.user.user.email ?)
->>>>>>> 4b53127a1e64e586281a567bd0ebc569db2cee2f
   return (
     <>
       <NavBarAstroNFT>
@@ -47,40 +26,6 @@ const NavBar = (props) => {
         </LogoAstroNFT>
         {/* <Title>hola me llamo franco</Title> */}
         <NavBarButtons>
-<<<<<<< HEAD
-          <LinkRouter to={"/home"}>
-            <NavButton>Home</NavButton>
-          </LinkRouter>
-          <LinkRouter to={"/products"}>
-            <NavButton>Products</NavButton>
-          </LinkRouter>
-          <LinkRouter to={"/contact"}>
-            <NavButton>Contact</NavButton>
-          </LinkRouter>
-          <NavIconButtons>
-            <LinkRouter to={"/cart"}>
-              <img src={process.env.PUBLIC_URL + "/assets/shopping-cart.jpg"} />
-            </LinkRouter>
-            <DropdownSign>
-              <DropdownButton
-                id="dropdown-button-drop"
-                title={
-                  <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
-                }
-              >
-                <Dropdown.Item>
-                  <LinkRouter to={"/signin"}>
-                    {" "}
-                    <SignButton>Sign In</SignButton>{" "}
-                  </LinkRouter>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <LinkRouter to={"/signup"}>
-                    {" "}
-                    <SignButton>Sign Up</SignButton>{" "}
-                  </LinkRouter>
-                </Dropdown.Item>
-=======
           <LinkRouter to={'/home'}>
             <NavButton>
               Home
@@ -112,17 +57,11 @@ const NavBar = (props) => {
                     <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item></>
                 }
 
->>>>>>> 4b53127a1e64e586281a567bd0ebc569db2cee2f
               </DropdownButton>
             </DropdownSign>
           </NavIconButtons>
         </NavBarButtons>
       </NavBarAstroNFT>
-<<<<<<< HEAD
-    </>
-  );
-};
-=======
 
 
     </>
@@ -138,5 +77,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
->>>>>>> 4b53127a1e64e586281a567bd0ebc569db2cee2f
 

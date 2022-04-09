@@ -2,7 +2,7 @@ import React from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
 import { Accordion } from "react-bootstrap";
-
+import "../styles/StyleSearch.css";
 import {
   ProductsFather,
   FilterProducts,
@@ -39,7 +39,12 @@ const Products = () => {
         <TitleHead>Products</TitleHead>
       </Hero>
       <ProductsFather>
-        <Search placeholder="Search" />
+        <form class="searchbox">
+          <input type="search" placeholder="Search" />
+          <button type="submit" value="search">
+            &nbsp;
+          </button>
+        </form>
 
         <Accordion
           style={{

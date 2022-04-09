@@ -112,7 +112,7 @@ const CartProducts = () => {
               <CategoryProducts>Debit or Credit Card</CategoryProducts>
               <CategoryProducts>Paypal Credit</CategoryProducts>
             </DivTitle>
-
+                
               <FontAwesomeIcon style={{ width: '35px',height:'35px', cursor: 'pointer', marginRight:'1rem', color:'#45A9F2' }} icon={faXmark} />
 
           </CardProducts2>

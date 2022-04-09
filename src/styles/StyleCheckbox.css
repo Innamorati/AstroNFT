@@ -1,0 +1,19 @@
+input {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 2rem;
+}
+@media (max-width: 890px) {
+  input {
+    margin-right: 0rem;
+    display: flex;
+    align-items: center;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

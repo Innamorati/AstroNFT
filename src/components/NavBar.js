@@ -1,6 +1,5 @@
 import React from "react";
 import { Link as LinkRouter } from "react-router-dom";
-// import { Title } from '../styles/StyleNavBar';
 import {
   LogoAstroNFT,
   LogoText,
@@ -13,8 +12,6 @@ import {
 } from "../styles/StyleNavBar";
 import {
   DropdownButton,
-  SplitButton,
-  ButtonGroup,
   Dropdown,
 } from "react-bootstrap";
 
@@ -30,7 +27,6 @@ const NavBar = () => {
             <LogoText>AstroNFT</LogoText>
           </LinkRouter>
         </LogoAstroNFT>
-        {/* <Title>hola me llamo franco</Title> */}
         <NavBarButtons>
           <LinkRouter to={"/home"}>
             <NavButton>Home</NavButton>

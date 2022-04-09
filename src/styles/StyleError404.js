@@ -6,7 +6,7 @@ export const BackgroundError404 = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #97c6fe; /* #83B1FF; */
+    background-color: #3BAAFF;
 
     p:nth-child(1) {
     display: flex;
@@ -14,7 +14,7 @@ export const BackgroundError404 = styled.div`
     align-items: center;
     font-size: 9rem;
     font-weight: 700;
-    color: #333333;
+    color: white;
 
     @media (max-width: 700px) {
         font-size: 7rem;
@@ -36,7 +36,7 @@ export const BackgroundError404 = styled.div`
     align-items: center;
     font-weight: 500;
     font-size: 2rem;
-    color: #333333;
+    color: white;
 
     @media (max-width: 700px) {
         font-size: 1.5rem;
@@ -62,7 +62,8 @@ export const ButtonBackToHome = styled.button`
     justify-content: center;
     border: none;
     margin: auto;
-    color: #333333;
+    color: white;
+    font-weight: 500;
 
     @media (max-width: 560px){
         width: 30%;

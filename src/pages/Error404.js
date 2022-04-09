@@ -6,10 +6,9 @@ const Error404 = () => {
     return(
         <BackgroundError404>
             <p>Error 404</p>
-            <p>Sorry! Page not found ☹</p>
+            <p>Oops! Page not found</p>
             <ImageError>
-            <img src={process.env.PUBLIC_URL + '/assets/error1.jpg'} alt="astronaut" />
-            {/* <img src={process.env.PUBLIC_URL + '/assets/error4.jpg'} alt="astronaut-moon" /> */}
+            <img src={process.env.PUBLIC_URL + '/assets/image-12.png'} alt="astronaut" />
             </ImageError>
             <LinkRouter to={'/home'}> <ButtonBackToHome>Back to Home</ButtonBackToHome> </LinkRouter>
         </BackgroundError404>

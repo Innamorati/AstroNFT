@@ -11,7 +11,7 @@ return(
   <SideNav>
   <LogoAstroNFTResponsive>
   <LinkRouter to={'/home'}>
-      <img src={process.env.PUBLIC_URL+'/assets/logo.jpg'} alt='logo'/>
+      <img src={process.env.PUBLIC_URL + "/assets/logo.png"} alt="logo" />
   </LinkRouter>
   <LinkRouter to={'/home'}>
       <LogoText>AstroNFT</LogoText>
@@ -23,7 +23,6 @@ return(
     <VerticalNavBar>
     <Navbar bg="light" expand={false}>
   <Container fluid>
-    {/* <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand> */}
     <Navbar.Toggle aria-controls="offcanvasNavbar" />
     <Navbar.Offcanvas
       id="offcanvasNavbar"

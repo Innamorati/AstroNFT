@@ -1,8 +1,8 @@
 import React from "react";
-import { Form, FormContainer, Input, Label, MainContainer,Title, SignUpButton, GoogleButton, FacebookButton, CallToAction } from "../styles/StyleSign";
+import { Form, FormContainer, Input, Label, MainContainer, Title, SignUpButton, GoogleButton, FacebookButton, CallToAction } from "../styles/StyleSign";
 import UserActions from "../redux/actions/UserActions";
 import { connect } from "react-redux";
-import {Link as LinkRouter} from 'react-router-dom';
+import { Link as LinkRouter } from 'react-router-dom';
 import GoogleSignUp from "../components/GoogleSignUp";
 import FacebookSignUp from "../components/FacebookSignUp";
 
@@ -19,37 +19,37 @@ export const SignUp = (props) => {
             image: event.target[4].value,
             from: "signup"
         }
-        props.userSingUp(data)
+        props.userSignUp(data)
         console.log(data)
     }
 
 
     return (
-        <MainContainer style={{backgroundImage: `url('${process.env.PUBLIC_URL+'/assets/signUpBackground.png'}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/signUpBackground.png'}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <FormContainer>
                 <Form onSubmit={signup}>
                     <Title>Sign up</Title>
                     <Label for="name">First name</Label>
                     <Input id="name" />
-                    <Label for="lastName" >Last name</Label>
+                    <Label htmlFor="lastName" >Last name</Label>
                     <Input id="lastName" />
-                    <Label for="mail" >Email</Label>
+                    <Label htmlFor="mail" >Mail</Label>
                     <Input id="mail" type="email" />
-                    <Label for="password" >Password</Label>
+                    <Label htmlFor="password" >Password</Label>
                     <Input id="password" type="password" />
                     {/* <Label>Repeat Password</Label>
                     <Input type="password" name="confirm_password" id="confirm_password" /> */}
                     <Label for="mail" >URL Profile Picture</Label>
                     <Input id="mail" />
                     <SignUpButton>
-                    <button type="submit">Register</button>
+                        <button type="submit">Register</button>
                     </SignUpButton>
                     {/* <p>- or -</p> */}
-                        <GoogleSignUp/>
-                        <FacebookSignUp/>
+                    <GoogleSignUp />
+                    <FacebookSignUp />
                     <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
                 </Form>
-            </FormContainer>
+            </FormContainer >
         </MainContainer >
     )
 

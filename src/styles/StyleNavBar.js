@@ -140,8 +140,7 @@ export const LogoAstroNFTResponsive = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 50%;
-    margin-left: 1em;
+    width: 30%;
 
     a {
       text-decoration: none;
@@ -157,7 +156,7 @@ export const ShoppingCart = styled.div`
     align-items: center;
     align-content: center;
     flex-direction: row;
-    width: 100%;
+    width: 30%;
   }
 `;
 
@@ -167,7 +166,7 @@ export const SignButton = styled.div`
 `;
 
 export const SideNavButton = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   padding: 15px 25px;
   margin: 5px 5px;
@@ -178,7 +177,10 @@ export const SideNavButton = styled.div`
   font-size: 17px;
   transition: all 250ms;
   overflow: hidden;
-  text-align: center;
+  text-align: center; */
+  padding: 1px 16px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
   a {
     text-decoration: none;
   }

@@ -19,7 +19,7 @@ export const SignUp = (props) => {
             image: event.target[4].value,
             from: "signup"
         }
-        props.userSingUp(data)
+        props.userSignUp(data)
         console.log(data)
     }
 

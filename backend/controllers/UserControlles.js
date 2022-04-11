@@ -73,7 +73,7 @@ const UserControllers = {
     },
 
     userRegistration: async (req, res) => {
-        let { firstName, lastName, email, password, from, image } = req.body.data
+        let { firstName, lastName, email, password, from, image, /* google */ } = req.body.data //agregué propiedad "google"
         try {
             const existingUser = await usuario.findOne({ email })
             if (existingUser) {
@@ -99,6 +99,19 @@ const UserControllers = {
                 }
             }
             else {
+                //agregué este condicional, fijense si esta bien y si lo quieren dejar, cambiar o borrar
+               /*  if(google){
+                    const passwordHash = bcryptjs.hashSync(password, 15)
+                    existingUser.password = passwordHash;
+                    existingUser.verifiedMail = true
+                    existingUser.google = true
+
+                    existingUser.save()
+                    res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
+                }else{
+                    res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
+                } */
+                //llega hasta acá lo nuevo que agregué
                 const passwordHash = bcryptjs.hashSync(password, 15)
 
                 const newuser = await new usuario({

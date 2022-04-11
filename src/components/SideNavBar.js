@@ -5,7 +5,7 @@ import { Navbar, Offcanvas, Nav, NavDropdown, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import Box from '@mui/material/Box';
+/* import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,11 +16,11 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
+import Logout from '@mui/icons-material/Logout'; */
 
 const SideNavBar = () => {
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  /* const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -28,9 +28,58 @@ const SideNavBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+ */
 return(
-  <>
+
+  <SideNav>
+  <LogoAstroNFTResponsive>
+  <LinkRouter to={'/home'}>
+      <img src={process.env.PUBLIC_URL + "/assets/logo.png"} alt="logo" />
+  </LinkRouter>
+  <LinkRouter to={'/home'}>
+      <LogoText>AstroNFT</LogoText>
+  </LinkRouter>
+  </LogoAstroNFTResponsive>
+  <ShoppingCart>
+    <LinkRouter to={'/cart'}><img src={process.env.PUBLIC_URL+'/assets/shopping-cart.jpg'}/></LinkRouter>
+  </ShoppingCart>
+    <VerticalNavBar>
+    <Navbar bg="light" expand={false}>
+  <Container fluid>
+    <Navbar.Toggle aria-controls="offcanvasNavbar" />
+    <Navbar.Offcanvas
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+      placement="end"
+      style={{width: '50%', height: '50vh', borderRadius: '20px 0 20px 20px'}}
+    >
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title id="offcanvasNavbarLabel"><img src={process.env.PUBLIC_URL+'/assets/logo.png'} alt='logo'/> AstroNFT</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <ResponsiveNavButtons>
+          <LinkRouter to={'/home'}> <SideNavButton>Home</SideNavButton> </LinkRouter> 
+          <LinkRouter to={'/products'}> <SideNavButton>Products</SideNavButton> </LinkRouter> 
+          <LinkRouter to={'/contact'}> <SideNavButton>Contact</SideNavButton> </LinkRouter>
+          <SideNavButton>
+            <NavDropdown title={<img src={process.env.PUBLIC_URL+'/assets/user.jpg'}/>} id="offcanvasNavbarDropdown">
+              <NavDropdown.Item> <LinkRouter to={'/signin'}> <SideNavButtonSign>Sign In</SideNavButtonSign> </LinkRouter> </NavDropdown.Item>
+              <NavDropdown.Item> <LinkRouter to={'/signup'}> <SideNavButtonSign>Sign Up</SideNavButtonSign> </LinkRouter> </NavDropdown.Item>
+            </NavDropdown>
+          </SideNavButton>
+          </ResponsiveNavButtons>
+        </Nav>
+      </Offcanvas.Body>
+    </Navbar.Offcanvas>
+  </Container>
+</Navbar>
+</VerticalNavBar>
+</SideNav> );
+
+}
+export default SideNavBar;
+  {/* <>
   <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
   <LogoAstroNFTResponsive>
   <LinkRouter to={'/home'}>
@@ -121,9 +170,9 @@ return(
     Logout
   </MenuItem>
   </ResponsiveNavButtons>
-</Menu>
+</Menu> */}
 
-</>
+/* </> */
  /*  <SideNav>
   <LogoAstroNFTResponsive>
   <LinkRouter to={'/home'}>
@@ -168,9 +217,9 @@ return(
 </Navbar>
 </VerticalNavBar>
 </SideNav> */
-);
+/* );
 }
-export default SideNavBar;
+export default SideNavBar; */
 
 /*
 

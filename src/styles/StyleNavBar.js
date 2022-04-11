@@ -68,6 +68,26 @@ export const NavButton = styled.button`
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+
+  :hover{
+  background-color: transparent ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  }
+
+  :active{
+    background-color: red ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  }
 `;
 
 export const NavIconButtons = styled.div`
@@ -84,7 +104,8 @@ export const VerticalNavBar = styled.nav`
   @media (max-width: 650px) {
     display: flex;
     justify-content: flex-end;
-    wdith: 100%;
+    width: 100%;
+    height: 50% !important;
   }
 `;
 export const DropdownSign = styled.button`

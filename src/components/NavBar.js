@@ -51,7 +51,7 @@ const NavBar = (props) => {
                     <img style={{ height: '3rem', width: '3rem', borderRadius: '3rem' }} src={props.user.user.image} /> :
                     <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} /> :
                   <img src={process.env.PUBLIC_URL + '/assets/user.jpg'} />}>
-                {props.user.user ? <Dropdown.Item> <SignButton onClick={Logout}>Logout</SignButton></Dropdown.Item> :
+                {props.user.user ? <Dropdown.Item> <SignButton onClick={Logout}>Log Out</SignButton></Dropdown.Item> :
                   <><Dropdown.Item><LinkRouter to={'/signin'}> <SignButton>Sign In</SignButton> </LinkRouter></Dropdown.Item>
                     <Dropdown.Item><LinkRouter to={'/signup'}> <SignButton>Sign Up</SignButton> </LinkRouter></Dropdown.Item></>
                 }

@@ -4,7 +4,7 @@ const ProductControllers = require("../controllers/ProductControllers");
 const validator = require("../config/validator");
 
 const { userRegistration, userSignin, verifyEmail, userLogout } = UserControllers;
-const { getAllProducts, addProduct, deleteProduct } = ProductControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct } = ProductControllers;
 
 Router
     .route("/products")
@@ -13,7 +13,8 @@ Router
 
 Router
     .route("/product/:id")
-    .delete(deleteProduct);
+    .delete(deleteProduct)
+    .put(updateProduct);
 
 Router.route("/user/singup").post(validator, userRegistration);
 

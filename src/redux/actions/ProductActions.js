@@ -17,6 +17,11 @@ const ProductActions = {
         return async (dispatch, getState) => {
             const res = await axios.delete(`http://localhost:4000/api/product/${id}`)
         }
+    },
+    updateProduct: (id, data) => {
+        return async (dispatch, getState) => {
+            const res = await axios.put(`http://localhost:4000/api/product/${id}`, {data})
+        }
     }
 }
 

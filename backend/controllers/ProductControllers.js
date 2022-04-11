@@ -45,13 +45,11 @@ const productController = {
                 price,
                 file,
                 description,
-                details: {
-                    owner,
-                    red,
-                    contractAddress,
-                    category,
-                    fileType
-                }
+                owner,
+                red,
+                contractAddress,
+                category,
+                fileType
             });
 
             await newProduct.save();
@@ -67,7 +65,7 @@ const productController = {
                 success: false,
                 response: 'Product not added',
                 error: err.message,
-                message: err.message + ' Product not added.'
+                message: 'Error. Product not added.'
             });
         }
     },
@@ -84,6 +82,28 @@ const productController = {
                 success: false,
                 response: `We couldn't delete the product`,
                 error: err.message,
+            });
+        }
+    },
+    updateProduct: async (req, res) => {
+        try {
+            const productUpdated = await Product.findOneAndUpdate(
+                { _id: req.params.id },
+                { ...req.body.data },
+                { new: true }
+            )
+            res.json({
+                success: true,
+                response: productUpdated,
+                error: null,
+                message: 'Product updated'
+            })
+        } catch (err) {
+            res.json({
+                success: false,
+                response: null,
+                error: err.message,
+                message: 'Error. Product not updated.'
             });
         }
     }

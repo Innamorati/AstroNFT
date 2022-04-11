@@ -1,6 +1,5 @@
 import React from "react";
 import FooterComp from "../components/Footer";
-
 import {
   Text,
   BodyConteiner,

@@ -164,7 +164,7 @@ const UserControllers = {
                         }
                         await existingUser.save()
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.json({ response: { user: userData, success: true, from: from, message: "Welcome again" + userData.firtsName, token: token } })
+                        res.json({ message: "Welcome again " + userData.firtsName, success: true, response: { user: userData, from: from, token: token } })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })
@@ -187,7 +187,7 @@ const UserControllers = {
 
                             }
                             const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
-                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
+                            res.json({ success: true, from: from, response: { token, user: userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
                         }
                         else {
                             res.json({ success: false, from: from, message: "The mail or password is incorrect" })

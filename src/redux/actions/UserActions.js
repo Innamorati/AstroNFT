@@ -11,7 +11,7 @@ const UserActions = {
     userLoging: (data) => {
         return async (dispatch, gerState) => {
             const res = await axios.post('http://localhost:4000/api/user/signin', { data });
-            console.log(res.data.response.user)
+            console.log(res)
             if (res.data.success) {
                 dispatch({ type: 'user', payload: { user: res.data.response.user, success: res.data.success, message: res.data.message, view: true } })
                 localStorage.setItem('token', res.data.response.token)

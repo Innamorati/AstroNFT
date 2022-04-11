@@ -14,10 +14,10 @@ const SignIn = (props) => {
         const data = {
             email: event.target[0].value,
             password: event.target[1].value,
+            remember: event.target[2].checked,
             from: "signin"
         }
         props.userLoging(data);
-        // console.log(data);
     }
 
     return (
@@ -30,8 +30,8 @@ const SignIn = (props) => {
                     <Label htmlfor="password" >Password</Label>
                     <Input id="password" type="password" />
                     <RememberMe>
-                        <input type="radio" id="rememberMe" />
-                        <label for="rememberMe">Remember me</label>
+                        <input type="checkbox" value={'true'} id="rememberMe" />
+                        <Label htmlfor="rememberMe">Remember me</Label>
                     </RememberMe>
                     <SignInButton>
                         <button type="submit">Log In</button>

@@ -110,6 +110,7 @@ const UserControllers = {
                     verifiedMail: false,
                     from: [from],
                     image,
+                    admin: false,
                 })
                 if (from !== "signup") {
                     await newuser.save()
@@ -133,6 +134,7 @@ const UserControllers = {
         const { email, password, from } = req.body.data
         try {
             const existingUser = await usuario.findOne({ email })
+            // console.log(existingUser)
             if (!existingUser) {
                 res.json({ success: false, message: "Your user has not been found please register" })
             }
@@ -146,9 +148,10 @@ const UserControllers = {
                             lastName: existingUser.lastName,
                             image: existingUser.image,
                             email: existingUser.email,
+                            admin: existingUser.admin
                         }
                         await existingUser.save()
-
+                        console.log(userData)
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
                         res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
                     }
@@ -169,6 +172,8 @@ const UserControllers = {
                                 image: existingUser.image,
                                 from: existingUser.from,
                                 email: existingUser.email,
+                                admin: existingUser.admin
+
                             }
                             const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
                             res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
@@ -193,6 +198,14 @@ const UserControllers = {
         const email = req.body.data
         const user = await usuario.findOne({ email })
         await user.save()
+    },
+    tokenVerified: (req, res) => {
+        if (!req.err) {
+            res.json({ success: true, response: { admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
+        }
+        else {
+            res.json({ success: false, })
+        }
     }
 }
 module.exports = UserControllers

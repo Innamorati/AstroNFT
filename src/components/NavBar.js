@@ -12,7 +12,7 @@ const NavBar = (props) => {
     props.userLogout(props.user.user.email)
   }
 
-  // console.log(props.user.user.email ?)
+  console.log(props.user.user === null)
   return (
     <>
       <NavBarAstroNFT>
@@ -41,6 +41,12 @@ const NavBar = (props) => {
               Contact
             </NavButton>
           </LinkRouter>
+          {props.user.user !== null ?
+            <LinkRouter to={'/admin'}>
+              <NavButton>
+                admin page
+              </NavButton>
+            </LinkRouter> : ""}
           <NavIconButtons>
             <LinkRouter to={'/products'}>
               <img src={process.env.PUBLIC_URL + '/assets/shopping-cart.jpg'} />

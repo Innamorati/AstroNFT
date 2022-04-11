@@ -6,18 +6,23 @@ const UserActions = {
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/user/singup', { data })
             dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, } })
+            console.log(res)
         }
     },
     userLoging: (data) => {
         return async (dispatch, gerState) => {
             const res = await axios.post('http://localhost:4000/api/user/signin', { data });
-            console.log(res)
             if (res.data.success) {
-                localStorage.setItem('token', res.data.response.token)
-                dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
+                if (data.remember) {
+                    dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
+                    localStorage.setItem('token', res.data.response.token)
+                }
+                else {
+                    dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
+                }
+
             }
-            console.log(res);
-            console.log(res.data)
+
         }
     },
     userLogout: (data) => {
@@ -25,6 +30,17 @@ const UserActions = {
             const user = axios.post('http://localhost:4000/api/user/logout', { data })
             localStorage.removeItem('token')
             dispatch({ type: 'user', payload: { user: null, view: false, message: '' } })
+        }
+    },
+    verifiedToken: (token) => {
+        return async (dispatch, getState) => {
+            const user = await axios.get('http://localhost:4000/api/user/token', { headers: { 'Authorization': 'Bearer ' + token } })
+            if (user.data.success) {
+                dispatch({ type: 'user', payload: { message: user.data.response.message, user: user.data.response, success: user.data.success, view: true } })
+            }
+            else {
+                localStorage.removeItem('token')
+            }
         }
     }
 }

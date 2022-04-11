@@ -34,6 +34,7 @@ function CustomizedSnackbars(props) {
             }
         })
     };
+    // console.log(props.user)
     return (
         <Stack spacing={2} sx={{ width: '100%' }}>
             <Snackbar open={props.user.view} autoHideDuration={3000} onClose={handleClose}>

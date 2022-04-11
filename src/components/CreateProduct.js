@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ProductActions from '../redux/actions/ProductActions';
+import BasicModal from './ModalEdit';
 
 function CreateProduct(props) {
     const [reload, setReload] = useState(false);
@@ -23,6 +24,13 @@ function CreateProduct(props) {
         setReload(!reload);
     }
 
+    async function handleEditProduct(event) {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(event.target))
+        console.log(data);
+        console.log(event.target.id);
+    }
+
     return (
         <div>
             <form onSubmit={handleAddProduct} style={{
@@ -33,16 +41,16 @@ function CreateProduct(props) {
                 alignItems: 'center',
                 padding: 100
             }}>
-                <input placeholder='Name' type="text" name='name' />
-                <input placeholder='Creator' type="text" name='creator' />
-                <input placeholder='Price' type="text" name='price' />
-                <input placeholder='file' type="text" name='file' />
+                <input style={{ width: 200 }} placeholder='Name' type="text" name='name' />
+                <input style={{ width: 200 }} placeholder='Price' type="text" name='price' />
+                <input style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
+                <input style={{ width: 200 }} placeholder='file' type="text" name='file' />
                 <textarea name="description" id="" cols="30" rows="10" defaultValue={'Agregar descripcion'}></textarea>
-                <input placeholder='owner' type="text" name='owner' />
-                <input placeholder='red' type="text" name='red' />
-                <input placeholder='contract address' type="text" name='contractAddress' />
-                <input placeholder='category' type="text" name='category' />
-                <input placeholder='file type' type="text" name='fileType' />
+                <input style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
+                <input style={{ width: 200 }} placeholder='red' type="text" name='red' />
+                <input style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
+                <input style={{ width: 200 }} placeholder='category' type="text" name='category' />
+                <input style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
                 <button type='submit'>Cargar</button>
             </form>
             <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
@@ -51,6 +59,21 @@ function CreateProduct(props) {
                         <div>
                             <p>{product.name}</p>
                             <button onClick={handleDeleteProduct} id={product._id}>Eliminar</button>
+                            <BasicModal>
+                                <form id={product._id} onSubmit={handleEditProduct} action="">
+                                    <input style={{ width: 200 }} defaultValue={product.name} placeholder='Name' type="text" name='name' />
+                                    <input style={{ width: 200 }} placeholder='Price' type="text" name='price' />
+                                    <input style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
+                                    <input style={{ width: 200 }} placeholder='file' type="text" name='file' />
+                                    <textarea name="description" id="" cols="30" rows="10" defaultValue={product.description}></textarea>
+                                    <input style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
+                                    <input style={{ width: 200 }} placeholder='red' type="text" name='red' />
+                                    <input style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
+                                    <input style={{ width: 200 }} placeholder='category' type="text" name='category' />
+                                    <input style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
+                                    <button type='submit'>Cargar</button>
+                                </form>
+                            </BasicModal>
                         </div>
                     )
                 }

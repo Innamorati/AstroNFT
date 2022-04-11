@@ -9,9 +9,8 @@ import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import CustomizedSnackbars from "./components/SnackBar";
 import Error404 from "./pages/Error404";
-import Admin from './pages/Admin'
-
-import DetailsProducts from "./pages/DetailsProducts";
+import Details from "./pages/Details";
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -27,8 +26,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/details" element={<Details />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/details" element={<DetailsProducts />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>

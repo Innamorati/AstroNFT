@@ -17,7 +17,8 @@ export const SignUp = (props) => {
             email: event.target[2].value,
             password: event.target[3].value,
             image: event.target[4].value,
-            from: "signup"
+            from: "signup",
+            google: false,
         }
         props.userSignUp(data)
         console.log(data)
@@ -33,7 +34,7 @@ export const SignUp = (props) => {
                     <Input id="name" />
                     <Label htmlFor="lastName" >Last name</Label>
                     <Input id="lastName" />
-                    <Label htmlFor="mail" >Mail</Label>
+                    <Label htmlFor="mail" >Email</Label>
                     <Input id="mail" type="email" />
                     <Label htmlFor="password" >Password</Label>
                     <Input id="password" type="password" />

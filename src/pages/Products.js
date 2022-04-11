@@ -39,13 +39,12 @@ const Products = () => {
         <TitleHead>Products</TitleHead>
       </Hero>
       <ProductsFather>
-        <form class="searchbox">
-          <input type="search" placeholder="Search" />
-          <button type="submit" value="search">
+        <form className="searchbox">
+          <input className="inputSearch" type="search" placeholder="Search" />
+          <button className="ButtonSearch" type="submit" value="search">
             &nbsp;
           </button>
         </form>
-
         <Accordion
           style={{
             width: "70%",

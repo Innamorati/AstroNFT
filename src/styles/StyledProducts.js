@@ -69,8 +69,8 @@ export const TitleHead = styled.h1`
 export const Title = styled.h3`
   font-family: "Ubuntu";
   font-style: normal;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   line-height: 125%;
   color: #333333;
   flex: none;
@@ -159,12 +159,25 @@ export const ConteinerProduct = styled.div`
     text-align: start;
   }
 
+  @media (max-width: 1110px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 25%;
+    margin: 1rem;
+  }
   @media (max-width: 1060px) {
     display: flex;
     flex-wrap: wrap;
     min-width: 25%;
     margin: 1rem;
   }
+  @media (max-width: 1030px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 35%;
+    margin: 1rem;
+  }
+
   @media (max-width: 980px) {
     display: flex;
     flex-direction: column;
@@ -196,7 +209,6 @@ export const ItemProduct = styled.div`
   height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
-
   @media (max-width: 880px) {
     width: 250px;
     height: 250px;
@@ -221,10 +233,10 @@ export const ItemProduct = styled.div`
   }
 `;
 export const PriceUser = styled.div`
-  height: 2rem;
+  height: 2.7rem;
   display: flex;
   justify-content: space-around;
-  width: 85%;
+  width: 100%;
   @media (max-width: 750px) {
     min-width: 70%;
     justify-content: space-between;
@@ -295,7 +307,7 @@ export const ArsMadeBy = styled.h4`
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: auto;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   text-align: end;

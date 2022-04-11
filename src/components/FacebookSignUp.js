@@ -13,13 +13,15 @@ function FacebookSignUp(props) {
     let lastName = nameSeparate[1];
 
     const data = {
-      name: nameSeparate[0],
-      lastName: nameSeparate[1],
+      firstName: name,
+      lastName: lastName,
       email: res.email,
       password: res.id,
       from: "facebook",
+      image: res.picture.data.url
     };
-    // await props.userSignUp(data);
+    console.log(data)
+    await props.userSignUp(data);
   };
 
   return (

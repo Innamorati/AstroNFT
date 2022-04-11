@@ -18,13 +18,10 @@ export const SignUp = (props) => {
             password: event.target[3].value,
             image: event.target[4].value,
             from: "signup",
-            google: false,
         }
         props.userSignUp(data)
         console.log(data)
     }
-
-    console.log(props.userSignUp)
     return (
         <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/signUpBackground.png'}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <FormContainer>

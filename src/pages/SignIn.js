@@ -15,8 +15,6 @@ const SignIn = (props) => {
         setPassword(currentTarget.value)
     }
 
-    console.log(props)
-
     const signin = (event) => {
         event.preventDefault()
 
@@ -36,7 +34,7 @@ const SignIn = (props) => {
                     <Title>Welcome Back!</Title>
                     <Label htmlfor="mail" >Email</Label>
                     <Input id="mail" type="email" />
-                    <Label for="password" >Password</Label>
+                    <Label htmlFor="password" >Password</Label>
                     <PasswordDiv>
                         <Input
                             id="password"
@@ -51,9 +49,7 @@ const SignIn = (props) => {
                     <SignInButton>
                         <button type="submit">Log In</button>
                     </SignInButton>
-                    <Or>
-                        <p> - or - </p>
-                    </Or>
+                    <Or>- or -</Or>
                     <GoogleSignIn />
                     <FacebookSignIn />
                     <CallToAction>Forgot your password? <a>click here</a></CallToAction>

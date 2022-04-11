@@ -1,31 +1,29 @@
 import React from "react";
 import { Link as LinkRouter } from "react-router-dom";
-// import { Title } from '../styles/StyleNavBar';
 import {
   LogoAstroNFT,
   LogoText,
   NavBarAstroNFT,
   NavBarButtons,
-  NavButton,
   NavIconButtons,
   DropdownSign,
   SignButton,
+  NavButton
 } from "../styles/StyleNavBar";
 import {
   DropdownButton,
-  SplitButton,
-  ButtonGroup,
   Dropdown,
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
+
 
 const NavBar = (props) => {
   const Logout = () => {
     props.userLogout(props.user.user.email);
   };
 
-
+  console.log(props.user)
   return (
     <>
       <NavBarAstroNFT>
@@ -39,17 +37,17 @@ const NavBar = (props) => {
         </LogoAstroNFT>
         <NavBarButtons>
           <LinkRouter to={"/home"}>
-            <NavButton>Home</NavButton>
+            <NavButton >Home</NavButton>
           </LinkRouter>
           <LinkRouter to={"/products"}>
-            <NavButton>Products</NavButton>
+            <NavButton >Products</NavButton>
           </LinkRouter>
           <LinkRouter to={"/contact"}>
-            <NavButton>Contact</NavButton>
+            <NavButton >Contact</NavButton>
           </LinkRouter>
           {props.user.user?.admin === true ?
             <LinkRouter to={'/admin'}>
-              <NavButton>
+              <NavButton activeClassName="any">
                 admin page
               </NavButton>
             </LinkRouter> : ""}

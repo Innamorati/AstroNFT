@@ -156,17 +156,15 @@ const UserControllers = {
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: existingUser._id,
-                            firtsName: existingUser.firtsName,
+                            firtsName: existingUser.firstName,
                             lastName: existingUser.lastName,
                             image: existingUser.image,
                             email: existingUser.email,
                             admin: existingUser.admin
                         }
                         await existingUser.save()
-                        console.log(userData)
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        console.log(token)
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, token: token })
+                        res.json({ response: { user: userData, success: true, from: from, message: "Welcome again" + userData.firtsName, token: token } })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })

@@ -10,12 +10,17 @@ const ProductActions = {
     getAllProducts: () => {
         return async (dispatch, getState) => {
             const res = await axios.get('http://localhost:4000/api/products');
-            dispatch({type: 'all_products', payload: res.data.response});
+            dispatch({ type: 'all_products', payload: res.data.response });
         }
     },
     deleteProduct: (id) => {
         return async (dispatch, getState) => {
             const res = await axios.delete(`http://localhost:4000/api/product/${id}`)
+        }
+    },
+    updateProduct: (id, data) => {
+        return async (dispatch, getState) => {
+            const res = await axios.put(`http://localhost:4000/api/product/${id}`, {data})
         }
     }
 }

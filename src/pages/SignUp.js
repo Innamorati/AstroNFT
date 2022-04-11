@@ -18,13 +18,10 @@ export const SignUp = (props) => {
             password: event.target[3].value,
             image: event.target[4].value,
             from: "signup",
-            google: false,
         }
         props.userSignUp(data)
         console.log(data)
     }
-
-
     return (
         <MainContainer style={{ backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/signUpBackground.png'}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <FormContainer>
@@ -34,22 +31,20 @@ export const SignUp = (props) => {
                     <Input id="name" />
                     <Label htmlFor="lastName" >Last name</Label>
                     <Input id="lastName" />
-                    <Label htmlFor="mail" >Email</Label>
-                    <Input id="mail" type="email" />
+                    <Label htmlFor="email" >Mail</Label>
+                    <Input id="email" type="email" />
                     <Label htmlFor="password" >Password</Label>
                     <Input id="password" type="password" />
-                    {/* <Label>Repeat Password</Label>
-                    <Input type="password" name="confirm_password" id="confirm_password" /> */}
                     <Label for="mail" >URL Profile Picture</Label>
                     <Input id="mail" />
                     <SignUpButton>
                         <button type="submit">Register</button>
                     </SignUpButton>
-                    {/* <p>- or -</p> */}
+                    <p>- or -</p>
                     <GoogleSignUp />
                     <FacebookSignUp />
                     <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
-                </Form>
+                </Form >
             </FormContainer >
         </MainContainer >
     )

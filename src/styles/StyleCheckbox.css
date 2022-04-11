@@ -18,3 +18,18 @@
   margin: 0;
   padding: 0;
 }
+.noencontrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 2rem;
+  width: 50vh;
+  height: 50vw;
+}
+.imgErroProduct {
+  width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
+}

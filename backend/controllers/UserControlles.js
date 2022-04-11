@@ -100,17 +100,17 @@ const UserControllers = {
             }
             else {
                 //agregué este condicional, fijense si esta bien y si lo quieren dejar, cambiar o borrar
-                if(google){
-                    const passwordHash = bcryptjs.hashSync(password, 15)
-                    existingUser.password = passwordHash;
-                    existingUser.verifiedMail = true
-                    existingUser.google = true
+                // if(google){
+                //     const passwordHash = bcryptjs.hashSync(password, 15)
+                //     existingUser.password = passwordHash;
+                //     existingUser.verifiedMail = true
+                //     existingUser.google = true
 
-                    existingUser.save()
-                    res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
-                }else{
-                    res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
-                }
+                //     existingUser.save()
+                //     res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
+                // }else{
+                //     res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
+                // }
                 //llega hasta acá lo nuevo que agregué
                 const passwordHash = bcryptjs.hashSync(password, 15)
 
@@ -123,6 +123,7 @@ const UserControllers = {
                     verifiedMail: false,
                     from: [from],
                     image,
+                    admin: false,
                 })
                 if (from !== "signup") {
                     await newuser.save()
@@ -155,15 +156,15 @@ const UserControllers = {
                     if (passwordMatch.length > 0) {
                         const userData = {
                             id: existingUser._id,
-                            firtsName: existingUser.firtsName,
+                            firtsName: existingUser.firstName,
                             lastName: existingUser.lastName,
                             image: existingUser.image,
                             email: existingUser.email,
+                            admin: existingUser.admin
                         }
                         await existingUser.save()
-
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
+                        res.json({ message: "Welcome again " + userData.firtsName, success: true, response: { user: userData, from: from, token: token } })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })
@@ -182,9 +183,11 @@ const UserControllers = {
                                 image: existingUser.image,
                                 from: existingUser.from,
                                 email: existingUser.email,
+                                admin: existingUser.admin
+
                             }
                             const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 45 })
-                            res.json({ success: true, from: from, response: { token, userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
+                            res.json({ success: true, from: from, response: { token, user: userData }, message: "Welcome again " + userData.firstName + " " + userData.lastName, })
                         }
                         else {
                             res.json({ success: false, from: from, message: "The mail or password is incorrect" })
@@ -206,6 +209,14 @@ const UserControllers = {
         const email = req.body.data
         const user = await usuario.findOne({ email })
         await user.save()
+    },
+    tokenVerified: (req, res) => {
+        if (!req.err) {
+            res.json({ success: true, response: { admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
+        }
+        else {
+            res.json({ success: false, })
+        }
     }
 }
 module.exports = UserControllers

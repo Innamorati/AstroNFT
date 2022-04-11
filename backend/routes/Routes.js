@@ -2,9 +2,10 @@ const Router = require("express").Router();
 const UserControllers = require("../controllers/UserControlles");
 const ProductControllers = require("../controllers/ProductControllers");
 const validator = require("../config/validator");
+const passport = require('../config/Passport')
 
-const { userRegistration, userSignin, verifyEmail, userLogout } = UserControllers;
-const { getAllProducts, addProduct, deleteProduct } = ProductControllers;
+const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified } = UserControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct } = ProductControllers;
 
 Router
     .route("/products")
@@ -13,13 +14,17 @@ Router
 
 Router
     .route("/product/:id")
-    .delete(deleteProduct);
+    .delete(deleteProduct)
+    .put(updateProduct);
 
 Router.route("/user/singup").post(validator, userRegistration);
 
 Router.route("/user/signin").post(userSignin);
 
 Router.route("/verify/:uniqueString").get(verifyEmail);
+
+Router.route('/user/token')
+    .get(passport.authenticate('jwt', { session: false }), tokenVerified)
 
 Router.route("/user/logout").post(userLogout);
 

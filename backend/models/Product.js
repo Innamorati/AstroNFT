@@ -10,8 +10,8 @@ const ProductSchema = new mongoose.Schema({
         owner: { type: String, required: true },
         red: { type: String, required: true },
         contractAddress: { type: String, required: true },
-        category: {type: String, required: true},
-        fileType: {type: String, required: true}
+        category: { type: String, required: true },
+        fileType: { type: String, required: true }
     }
 })
 

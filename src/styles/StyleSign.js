@@ -14,7 +14,13 @@ export const FormContainer = styled.div`
     background-color: #fff;
     margin: auto;
     border-radius: 20px;
+<<<<<<< HEAD
+    p{
+        text-align: center;
+    }
+=======
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
+>>>>>>> f0111e70da2239decdca4cad5bfaf17b4e0d0d6d
 
     @media (max-width: 850px) {
         width: 50%;
@@ -43,9 +49,10 @@ export const Input = styled.input`
     margin-top: .5rem;
     border: 1px solid #E9E5E5;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     height: 3rem;
     padding: 0.5rem;
+    outline: none;
 `;
 
 export const Title = styled.h2`
@@ -101,7 +108,7 @@ export const GoogleButton = styled.div`
     }
 `;
 
-export const FacebookButton= styled.div`
+export const FacebookButton = styled.div`
 
     button {
     margin-bottom: 1rem;

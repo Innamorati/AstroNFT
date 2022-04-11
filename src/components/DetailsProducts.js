@@ -28,7 +28,6 @@ import {
 
 const DetailsProducts = () => {
   return (
-    <>
       <DivFather>
         <FatherDetails>
           <HeaderDetails>
@@ -113,8 +112,6 @@ const DetailsProducts = () => {
           </HeaderDetails2>
         </FatherDetails>
       </DivFather>
-      <Footer />
-    </>
   );
 };
 

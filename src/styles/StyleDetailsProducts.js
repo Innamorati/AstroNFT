@@ -37,7 +37,6 @@ export const FatherDetails = styled.div`
   }
   @media (max-width: 580px) {
     margin-bottom: 3rem;
-
     padding: 0;
   }
 `;
@@ -49,7 +48,6 @@ export const ImgDetails = styled.div`
   background-size: cover;
   border-radius: 10px;
   margin-bottom: 2rem;
-
   @media (max-width: 850px) {
     margin-bottom: 1.5rem;
   }
@@ -154,13 +152,17 @@ export const BtnBuy = styled.button`
   font-weight: 600;
 `;
 
+export const CreatorDetails = styled.div``;
+
 export const Creator = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 `;
 
+export const TitleCreator = styled.div``;
 
+export const DivCreator = styled.div``;
 export const ConteinerTitleAndLike = styled.div`
   display: flex;
   align-items: center;

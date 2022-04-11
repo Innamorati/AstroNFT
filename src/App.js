@@ -11,6 +11,7 @@ import CustomizedSnackbars from "./components/SnackBar";
 import Error404 from "./pages/Error404";
 import Details from "./pages/Details";
 import Admin from './pages/Admin';
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+        <Footer />
       <CustomizedSnackbars />
     </BrowserRouter>
   );

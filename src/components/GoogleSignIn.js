@@ -18,7 +18,7 @@ function GoogleSignIn(props) {
     return (
     <GoogleButton>
     <GoogleLogin
-        clientId="346395293099-1jgf07kf4uhjdct237hsk4j0j0ff512o.apps.googleusercontent.com"
+        clientId="213097106218-go202vf7di8bbd7c7g9vkn685ptqdbeh.apps.googleusercontent.com"
         buttonText="Log In with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}

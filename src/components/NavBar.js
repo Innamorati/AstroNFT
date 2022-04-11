@@ -17,8 +17,15 @@ import {
   ButtonGroup,
   Dropdown,
 } from "react-bootstrap";
+import { connect } from "react-redux";
+import UserActions from "../redux/actions/UserActions";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const Logout = () => {
+    props.userLogout(props.user.user.email);
+  };
+
+  // console.log(props.user.user.email ?)
   return (
     <>
       <NavBarAstroNFT>
@@ -30,7 +37,6 @@ const NavBar = () => {
             <LogoText>AstroNFT</LogoText>
           </LinkRouter>
         </LogoAstroNFT>
-        {/* <Title>hola me llamo franco</Title> */}
         <NavBarButtons>
           <LinkRouter to={"/home"}>
             <NavButton>Home</NavButton>
@@ -49,21 +55,45 @@ const NavBar = () => {
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
+                  props.user ? (
+                    props.user.user ? (
+                      <img
+                        style={{
+                          height: "3rem",
+                          width: "3rem",
+                          borderRadius: "3rem",
+                        }}
+                        src={props.user.user.image}
+                      />
+                    ) : (
+                      <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
+                    )
+                  ) : (
+                    <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
+                  )
                 }
               >
-                <Dropdown.Item>
-                  <LinkRouter to={"/signin"}>
+                {props.user.user ? (
+                  <Dropdown.Item>
                     {" "}
-                    <SignButton>Sign In</SignButton>{" "}
-                  </LinkRouter>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <LinkRouter to={"/signup"}>
-                    {" "}
-                    <SignButton>Sign Up</SignButton>{" "}
-                  </LinkRouter>
-                </Dropdown.Item>
+                    <SignButton onClick={Logout}>Logout</SignButton>
+                  </Dropdown.Item>
+                ) : (
+                  <>
+                    <Dropdown.Item>
+                      <LinkRouter to={"/signin"}>
+                        {" "}
+                        <SignButton>Sign In</SignButton>{" "}
+                      </LinkRouter>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <LinkRouter to={"/signup"}>
+                        {" "}
+                        <SignButton>Sign Up</SignButton>{" "}
+                      </LinkRouter>
+                    </Dropdown.Item>
+                  </>
+                )}
               </DropdownButton>
             </DropdownSign>
           </NavIconButtons>
@@ -72,5 +102,13 @@ const NavBar = () => {
     </>
   );
 };
+const mapDispatchToProps = {
+  userLogout: UserActions.userLogout,
+};
+const mapStateToProps = (state) => {
+  return {
+    user: state.UserReducer.user,
+  };
+};
 
-export default NavBar;
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

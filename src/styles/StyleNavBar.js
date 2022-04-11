@@ -10,6 +10,7 @@ export const Title = styled.h1`
 export const LogoAstroNFT = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 1em;
 
   a {
     text-decoration: none;
@@ -25,7 +26,8 @@ export const LogoText = styled.h2`
 export const NavBarAstroNFT = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 4rem;
   width: 100%;
   flex-wrap: wrap;
   text-decoration: none;
@@ -66,6 +68,26 @@ export const NavButton = styled.button`
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+
+  :hover{
+  background-color: transparent ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  }
+
+  :active{
+    background-color: red ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  }
 `;
 
 export const NavIconButtons = styled.div`
@@ -82,7 +104,8 @@ export const VerticalNavBar = styled.nav`
   @media (max-width: 650px) {
     display: flex;
     justify-content: flex-end;
-    wdith: 100%;
+    width: 100%;
+    height: 50% !important;
   }
 `;
 export const DropdownSign = styled.button`
@@ -138,8 +161,7 @@ export const LogoAstroNFTResponsive = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 50%;
-    margin-left: 1em;
+    width: 30%;
 
     a {
       text-decoration: none;
@@ -155,7 +177,7 @@ export const ShoppingCart = styled.div`
     align-items: center;
     align-content: center;
     flex-direction: row;
-    width: 100%;
+    width: 30%;
   }
 `;
 
@@ -165,7 +187,7 @@ export const SignButton = styled.div`
 `;
 
 export const SideNavButton = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   padding: 15px 25px;
   margin: 5px 5px;
@@ -176,7 +198,10 @@ export const SideNavButton = styled.div`
   font-size: 17px;
   transition: all 250ms;
   overflow: hidden;
-  text-align: center;
+  text-align: center; */
+  padding: 1px 16px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16px;
   a {
     text-decoration: none;
   }

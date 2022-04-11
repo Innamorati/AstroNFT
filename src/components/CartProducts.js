@@ -125,7 +125,12 @@ const CartProducts = () => {
               <CategoryProducts>PagoFácil or RapiPago</CategoryProducts>
             </DivTitlePay>
             <DivTitlePay>
-              <input type="radio" name="option" id="box1" />
+              <input
+                className="InputCheckBox"
+                type="radio"
+                name="option"
+                id="box1"
+              />
               <label for="box1"></label>
             </DivTitlePay>
           </CardProducts2>
@@ -143,7 +148,12 @@ const CartProducts = () => {
               <CategoryProducts>Paypal Credit</CategoryProducts>
             </DivTitlePay>
             <DivTitlePay>
-              <input type="radio" name="option" id="box1" />
+              <input
+                className="InputCheckBox"
+                type="radio"
+                name="option"
+                id="box1"
+              />
               <label for="box1"></label>
             </DivTitlePay>
           </CardProducts2>

@@ -12,7 +12,7 @@ const NavBar = (props) => {
     props.userLogout(props.user.user.email)
   }
 
-  console.log(props.user.user === null)
+  console.log(props.user.user?.admin === null)
   return (
     <>
       <NavBarAstroNFT>
@@ -41,7 +41,7 @@ const NavBar = (props) => {
               Contact
             </NavButton>
           </LinkRouter>
-          {props.user.user !== null ?
+          {props.user.user?.admin === true ?
             <LinkRouter to={'/admin'}>
               <NavButton>
                 admin page

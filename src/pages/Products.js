@@ -30,9 +30,8 @@ const Products = () => {
     <>
       <Hero
         style={{
-          backgroundImage: `url('${
-            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
-          }')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+            }')`,
           backgroundPosition: "center center",
         }}
       >

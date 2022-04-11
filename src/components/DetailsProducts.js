@@ -34,9 +34,8 @@ const DetailsProducts = () => {
           <HeaderDetails>
             <ImgDetails
               style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/image1.png"
-                }')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image1.png"
+                  }')`,
               }}
             />
           </HeaderDetails>
@@ -47,9 +46,8 @@ const DetailsProducts = () => {
               <CategoryDetails>Collectibles</CategoryDetails>
               <BtnLike
                 style={{
-                  backgroundImage: `url('${
-                    process.env.PUBLIC_URL + "/assets/Heart.png"
-                  }')`,
+                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/Heart.png"
+                    }')`,
                 }}
               />
             </ConteinerTitleAndLike>
@@ -59,9 +57,8 @@ const DetailsProducts = () => {
                 <DivPrice>
                   <IconEther
                     style={{
-                      backgroundImage: `url('${
-                        process.env.PUBLIC_URL + "/assets/IconEth.png"
-                      }')`,
+                      backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
+                        }')`,
                     }}
                   />
                   <EtherDetails>0.121 ETH</EtherDetails>

@@ -1,38 +1,39 @@
 import React from "react";
 import FacebookLogin from "react-facebook-login";
-/* import { connect } from "react-redux";
-import userActions from "../../redux/action/userAction"; */
-import {FacebookButton} from '../styles/StyleSign';
+import { connect } from "react-redux";
+import userActions from "../redux/actions/UserActions";
+import { FacebookButton } from '../styles/StyleSign';
 
 function FacebookSignIn(props) {
+
   const responseFacebook = async (res) => {
     console.log(res);
-    const logedUser = {
+
+    const data = {
       email: res.email,
       Image: res.picture.data.url,
-      country: "facebook",
       password: res.id,
       from: "facebook",
     };
-    await props.signIn(logedUser);
+    await props.userLoging(data);
   };
 
   return (
     <FacebookButton>
-    <FacebookLogin
-      icon="fa-facebook"
-      textButton="Log In with Facebook"
-      appId="1096093190965715"
-      autoLoad={false}
-      fields="name,email,picture"
-      callback={responseFacebook}
-    />
+      <FacebookLogin
+        icon="fa-facebook"
+        textButton="Log In with Facebook"
+        appId="498196445304346"
+        autoLoad={false}
+        fields="name,email,picture"
+        callback={responseFacebook}
+      />
     </FacebookButton>
   );
 }
-export default FacebookSignIn;
-/* const mapDispatchToProps = {
-  signIn: userActions.signIn,
+
+const mapDispatchToProps = {
+  userLoging: userActions.userLoging,
 };
 
-export default connect(null, mapDispatchToProps)(FacebookSignIn); */
+export default connect(null, mapDispatchToProps)(FacebookSignIn); 

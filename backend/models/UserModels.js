@@ -7,9 +7,9 @@ const UserSchema = new mongoose.Schema({
     password: [{ type: String, require: true }],
     from: { type: Array },
     uniqueString: { type: String },
+    admin: { type: Boolean, require: true },
     verifiedMail: { type: String, require: true },
     image: { type: String, },
-    google: {type: Boolean, required: true} //agregado para poner en true la verificacion con google sin verificar email
 })
 
 const user = mongoose.model('user', UserSchema)

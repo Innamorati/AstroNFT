@@ -1,10 +1,27 @@
-const Router = require('express').Router()
-const UserControllers = require('../controllers/UserControlles')
+const Router = require("express").Router();
+const UserControllers = require("../controllers/UserControlles");
+const ProductControllers = require("../controllers/ProductControllers");
+const validator = require("../config/validator");
 
-const { userRegistration } = UserControllers
+const { userRegistration, userSignin, verifyEmail, userLogout } = UserControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct } = ProductControllers;
 
+Router
+    .route("/products")
+    .get(getAllProducts)
+    .post(addProduct);
 
-Router.route('/user/singup')
-    .post(userRegistration)
+Router
+    .route("/product/:id")
+    .delete(deleteProduct)
+    .put(updateProduct);
 
-module.exports = Router
+Router.route("/user/singup").post(validator, userRegistration);
+
+Router.route("/user/signin").post(userSignin);
+
+Router.route("/verify/:uniqueString").get(verifyEmail);
+
+Router.route("/user/logout").post(userLogout);
+
+module.exports = Router;

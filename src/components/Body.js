@@ -1,9 +1,5 @@
 import React from "react";
-import astro from "../Assest/image1.png";
-import astro2 from "../Assest/image2.jpg";
-import iconWP from "../Assest/wsp2.png";
 import FooterComp from "../components/Footer";
-
 import {
   Text,
   BodyConteiner,
@@ -24,7 +20,9 @@ export default function Body() {
         <BodyConteiner>
           <Image
             style={{
-              backgroundImage: `url(${astro}) `,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/image1.png"
+              }')`,
               backgroundPosition: "center center",
             }}
           />
@@ -60,7 +58,9 @@ export default function Body() {
           </TextConteiner>
           <Image
             style={{
-              backgroundImage: `url(${astro2})`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/image2.png"
+              }')`,
               backgroundPosition: "center center",
             }}
           />
@@ -68,7 +68,9 @@ export default function Body() {
         <BodyConteiner3>
           <IconWP
             style={{
-              backgroundImage: `url(${iconWP})`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/wsp2.png"
+              }')`,
             }}
           />
         </BodyConteiner3>

@@ -4,35 +4,73 @@ export const ProductsFather = styled.div`
   width: 100%;
   color: white;
   background-color: white;
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 `;
+export const DivFilterProducts = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0.7rem;
+  @media (max-width: 804px) {
+    min-width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
 export const FilterProducts = styled.div`
-  padding: 3rem;
-  width: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  @media (max-width: 804px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 export const ListProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
+  justify-content: center;
+  width: 100%;
   height: 100%;
+  @media (max-width: 1160px) {
+    width: 100%;
+  }
 `;
 export const FilterClean = styled.div`
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   h3:nth-child(2) {
     color: #3baaff;
+    cursor: pointer;
   }
 `;
-export const Title = styled.h3`
-  margin-top: 1rem;
+export const TitleHead = styled.h1`
+  width: 231px;
+  height: 62px;
+  left: 616.22px;
+  top: 205px;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 53.6839px;
+  line-height: 62px;
+  color: #ffffff;
+`;
+export const Title = styled.h3`
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
   line-height: 125%;
   color: #333333;
   flex: none;
@@ -76,8 +114,16 @@ export const Slider = styled.div`
 export const InputPrice = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  justify-content: flex-start;
+  justify-content: space-around;
+  h3:nth-child(1) {
+    margin-top: 0.6rem;
+  }
+  h3:nth-child(3) {
+    margin-top: 0.6rem;
+  }
 `;
 export const InputTextPrice = styled.input`
   width: 3rem;
@@ -102,54 +148,132 @@ export const ButtonCategory = styled.button`
 //INICIO DE LOS PRODUCTIOS
 export const ConteinerProduct = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 30%;
-  margin: 0.5rem;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  gap: 0.3rem;
+  width: 25%;
   h3:nth-child(3) {
     text-align: start;
   }
+
+  @media (max-width: 1110px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 25%;
+    margin: 1rem;
+  }
+  @media (max-width: 1060px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 25%;
+    margin: 1rem;
+  }
+  @media (max-width: 1030px) {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 35%;
+    margin: 1rem;
+  }
+
+  @media (max-width: 980px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 35%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    margin: 0.3rem;
+  }
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    margin: 0.3rem;
+  }
 `;
 export const ItemProduct = styled.div`
-  width: 250px;
-  height: 250px;
-  left: 309.82px;
-  top: 671px;
+  margin: 1rem;
+  width: 258px;
+  height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
-  border: solid 1px white;
+  box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
   @media (max-width: 880px) {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     left: 309.82px;
     top: 671px;
     border-radius: 1rem 1rem 1rem 1rem;
     border: solid 1px white;
     margin-bottom: 1rem;
   }
+  @media (max-width: 750px) {
+    width: 258px;
+    height: 258px;
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+
   @media (max-width: 360px) {
-    width: 100px;
-    height: 100px;
-    left: 309.82px;
-    top: 671px;
+    width: 258px;
+    height: 258px;
     border-radius: 1rem 1rem 1rem 1rem;
     border: solid 1px white;
     margin-bottom: 1rem;
   }
 `;
 export const PriceUser = styled.div`
-  height: 2rem;
+  height: 2.7rem;
   display: flex;
-  justify-content: space-between;
-  width: 75%;
+  justify-content: space-around;
+  width: 100%;
+  @media (max-width: 750px) {
+    min-width: 70%;
+    justify-content: space-between;
+  }
+  @media (max-width: 580px) {
+    min-width: 60%;
+    justify-content: space-between;
+  }
+  @media (max-width: 580px) {
+    width: 80%;
+    justify-content: space-between;
+  }
+  @media (max-width: 400px) {
+    width: 80%;
+    justify-content: space-between;
+  }
+`;
+export const ConteinerUser = styled.div`
+  display: flex;
+  justify-content: center;
+  justify-content: end;
+  align-items: center;
 `;
 export const UserName = styled.h3`
+  margin: 0;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 125%;
   color: #333333;
+`;
+export const UserImg = styled.img`
+  margin-right: 0.4rem;
+  border-radius: 1rem;
+  width: 20.54px;
+  height: 21.98px;
 `;
 export const Eth = styled.h3`
   font-family: "Ubuntu";
@@ -158,12 +282,14 @@ export const Eth = styled.h3`
   font-size: 18px;
   line-height: 125%;
   color: #333333;
+  margin-top: 0.3rem;
 `;
 export const IconEth = styled.div`
   width: 1rem;
-  height: 1.7rem;
+  height: 1.5rem;
   border: 0;
   margin-right: 0.5rem;
+  margin-top: 0.2rem;
 `;
 export const DivPriceETH = styled.div`
   display: flex;
@@ -181,8 +307,97 @@ export const ArsMadeBy = styled.h4`
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   text-align: end;
+  @media (max-width: 750px) {
+    min-width: 70%;
+  }
+  @media (max-width: 580px) {
+    min-width: 60%;
+  }
+`;
+export const Hero = styled.div`
+  background-color: #83b1ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+`;
+
+export const DivButtons = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+`;
+export const AddCart = styled.button`
+  color: black;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.3em 1em 0.3em 0.2em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  &svg {
+    margin-right: 6px;
+  }
+
+  &:hover {
+    box-shadow: 0 1em 1em -0.5em grey;
+  }
+
+  &:active {
+    box-shadow: 0 0.3em 1em -0.5em grey;
+  }
+`;
+
+export const ViewMore = styled.button`
+  padding: 0.4rem;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: white;
+  position: relative;
+  font-weight: 650;
+  font-size: 13px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+  }
+
+  &:hover {
+    color: #e8e8e8;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
 `;

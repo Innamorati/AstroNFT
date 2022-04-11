@@ -1,7 +1,7 @@
 import React from "react";
 import { Counter, Count1, Count2, Count3, Count4 } from "../styles/CounterStyle"
 
-const Account = () => {
+const HeroCounter = () => {
     return (
         <>
             <Counter>
@@ -23,7 +23,7 @@ const Account = () => {
                 <Count4>
                     <p>2</p>
                     <p>Floor Price</p>
-                    <p>???</p>
+                    <p>Last Month</p>
                 </Count4>
 
             </Counter>
@@ -31,4 +31,4 @@ const Account = () => {
         </>
     )
 }
-export default Account;
+export default HeroCounter;

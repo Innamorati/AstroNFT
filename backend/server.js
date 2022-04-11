@@ -4,6 +4,7 @@ const cors = require('cors')
 require('dotenv').config()
 const PORT = 4000
 const app = express()
+require('dotenv').config();
 require('./config/database')
 
 app.use(cors())

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or, InputPassword, PasswordDiv } from "../styles/StyleSign";
-import {Link as LinkRouter} from 'react-router-dom';
+import { Link as LinkRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../redux/actions/UserActions';
 import GoogleSignIn from '../components/GoogleSignIn';
@@ -11,9 +11,11 @@ const SignIn = (props) => {
     const [shown, setShown] = useState(false)
     const switchShown = () => setShown(!shown);
     const [password, setPassword] = useState("")
-    const onChange = ({currentTarget}) => {
+    const onChange = ({ currentTarget }) => {
         setPassword(currentTarget.value)
     }
+
+    console.log(props)
 
     const signin = (event) => {
         event.preventDefault()
@@ -21,9 +23,9 @@ const SignIn = (props) => {
         const data = {
             email: event.target[0].value,
             password: event.target[1].value,
-            remember: event.target[2].checked,
             from: "signin"
         }
+        // console.log(data)
         props.userLoging(data);
     }
 
@@ -36,20 +38,16 @@ const SignIn = (props) => {
                     <Input id="mail" type="email" />
                     <Label for="password" >Password</Label>
                     <PasswordDiv>
-                    <Input
-                    id="password"
-                    type={shown ? 'text' : 'password'}
-                    onChange={onChange}
-                    value={password}
-                    />
-                    <button onClick={switchShown}>
-                        {shown ?  <img src={process.env.PUBLIC_URL + "/assets/eye.png"} alt="eye" width={25}/> : <img src={process.env.PUBLIC_URL + "/assets/hiddenEye.png"} alt="hiddenEye" width={25}/>}
-                    </button>
-                    </PasswordDiv> 
-                    <RememberMe>
-                        <input type="checkbox" value={'true'} id="rememberMe" />
-                        <Label htmlfor="rememberMe">Remember me</Label>
-                    </RememberMe>
+                        <Input
+                            id="password"
+                            type={shown ? 'text' : 'password'}
+                            onChange={onChange}
+                            value={password}
+                        />
+                        <button onClick={switchShown}>
+                            {shown ? <img src={process.env.PUBLIC_URL + "/assets/eye.png"} alt="eye" width={25} /> : <img src={process.env.PUBLIC_URL + "/assets/hiddenEye.png"} alt="hiddenEye" width={25} />}
+                        </button>
+                    </PasswordDiv>
                     <SignInButton>
                         <button type="submit">Log In</button>
                     </SignInButton>

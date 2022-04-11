@@ -6,21 +6,15 @@ const UserActions = {
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/user/singup', { data })
             dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, } })
-            console.log(res)
         }
     },
     userLoging: (data) => {
         return async (dispatch, gerState) => {
             const res = await axios.post('http://localhost:4000/api/user/signin', { data });
+            // localStorage.setItem('token', res.data.response.token)
             if (res.data.success) {
-                if (data.remember) {
-                    dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
-                    localStorage.setItem('token', res.data.response.token)
-                }
-                else {
-                    dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
-                }
-
+                dispatch({ type: 'user', payload: { success: res.data.success, message: res.data.message, view: true, user: res.data.response.userData } })
+                localStorage.setItem('token', res.data.response.token)
             }
 
         }

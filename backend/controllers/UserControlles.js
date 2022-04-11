@@ -100,17 +100,17 @@ const UserControllers = {
             }
             else {
                 //agregué este condicional, fijense si esta bien y si lo quieren dejar, cambiar o borrar
-                if(google){
-                    const passwordHash = bcryptjs.hashSync(password, 15)
-                    existingUser.password = passwordHash;
-                    existingUser.verifiedMail = true
-                    existingUser.google = true
+                // if(google){
+                //     const passwordHash = bcryptjs.hashSync(password, 15)
+                //     existingUser.password = passwordHash;
+                //     existingUser.verifiedMail = true
+                //     existingUser.google = true
 
-                    existingUser.save()
-                    res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
-                }else{
-                    res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
-                }
+                //     existingUser.save()
+                //     res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
+                // }else{
+                //     res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
+                // }
                 //llega hasta acá lo nuevo que agregué
                 const passwordHash = bcryptjs.hashSync(password, 15)
 
@@ -147,7 +147,6 @@ const UserControllers = {
         const { email, password, from } = req.body.data
         try {
             const existingUser = await usuario.findOne({ email })
-            // console.log(existingUser)
             if (!existingUser) {
                 res.json({ success: false, message: "Your user has not been found please register" })
             }
@@ -166,7 +165,8 @@ const UserControllers = {
                         await existingUser.save()
                         console.log(userData)
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 48 })
-                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName })
+                        console.log(token)
+                        res.json({ success: true, from: from, message: "Welcome again" + userData.firtsName, token: token })
                     }
                     else {
                         res.json({ success: false, form: from, message: "You have not register with " + from })

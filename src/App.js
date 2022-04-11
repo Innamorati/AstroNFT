@@ -13,8 +13,12 @@ import { AdminPage } from "./pages/AdminPage";
 import { connect } from "react-redux";
 import UserActions from "./redux/actions/UserActions";
 import React, { useEffect } from 'react'
-import DetailsProducts from "./pages/DetailsProducts";
+// import DetailsProducts from "./pages/DetailsProducts";
+import Details from "./pages/Details";
+import Admin from './pages/Admin';
+
 function App(props) {
+
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
@@ -22,7 +26,6 @@ function App(props) {
       props.verifiedToken(token)
     }
   }, [])
-  console.log(props.user.user)
   return (
     <BrowserRouter>
       <NavBar />
@@ -36,7 +39,8 @@ function App(props) {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/details" element={<DetailsProducts />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>

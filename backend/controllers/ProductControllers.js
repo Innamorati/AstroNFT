@@ -1,0 +1,93 @@
+const Product = require('../models/Product');
+
+const productController = {
+
+    getAllProducts: async (req, res) => {
+
+        try {
+            const products = await Product.find()
+            res.json({
+                success: true,
+                response: products,
+                error: null
+            });
+        } catch (err) {
+            res.json({
+                success: false,
+                response: null,
+                error: err.message
+            });
+        }
+    },
+    addProduct: async (req, res) => {
+        const {
+            name,
+            creator,
+            price,
+            file,
+            description,
+            owner,
+            red,
+            contractAddress,
+            category,
+            fileType
+        } = req.body.data
+
+        try {
+            const alreadyAdded = await Product.findOne({ name: name });
+            if (alreadyAdded) {
+                throw new Error(`NFT ${name} already exists in the database.`)
+            }
+
+            const newProduct = new Product({
+                name,
+                creator,
+                price,
+                file,
+                description,
+                details: {
+                    owner,
+                    red,
+                    contractAddress,
+                    category,
+                    fileType
+                }
+            });
+
+            await newProduct.save();
+
+            res.json({
+                success: true,
+                data: newProduct,
+                error: null,
+                message: 'New product added succesfully'
+            });
+        } catch (err) {
+            res.json({
+                success: false,
+                response: 'Product not added',
+                error: err.message,
+                message: err.message + ' Product not added.'
+            });
+        }
+    },
+    deleteProduct: async (req, res) => {
+        try {
+            const product = await Product.findOneAndDelete({ _id: req.params.id })
+            res.json({
+                success: true,
+                response: `NFT id:${product} deleted.`,
+                error: null,
+            })
+        } catch (err) {
+            res.json({
+                success: false,
+                response: `We couldn't delete the product`,
+                error: err.message,
+            });
+        }
+    }
+
+}
+
+module.exports = productController;

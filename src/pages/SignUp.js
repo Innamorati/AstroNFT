@@ -18,7 +18,7 @@ export const SignUp = (props) => {
             password: event.target[3].value,
             image: event.target[4].value,
             from: "signup",
-            /* google: false */
+            google: false,
         }
         props.userSignUp(data)
         console.log(data)

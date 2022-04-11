@@ -1,18 +1,19 @@
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from './pages/Home';
-import Products from './pages/Products';
+import Home from "./pages/Home";
+import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import SideNavBar from "./components/SideNavBar";
 import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp"
+import SignUp from "./pages/SignUp";
+import Cart from "./pages/Cart";
 import CustomizedSnackbars from "./components/SnackBar";
 import Error404 from "./pages/Error404";
 import { AdminPage } from "./pages/AdminPage";
 import { connect } from "react-redux";
 import UserActions from "./redux/actions/UserActions";
 import React, { useEffect } from 'react'
-
+import DetailsProducts from "./pages/DetailsProducts";
 function App(props) {
 
   useEffect(() => {
@@ -24,10 +25,8 @@ function App(props) {
   console.log(props.user.user)
   return (
     <BrowserRouter>
-
       <NavBar />
       <SideNavBar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
@@ -36,7 +35,8 @@ function App(props) {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        {props.user === undefined ? props.user.user.admin ? <Route path="/admin" element={<AdminPage />} /> : "" : ""}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/details" element={<DetailsProducts />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>

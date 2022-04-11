@@ -14,9 +14,13 @@ export const FormContainer = styled.div`
     background-color: #fff;
     margin: auto;
     border-radius: 20px;
+<<<<<<< HEAD
     p{
         text-align: center;
     }
+=======
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
+>>>>>>> f0111e70da2239decdca4cad5bfaf17b4e0d0d6d
 
     @media (max-width: 850px) {
         width: 50%;
@@ -123,12 +127,10 @@ export const FacebookButton = styled.div`
 `;
 export const CallToAction = styled.div`
     width: 90%;
-    height: 5rem;
+    height: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* margin: auto; */
-    /* margin-top: -1rem; */
     text-align: center;
 
     a {
@@ -184,4 +186,35 @@ export const SignInButton = styled.button`
 export const Or = styled.p`
     text-align: center;
     margin: 2rem 1.5rem -1rem 0;
+`;
+
+export const InputPassword = styled.div`
+    div:nth-child(1){
+    margin-top: .5rem;
+    border: 1px solid #E9E5E5;
+    border-radius: 10px;
+    width: 90% !important;
+    height: 3rem;
+    padding: 0.5rem;
+    }
+
+    InputAdornment{
+        width: 90% !important;
+    }
+    
+`;
+export const PasswordDiv = styled.div`
+    display: flex;
+    align-items: center;
+
+    Input {
+        width: 75%;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        height: 50px;
+        width: 50px;
+    }
 `;

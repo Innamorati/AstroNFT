@@ -17,10 +17,11 @@ export const SignUp = (props) => {
             email: event.target[2].value,
             password: event.target[3].value,
             image: event.target[4].value,
-            from: "signup"
+            from: "signup",
+            google: false,
         }
         props.userSignUp(data)
-
+        console.log(data)
     }
 
     console.log(props.userSignUp)
@@ -46,7 +47,7 @@ export const SignUp = (props) => {
                     <GoogleSignUp />
                     <FacebookSignUp />
                     <CallToAction>If you already have an account <LinkRouter to={'/signin'}>click here</LinkRouter></CallToAction>
-                </Form>
+                </Form >
             </FormContainer >
         </MainContainer >
     )

@@ -6,22 +6,23 @@ import { GoogleButton } from "../styles/StyleSign";
 
 function GoogleSignUp(props) {
 
-  const responseGoogle = async (res) => {
-    const data = {
-      /* userName: res.profileObj. , */
-      email: res.profileObj.email,
-      password: res.profileObj.googleId,
-      URLImage: res.profileObj.imageUrl,
-      from: "google"
+  const responseGoogle = (response) => {
+      console.log(response);
+      const googleUser = {
+        firstName: response.profileObj.givenName,
+        lastName: response.profileObj.familyName,
+        email: response.profileObj.email,
+        password: response.profileObj.googleId,
+        google: true,
+      }
     }
-    /* await props.signUpUser(userData) */
-  }
+
+
 
   return (
     <GoogleButton>
     <GoogleLogin
-      className="buttonsocial buttonGoogle"
-      clientId="346395293099-1jgf07kf4uhjdct237hsk4j0j0ff512o.apps.googleusercontent.com"
+      clientId="213097106218-go202vf7di8bbd7c7g9vkn685ptqdbeh.apps.googleusercontent.com"
       buttonText="Sign Up with Google"
       onSuccess={responseGoogle}
       onFailure={responseGoogle}

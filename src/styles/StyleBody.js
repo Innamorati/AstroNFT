@@ -40,6 +40,7 @@ export const BodyConteiner2 = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+
   @media (max-width: 1080px) {
     flex-direction: column;
     padding: 0;

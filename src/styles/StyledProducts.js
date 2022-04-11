@@ -4,7 +4,7 @@ export const ProductsFather = styled.div`
   width: 100%;
   color: white;
   background-color: white;
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -53,6 +53,18 @@ export const FilterClean = styled.div`
     color: #3baaff;
     cursor: pointer;
   }
+`;
+export const TitleHead = styled.h1`
+  width: 231px;
+  height: 62px;
+  left: 616.22px;
+  top: 205px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 53.6839px;
+  line-height: 62px;
+  color: #ffffff;
 `;
 export const Title = styled.h3`
   font-family: "Ubuntu";
@@ -139,7 +151,9 @@ export const ConteinerProduct = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 1rem;
   padding: 0.5rem;
+  gap: 0.3rem;
   width: 25%;
   h3:nth-child(3) {
     text-align: start;
@@ -181,6 +195,8 @@ export const ItemProduct = styled.div`
   width: 258px;
   height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
+  box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+
   @media (max-width: 880px) {
     width: 250px;
     height: 250px;
@@ -207,28 +223,45 @@ export const ItemProduct = styled.div`
 export const PriceUser = styled.div`
   height: 2rem;
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-around;
+  width: 85%;
   @media (max-width: 750px) {
     min-width: 70%;
+    justify-content: space-between;
   }
   @media (max-width: 580px) {
-    min-width: 30%;
+    min-width: 60%;
+    justify-content: space-between;
   }
   @media (max-width: 580px) {
-    width: 60%;
+    width: 80%;
+    justify-content: space-between;
   }
   @media (max-width: 400px) {
-    width: 70%;
+    width: 80%;
+    justify-content: space-between;
   }
 `;
+export const ConteinerUser = styled.div`
+  display: flex;
+  justify-content: center;
+  justify-content: end;
+  align-items: center;
+`;
 export const UserName = styled.h3`
+  margin: 0;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 125%;
   color: #333333;
+`;
+export const UserImg = styled.img`
+  margin-right: 0.4rem;
+  border-radius: 1rem;
+  width: 20.54px;
+  height: 21.98px;
 `;
 export const Eth = styled.h3`
   font-family: "Ubuntu";
@@ -237,12 +270,14 @@ export const Eth = styled.h3`
   font-size: 18px;
   line-height: 125%;
   color: #333333;
+  margin-top: 0.3rem;
 `;
 export const IconEth = styled.div`
   width: 1rem;
-  height: 1.7rem;
+  height: 1.5rem;
   border: 0;
   margin-right: 0.5rem;
+  margin-top: 0.2rem;
 `;
 export const DivPriceETH = styled.div`
   display: flex;
@@ -272,9 +307,85 @@ export const DivArs = styled.div`
   }
 `;
 export const Hero = styled.div`
-  width: 100%;
-  min-height: 40vh;
   background-color: #83b1ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
   object-fit: cover;
-  background-repeat: no-repeat;
+`;
+
+export const DivButtons = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+`;
+export const AddCart = styled.button`
+  color: black;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0.3em 1em 0.3em 0.2em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  &svg {
+    margin-right: 6px;
+  }
+
+  &:hover {
+    box-shadow: 0 1em 1em -0.5em grey;
+  }
+
+  &:active {
+    box-shadow: 0 0.3em 1em -0.5em grey;
+  }
+`;
+
+export const ViewMore = styled.button`
+  padding: 0.4rem;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: white;
+  position: relative;
+  font-weight: 650;
+  font-size: 13px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+  }
+
+  &:hover {
+    color: #e8e8e8;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
 `;

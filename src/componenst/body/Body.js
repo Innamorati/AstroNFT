@@ -1,6 +1,7 @@
 import React from "react";
-import FooterComp from "../components/Footer";
-
+import astro from "../../Assest/image1.png";
+import astro2 from "../../Assest/image2.jpg";
+import iconWP from "../../Assest/wsp2.png";
 import {
   Text,
   BodyConteiner,
@@ -11,7 +12,11 @@ import {
   Paragraph,
   TextConteiner,
   IconWP,
-} from "../styles/StyleBody";
+  conteinerWP,
+  BodyConteinerTab,
+  conteinerIconWP,
+  
+} from "../../styles/StyleBody";
 
 export default function Body() {
   return (
@@ -21,10 +26,7 @@ export default function Body() {
         <BodyConteiner>
           <Image
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/image1.png"
-              }')`,
-              backgroundPosition: "center center",
+              backgroundImage: `url(${astro}) `,
             }}
           />
           <TextConteiner>
@@ -59,25 +61,19 @@ export default function Body() {
           </TextConteiner>
           <Image
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/image2.png"
-              }')`,
-              backgroundPosition: "center center",
+              backgroundImage: `url(${astro2})`,
             }}
           />
         </BodyConteiner2>
         <BodyConteiner3>
           <IconWP
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/wsp2.png"
-              }')`,
+              backgroundImage: `url(${iconWP})`,
             }}
           />
         </BodyConteiner3>
         {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
       </BodyFather>
-      <FooterComp />
     </>
   );
 }

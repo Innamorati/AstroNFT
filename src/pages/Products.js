@@ -2,8 +2,7 @@ import React from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
 import { Accordion } from "react-bootstrap";
-import HeroProducts from "../Assest/HeroProducts.jpg";
-
+import "../styles/StyleSearch.css";
 import {
   ProductsFather,
   FilterProducts,
@@ -21,6 +20,8 @@ import {
   ButtonCategory,
   DivFilterProducts,
   Hero,
+  TitleHead,
+  Search,
 } from "../styles/StyledProducts";
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
@@ -29,12 +30,22 @@ const Products = () => {
     <>
       <Hero
         style={{
-          backgroundImage: `url(${HeroProducts}) `,
+          backgroundImage: `url('${
+            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+          }')`,
           backgroundPosition: "center center",
         }}
-      />
-
+      >
+        <TitleHead>Products</TitleHead>
+      </Hero>
       <ProductsFather>
+        <form class="searchbox">
+          <input type="search" placeholder="Search" />
+          <button type="submit" value="search">
+            &nbsp;
+          </button>
+        </form>
+
         <Accordion
           style={{
             width: "70%",
@@ -99,7 +110,6 @@ const Products = () => {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-
         <ListProducts>
           {/* 1 */}
           <Product />

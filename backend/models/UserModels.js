@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
     uniqueString: { type: String },
     admin: { type: Boolean, require: true },
     verifiedMail: { type: String, require: true },
-    image: { type: String, }
+    image: { type: String, },
+    google: {type: Boolean, required: true} //agregado para poner en true la verificacion con google sin verificar email
 })
 
 const user = mongoose.model('user', UserSchema)

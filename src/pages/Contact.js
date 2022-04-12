@@ -23,9 +23,7 @@ const Contact = () => {
                     <label for="lastName">Last name</label>
                     <input id="lastName" />
                     <label for="phone">Phone</label>
-                    <input id="phone" type="text" />
-                    <label for="mail">Email</label>
-                    <input id="mail" type="email" />
+                    <input id="phone" />
                     </ContactInputs>
                     <Select>
                         <select name="select">
@@ -36,7 +34,7 @@ const Contact = () => {
                         </select>
                     </Select>
                     <Text>
-                        <textarea placeholder="mesage"></textarea>
+                        <textarea placeholder="message"></textarea>
                     </Text>
                     <ContactButton>
                         <button type="submit">Send</button>

@@ -9,17 +9,30 @@ import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import CustomizedSnackbars from "./components/SnackBar";
 import Error404 from "./pages/Error404";
+import { AdminPage } from "./pages/AdminPage";
+import { connect } from "react-redux";
+import UserActions from "./redux/actions/UserActions";
+import React, { useEffect } from 'react'
+// import DetailsProducts from "./pages/DetailsProducts";
 import Details from "./pages/Details";
 import Admin from './pages/Admin';
 
-function App() {
+function App(props) {
+
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      const token = localStorage.getItem("token")
+      props.verifiedToken(token)
+    }
+  }, [])
   return (
     <BrowserRouter>
       <NavBar />
       <SideNavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
@@ -31,7 +44,16 @@ function App() {
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+const mapDispatchToProps = {
+  verifiedToken: UserActions.verifiedToken
+}
+const mapStateToProps = (state) => {
+  return {
+    user: state.UserReducer.user
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

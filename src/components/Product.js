@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link as LinkRouter } from "react-router-dom";
 import axios from "axios";
 import ErrorProducts from "./ErrorProducts";
+import { connect } from "react-redux";
 import {
   Title,
   ItemProduct,
@@ -19,26 +20,28 @@ import {
   DivButtons,
   ConteinerUser,
 } from "../styles/StyledProducts";
+import ProductActions from "../redux/actions/ProductActions";
 
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
 
-export default function Product() {
-  const [product, setProducts] = useState([]);
+function Product(props) {
+  /* const [product, setProducts] = useState([]);
   const getInfo = async () => {
     const info = await axios.get(
       "https://6254659989f28cf72b5d37c7.mockapi.io/api/products"
     );
     setProducts(info.data);
   };
-  console.log(product);
+  console.log(product); */
+  console.log(props);
   useEffect(() => {
-    getInfo();
+    props.getAllProducts();
   }, []);
   return (
     <>
-      {product ? (
-        product.map((productNft) => (
+      {props.allProducts ? (
+        props.allProducts.map((productNft) => (
           <ConteinerProduct>
             <ItemProduct
               style={{
@@ -108,3 +111,13 @@ export default function Product() {
     </>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    allProducts: state.ProductReducer.allProducts,
+  };
+};
+
+const mapDispatchToProps = {
+  getAllProducts: ProductActions.getAllProducts,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

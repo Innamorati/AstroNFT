@@ -46,49 +46,7 @@ export const NavBarButtons = styled.div`
     text-decoration: none;
   }
 `;
-export const NavButton = styled.button`
-  align-items: center;
-  background-color: #ffffff;
-  border: none;
-  box-sizing: border-box;
-  color: rgba(0, 0, 0, 0.85) !important;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
 
-  :hover{
-  background-color: transparent ;
-  background-color: rgba(0, 0, 0, 0);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
-  border-bottom: 2px solid #f2c94c ;
-  transition: all .3s ;
-  border-radius:10px ;
-  }
-
-  :active{
-    background-color: red ;
-  background-color: rgba(0, 0, 0, 0);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
-  border-bottom: 2px solid #f2c94c ;
-  transition: all .3s ;
-  border-radius:10px ;
-  }
-`;
 
 export const NavIconButtons = styled.div`
   display: flex;
@@ -185,7 +143,50 @@ export const SignButton = styled.div`
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
 `;
+export const NavButton = styled.button`
+  align-items: center;
+  background-color: #ffffff;
+  border: none;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85) !important;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 
+  :hover{
+  background-color: transparent ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  }
+
+  }
+  /* &:active{
+    background-color: red ;
+  background-color: rgba(0, 0, 0, 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.473);
+  border-bottom: 2px solid #f2c94c ;
+  transition: all .3s ;
+  border-radius:10px ;
+  } */
+`;
 export const SideNavButton = styled.div`
   /* display: flex;
   justify-content: center;

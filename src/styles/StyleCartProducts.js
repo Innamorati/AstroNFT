@@ -72,7 +72,13 @@ export const CardProducts = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.01) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
   @media (max-width: 1024px) {
     width: 100%;
   }
@@ -193,7 +199,12 @@ export const CardProducts2 = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.01) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -213,6 +224,7 @@ export const Method = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3rem;
+
   @media (max-width: 1234px) {
     min-width: 100%;
     display: flex;

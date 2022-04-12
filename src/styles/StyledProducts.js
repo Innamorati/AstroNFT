@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ProductsFather = styled.div`
   width: 100%;
   color: white;
-  background-color: white;
   margin-top: 1rem;
   display: flex;
   justify-content: center;
@@ -38,6 +37,7 @@ export const ListProducts = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
   width: 100%;
   height: 100%;
   @media (max-width: 1160px) {
@@ -92,7 +92,8 @@ export const Title2 = styled.h3`
 `;
 export const Order = styled.select`
   border: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  height: 1.5rem;
 `;
 export const SelectPrice = styled.div`
   display: flex;
@@ -125,17 +126,18 @@ export const InputPrice = styled.div`
     margin-top: 0.6rem;
   }
 `;
-export const InputTextPrice = styled.input`
+export const InputPrice2 = styled.input`
   width: 3rem;
   height: 1.5rem;
-  margin: 0.5rem;
   border-radius: 1rem;
   border: 0;
   background-color: #e9e9e9;
 `;
 export const Categories = styled.div`
-  margin-top: 1rem;
+  padding: 0;
+  width: 100%;
 `;
+
 export const ButtonCategory = styled.button`
   width: auto;
   background-color: white;
@@ -147,60 +149,78 @@ export const ButtonCategory = styled.button`
 
 //INICIO DE LOS PRODUCTIOS
 export const ConteinerProduct = styled.div`
+  background: rgb(23, 82, 118);
+  background: linear-gradient(169deg, white 3%, #c9e3ff 97%);
+
   display: flex;
   flex-direction: column;
+  /*   background-color: #c9e3ff;
+ */
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   gap: 0.3rem;
-  width: 25%;
+  width: 30%;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
+    rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.001) 0px 3px 4px, rgba(0, 0, 0, 0.09) 0px 2px 0px,
+    rgba(0, 0, 0, 0.001) 0px 8px 8px;
+
+  &:hover {
+    transform: scale(0.98);
+    border-radius: 50px;
+  }
+
   h3:nth-child(3) {
     text-align: start;
   }
 
-  @media (max-width: 1110px) {
+  @media (min-width: 1150px) {
     display: flex;
     flex-wrap: wrap;
-    min-width: 25%;
+    min-width: 30%;
     margin: 1rem;
   }
-  @media (max-width: 1060px) {
+  @media (max-width: 1150px) {
     display: flex;
     flex-wrap: wrap;
-    min-width: 25%;
-    margin: 1rem;
-  }
-  @media (max-width: 1030px) {
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 35%;
+    min-width: 40%;
     margin: 1rem;
   }
 
   @media (max-width: 980px) {
     display: flex;
     flex-direction: column;
-    min-width: 35%;
-    margin: 0.3rem;
+    min-width: 37%;
+    margin: 1rem;
   }
-  @media (max-width: 750px) {
+  @media (max-width: 850px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    margin: 1rem;
+  }
+  @media (max-width: 780px) {
     display: flex;
     flex-direction: column;
     min-width: 50%;
-    margin: 0.3rem;
+    margin: 1rem;
   }
-  @media (max-width: 580px) {
+  @media (max-width: 613px) {
     display: flex;
     flex-direction: column;
-    min-width: 70%;
-    margin: 0.3rem;
+    min-width: 80%;
+    margin: 1rem;
   }
   @media (max-width: 380px) {
     display: flex;
     flex-direction: column;
     min-width: 100%;
-    margin: 0.3rem;
+    margin-bottom: 1rem;
   }
 `;
 export const ItemProduct = styled.div`
@@ -235,14 +255,24 @@ export const ItemProduct = styled.div`
 export const PriceUser = styled.div`
   height: 2.7rem;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  @media (max-width: 750px) {
-    min-width: 70%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  @media (min-width: 1500px) {
+    width: 70%;
+    justify-content: space-between;
+  }
+  @media (max-width: 1240px) {
+    min-width: 90%;
+    justify-content: space-between;
+  }
+  @media (max-width: 719px) {
+    min-width: 90%;
     justify-content: space-between;
   }
   @media (max-width: 580px) {
-    min-width: 60%;
+    min-width: 90%;
     justify-content: space-between;
   }
   @media (max-width: 580px) {
@@ -251,6 +281,10 @@ export const PriceUser = styled.div`
   }
   @media (max-width: 400px) {
     width: 80%;
+    justify-content: space-between;
+  }
+  @media (max-width: 350px) {
+    width: 100%;
     justify-content: space-between;
   }
 `;
@@ -265,7 +299,7 @@ export const UserName = styled.h3`
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 125%;
   color: #333333;
 `;
@@ -279,10 +313,10 @@ export const Eth = styled.h3`
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 125%;
   color: #333333;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 `;
 export const IconEth = styled.div`
   width: 1rem;
@@ -308,8 +342,10 @@ export const ArsMadeBy = styled.h4`
 `;
 export const DivArs = styled.div`
   width: 80%;
+  height: 2.3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-align: end;
   @media (max-width: 750px) {
     min-width: 70%;
@@ -330,6 +366,7 @@ export const Hero = styled.div`
 
 export const DivButtons = styled.div`
   width: 80%;
+  height: 2.2rem;
   display: flex;
   justify-content: space-around;
 `;
@@ -400,4 +437,7 @@ export const ViewMore = styled.button`
   &:hover::before {
     width: 100%;
   }
+`;
+export const Option = styled.option`
+  height: 1rem;
 `;

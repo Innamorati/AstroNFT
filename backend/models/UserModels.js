@@ -10,6 +10,9 @@ const UserSchema = new mongoose.Schema({
     admin: { type: Boolean, require: true },
     verifiedMail: { type: String, require: true },
     image: { type: String, },
+    basket: [{
+        nftId: { type: mongoose.Types.ObjectId, ref: "Product" }
+    }]
 })
 
 const user = mongoose.model('user', UserSchema)

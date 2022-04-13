@@ -36,6 +36,11 @@ const UserActions = {
                 localStorage.removeItem('token')
             }
         }
+    },
+    addToBasket: (id) => {
+        return async (dispatch, getSatate) => {
+            const addNft = await axios.post('http://localhost:4000/api/user/token')
+        }
     }
 }
 

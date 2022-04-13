@@ -3,34 +3,37 @@ const UserControllers = require("../controllers/UserControlles");
 const ProductControllers = require("../controllers/ProductControllers");
 const validator = require("../config/validator");
 const passport = require("../config/Passport");
+const { AddComment } = require("@mui/icons-material");
 
-const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified } =
-  UserControllers;
+const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket } = UserControllers;
 const {
-  getAllProducts,
-  addProduct,
-  deleteProduct,
-  updateProduct,
-  getOneProduct,
-} = ProductControllers;
+  getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
 
-Router.route("/products").get(getAllProducts).post(addProduct);
+Router.route("/products")
+  .get(getAllProducts).post(addProduct);
 
-Router.route("/details/:id").get(getOneProduct);
+Router.route("/details/:id")
+  .get(getOneProduct);
 
-Router.route("/product/:id").delete(deleteProduct).put(updateProduct);
+Router.route("/product/:id")
+  .delete(deleteProduct).put(updateProduct);
 
-Router.route("/user/singup").post(validator, userRegistration);
+Router.route("/user/singup")
+  .post(validator, userRegistration);
 
-Router.route("/user/signin").post(userSignin);
+Router.route("/user/signin")
+  .post(userSignin);
 
-Router.route("/verify/:uniqueString").get(verifyEmail);
+Router.route("/verify/:uniqueString")
+  .get(verifyEmail);
 
-Router.route("/user/token").get(
-  passport.authenticate("jwt", { session: false }),
-  tokenVerified
-);
+Router.route("/user/token")
+  .get(passport.authenticate("jwt", { session: false }), tokenVerified);
 
-Router.route("/user/logout").post(userLogout);
+Router.route("/user/logout")
+  .post(userLogout);
+
+Router.route("/backet/:id")
+  .post(addToBasket);
 
 module.exports = Router;

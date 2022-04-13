@@ -1,8 +1,7 @@
 const dotenv = require('dotenv');
-
-// *Useful for getting environment vairables
-dotenv.config();
 const usuario = require('../models/UserModels')
+
+dotenv.config();
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
@@ -59,6 +58,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
 
 
 const UserControllers = {
+
     verifyEmail: async (req, res) => {
 
         const { uniqueString } = req.params;
@@ -203,6 +203,17 @@ const UserControllers = {
         else {
             res.json({ success: false, })
         }
+    },
+    addToBasket: async (req, res) => {
+        const id = req.body.id
+        try {
+            const basketAdd = await usuario.findOneAndUpdate({ _id: id }, { $push: { nftId: id } })
+            res.json({ success: true, response: basketAdd })
+        }
+        catch {
+            res.json({ success: false })
+        }
     }
+
 }
 module.exports = UserControllers

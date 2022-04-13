@@ -40,7 +40,7 @@ function Product(props) {
           <ConteinerProduct>
             <ItemProduct
               style={{
-                background: `url('${product.file}')`,
+                backgroundImage: `url('${product.file}')`,
                 backgroundPosition: "center center",
                 backgroundSize: "cover",
                 objectFit: "cover",

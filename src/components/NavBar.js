@@ -8,24 +8,20 @@ import {
   NavIconButtons,
   DropdownSign,
   SignButton,
-  NavButton
+  NavButton,
 } from "../styles/StyleNavBar";
-import {
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const NavBar = (props) => {
   const Logout = () => {
     props.userLogout(props.user.user.email);
   };
 
-  console.log(props.user)
+  console.log(props.user);
   return (
     <>
       <NavBarAstroNFT>
@@ -39,20 +35,21 @@ const NavBar = (props) => {
         </LogoAstroNFT>
         <NavBarButtons>
           <LinkRouter to={"/home"}>
-            <NavButton >Home</NavButton>
+            <NavButton>Home</NavButton>
           </LinkRouter>
           <LinkRouter to={"/products"}>
-            <NavButton >Products</NavButton>
+            <NavButton>Products</NavButton>
           </LinkRouter>
           <LinkRouter to={"/contact"}>
-            <NavButton >Contact</NavButton>
+            <NavButton>Contact</NavButton>
           </LinkRouter>
-          {props.user.user?.admin === true ?
-            <LinkRouter to={'/admin'}>
-              <NavButton activeClassName="any">
-                admin page
-              </NavButton>
-            </LinkRouter> : ""}
+          {props.user.user?.admin === true ? (
+            <LinkRouter to={"/admin"}>
+              <NavButton activeClassName="any">admin page</NavButton>
+            </LinkRouter>
+          ) : (
+            ""
+          )}
           <NavIconButtons>
             <LinkRouter to={"/basket"}>
               <ShoppingCartIcon style={{ color: "black" }} />
@@ -61,24 +58,35 @@ const NavBar = (props) => {
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  props.user?.user ?
-                    <img style={{ height: "3rem", width: "3rem", borderRadius: "3rem", }} src={props.user.user.image} />
-                    :
-                    <AccountCircleIcon style={{ height: "3rem", width: "3rem", color: "lightgray" }} />
+                  props?.user.user ? (
+                    <img
+                      style={{
+                        height: "3rem",
+                        width: "3rem",
+                        borderRadius: "3rem",
+                      }}
+                      src={props.user.user.image}
+                    />
+                  ) : (
+                    <AccountCircleIcon
+                      style={{
+                        height: "3rem",
+                        width: "3rem",
+                        color: "lightgray",
+                      }}
+                    />
+                  )
                   // <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
-
                 }
               >
                 {props.user.user ? (
                   <Dropdown.Item>
-                    {" "}
                     <SignButton onClick={Logout}>Logout</SignButton>
                   </Dropdown.Item>
                 ) : (
                   <>
                     <Dropdown.Item>
                       <LinkRouter to={"/signin"}>
-                        {" "}
                         <SignButton>Sign In</SignButton>{" "}
                       </LinkRouter>
                     </Dropdown.Item>

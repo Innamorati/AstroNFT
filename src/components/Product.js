@@ -34,14 +34,16 @@ function Product(props) {
     setProducts(info.data);
   };
   console.log(product); */
-  console.log(props);
   useEffect(() => {
     props.getAllProducts();
   }, []);
+  
+  console.log(props.allProducts);
+  console.log(props.filteredProducts);
   return (
     <>
-      {props.allProducts ? (
-        props.allProducts.map((productNft) => (
+      {props.allProducts && props.filteredProducts.length > 0 ? (
+        props.filteredProducts.map((productNft) => (
           <ConteinerProduct>
             <ItemProduct
               style={{
@@ -114,6 +116,7 @@ function Product(props) {
 const mapStateToProps = (state) => {
   return {
     allProducts: state.ProductReducer.allProducts,
+    filteredProducts: state.ProductReducer.filteredProducts,
   };
 };
 

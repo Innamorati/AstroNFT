@@ -36,53 +36,53 @@ function CreateProduct(props) {
 
     return (
         <div>
+          <div className='cargaNFT'>
             <BasicModal buttonName='Crear NFT'>
-                <form className='btnEdit' onSubmit={handleAddProduct} style={{
-                    
-                }}>
+                <form className='btnEdit' onSubmit={handleAddProduct}>
                     <div className='containerForm'>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='Name' type="text" name='name' />
+                        <input className='form-input' placeholder='Name' type="text" name='name' />
                       </div>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='Price' type="text" name='price' />
+                        <input className='form-input' placeholder='Price' type="text" name='price' />
                       </div>
                     </div>
                     <div className='containerForm'>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
+                        <input className='form-input' placeholder='Creator' type="text" name='creator' />
                       </div>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='file' type="text" name='file' />
+                        <input className='form-input' placeholder='file' type="text" name='file' />
                       </div>
                     </div>
                     <div className='containerForm'>
                       <div className='divForm'>
-                        <textarea name="description" id="" className='textArea' defaultValue={'Agregar descripcion'}></textarea>
+                        <textarea name="description" id="" className='textArea' placeholder='Agregar descripcion...'></textarea>
                       </div>
                     </div>
                     <div className='containerForm'>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
+                        <input className='form-input' placeholder='owner' type="text" name='owner' />
                       </div>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='red' type="text" name='red' />
+                        <input className='form-input' placeholder='red' type="text" name='red' />
                       </div>
                     </div>
                     <div className='containerForm'>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
+                        <input className='form-input' placeholder='contract address' type="text" name='contractAddress' />
                       </div>
                       <div className='divForm'>
-                        <input className='form-input' style={{ width: 200 }} placeholder='category' type="text" name='category' />
+                        <input className='form-input' placeholder='category' type="text" name='category' />
                       </div>
                     </div>
-                    <div className='containerForm divForm'>
-                      <input className='form-input' style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
+                    <div className='containerForm'>
+                      <input  className='divForm form-input' placeholder='file type' type="text" name='fileType' />
                     </div>
                     <button className='containerForm btnCarga' type='submit'>Cargar</button>
                 </form>
             </BasicModal>
+            </div>
             <div className='styleAdmin'>
                 {
                     props.allProducts?.map((product, index) =>
@@ -103,18 +103,18 @@ function CreateProduct(props) {
                                       <form id={product._id} onSubmit={handleEditProduct} action="" className='btnEdit'>
                                         <div className='containerForm'>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} defaultValue={product.name} placeholder='Name' type="text" name='name' />
+                                            <input className='form-input' defaultValue={product.name} placeholder='Name' type="text" name='name' />
                                           </div>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='Price' type="text" name='price' />
+                                            <input className='form-input' placeholder='Price' type="text" name='price' />
                                           </div> 
                                         </div>
                                         <div className='containerForm'>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
+                                            <input className='form-input' placeholder='Creator' type="text" name='creator' />
                                           </div>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='file' type="text" name='file' />
+                                            <input className='form-input' placeholder='file' type="text" name='file' />
                                           </div>
                                         </div>
                                         <div className='containerForm'>
@@ -124,22 +124,22 @@ function CreateProduct(props) {
                                         </div>
                                         <div className='containerForm'>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
+                                            <input className='form-input' placeholder='owner' type="text" name='owner' />
                                           </div>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='red' type="text" name='red' />
+                                            <input className='form-input' placeholder='red' type="text" name='red' />
                                           </div>
                                         </div>
                                         <div className='containerForm'>
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
+                                            <input className='form-input' placeholder='contract address' type="text" name='contractAddress' />
                                           </div> 
                                           <div className='divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='category' type="text" name='category' />
+                                            <input className='form-input' placeholder='category' type="text" name='category' />
                                           </div>
                                         </div>
                                           <div className='containerForm divForm'>
-                                            <input className='form-input' style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
+                                            <input className='form-input' placeholder='file type' type="text" name='fileType' />
                                           </div> 
                                           <button type='submit' className='containerForm btnCarga'>Cargar</button>
                                       </form>

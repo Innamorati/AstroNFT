@@ -39,8 +39,8 @@ export const NavBarAstroNFT = styled.div`
 
 export const NavBarButtons = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 30em;
+  justify-content: flex-end;
+  width: 35em;
 
   a {
     text-decoration: none;
@@ -52,7 +52,12 @@ export const NavIconButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 20em;
+  width: 8rem;
+  /* svg{
+    height: 3rem;
+    width: 3rem;
+    color: lightgray;
+  } */
 `;
 export const NotUnderlined = styled.a`
   text-decoration: none;
@@ -144,6 +149,8 @@ export const SignButton = styled.div`
   font-weight: 500;
 `;
 export const NavButton = styled.button`
+  margin: 0 .6rem;
+  padding: 0 .5rem;
   align-items: center;
   background-color: #ffffff;
   border: none;
@@ -157,14 +164,13 @@ export const NavButton = styled.button`
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
-  min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  height: 2.8rem;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  /* width: auto; */
 
   :hover{
   background-color: transparent ;

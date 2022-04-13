@@ -94,26 +94,12 @@ const UserControllers = {
                     }
                     else {
                         existingUser.save()
-                        res.json({ success: true, from: "signup", message: "We add" + "to your sign in methods" })
+                        res.json({ success: true, from: "signup", message: "We add " + from + " to your sign in methods" })
                     }
                 }
             }
             else {
-                //agregué este condicional, fijense si esta bien y si lo quieren dejar, cambiar o borrar
-                // if(google){
-                //     const passwordHash = bcryptjs.hashSync(password, 15)
-                //     existingUser.password = passwordHash;
-                //     existingUser.verifiedMail = true
-                //     existingUser.google = true
-
-                //     existingUser.save()
-                //     res.json({ success: true, from: "google", message: "Now, you can sign in with google too"})
-                // }else{
-                //     res.json({ success: false, from: "signup", message: "The email entered is already in use. Please, sign in or choose another email address."})
-                // }
-                //llega hasta acá lo nuevo que agregué
                 const passwordHash = bcryptjs.hashSync(password, 15)
-
                 const newuser = await new usuario({
                     firstName,
                     lastName,

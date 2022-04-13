@@ -29,14 +29,14 @@ export default function WalletUser() {
             <ImgUser
               style={{
                 backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Photo1.png"
+                  process.env.PUBLIC_URL + "/assets/product1.png"
                 }')`,
                 objectFit: "contain",
                 backgroundPosition: "center center",
                 backgroundSize: "cover",
               }}
             />
-            <NameUser>Kevin</NameUser>
+            <NameUser>Perfil</NameUser>
           </DivUser>
           <Money>
             <TextMoney>Money in Wallet</TextMoney>

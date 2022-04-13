@@ -110,15 +110,23 @@
 .form-input{
     outline: none;
     border-radius: 6px;
-    padding: 2px;
+    padding: 3px;
+    border: 2px solid gray;
+}
+
+.form-input:hover{
+    border: 2px solid rgb(0, 0, 0);
 }
 
 .btnCarga{
     border-radius: 10px;
     padding: .5rem 1rem;
-    border: 2px solid black;
+    border: 2px solid gray;
+    font-weight: 500;
 }
 
 .btnCarga:hover{
-    background-color: rgb(189, 188, 187);
+    background-color: rgb(0, 0, 0);
+    color: white;
+    
 }

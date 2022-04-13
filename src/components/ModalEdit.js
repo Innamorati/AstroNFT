@@ -13,8 +13,7 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
-    height:520,
+    height:550,
 };
 
 export default function BasicModal(props) {

@@ -1,4 +1,3 @@
-import { style } from "@mui/system";
 import styled from "styled-components";
 
 export const DivFather = styled.div`
@@ -6,6 +5,8 @@ export const DivFather = styled.div`
   background-color: white;
   padding: 3rem;
   min-height: 100vh;
+  margin-bottom: 12rem;
+
   @media (max-width: 1000px) {
     padding: 1rem;
   }

@@ -172,7 +172,6 @@ export const ConteinerProduct = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 
   &:hover {
-    transform: scale(0.98);
     border-radius: 50px;
   }
 

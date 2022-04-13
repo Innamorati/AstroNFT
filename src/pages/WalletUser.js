@@ -2,57 +2,18 @@ import React from "react";
 import Footer from "../components/Footer";
 
 import {
-  ConteinerWallet,
-  UserWallet,
-  NameUser,
-  ImgUser,
   DivNfts,
   ProductWallet,
   NameNFT,
   Sell,
   ConteinerNFT,
-  Money,
-  Ethereum,
-  Bnb,
-  DivUser,
-  TextMoney,
   Title,
-  TextDescription,
 } from "../styles/StyleWallet";
 
 export default function WalletUser() {
   return (
     <>
-      <ConteinerWallet>
-        <UserWallet>
-          <DivUser>
-            <ImgUser
-              style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Photo1.png"
-                }')`,
-                objectFit: "contain",
-                backgroundPosition: "center center",
-                backgroundSize: "cover",
-              }}
-            />
-            <NameUser>Kevin</NameUser>
-          </DivUser>
-          <Money>
-            <TextMoney>Money in Wallet</TextMoney>
-            <TextDescription>500 USD</TextDescription>
-          </Money>
-          <Ethereum>
-            <TextMoney>Ethereum</TextMoney>
-            <TextDescription>0,1645077762825849 ETH</TextDescription>
-          </Ethereum>
-          <Bnb>
-            <TextMoney>BNB</TextMoney>
-            <TextDescription>1,205778088600574 BNB</TextDescription>
-          </Bnb>
-        </UserWallet>
-      </ConteinerWallet>
-      <Title>NFT´s in collection</Title>
+      <Title>NFT in collection</Title>
 
       <ConteinerNFT>
         <DivNfts>
@@ -126,7 +87,6 @@ export default function WalletUser() {
           <Sell>Sell</Sell>
         </DivNfts>
       </ConteinerNFT>
-      <Footer />
     </>
   );
 }

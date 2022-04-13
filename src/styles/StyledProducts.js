@@ -6,7 +6,11 @@ export const ProductsFather = styled.div`
   margin-top: 1rem;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  @media (max-width: 1080px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 export const DivFilterProducts = styled.div`
   width: 100%;
@@ -134,7 +138,6 @@ export const InputPrice2 = styled.input`
   background-color: #e9e9e9;
 `;
 export const Categories = styled.div`
-  padding: 0;
   width: 100%;
 `;
 
@@ -150,12 +153,10 @@ export const ButtonCategory = styled.button`
 //INICIO DE LOS PRODUCTIOS
 export const ConteinerProduct = styled.div`
   background: rgb(23, 82, 118);
-  background: linear-gradient(169deg, white 3%, #c9e3ff 97%);
-
+  background: linear-gradient(169deg, white 3%, #e6efff 97%);
   display: flex;
   flex-direction: column;
-  /*   background-color: #c9e3ff;
- */
+
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
@@ -367,31 +368,22 @@ export const Hero = styled.div`
 export const DivButtons = styled.div`
   width: 80%;
   height: 2.2rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-around;
 `;
 export const AddCart = styled.button`
-  color: black;
   display: flex;
   align-items: center;
   font-weight: 500;
   font-size: 14px;
   padding: 0.3em 1em 0.3em 0.2em;
-  color: white;
-  background: #ad5389;
-  background: linear-gradient(
-    0deg,
-    rgba(20, 167, 62, 1) 0%,
-    rgba(102, 247, 113, 1) 100%
-  );
+  background-color: white;
   border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  box-shadow: 0 0.7em 1.5em -0.5em grey;
   letter-spacing: 0.05em;
   border-radius: 20em;
-  &svg {
-    margin-right: 6px;
-  }
-
+  padding: 0.7rem;
   &:hover {
     box-shadow: 0 1em 1em -0.5em grey;
   }
@@ -399,6 +391,10 @@ export const AddCart = styled.button`
   &:active {
     box-shadow: 0 0.3em 1em -0.5em grey;
   }
+`;
+export const AddImg = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
 `;
 
 export const ViewMore = styled.button`
@@ -412,7 +408,7 @@ export const ViewMore = styled.button`
   font-weight: 650;
   font-size: 13px;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 0 0.7em 1.5em -0.5em grey;
   transition: all 250ms;
   overflow: hidden;
   &::before {
@@ -432,6 +428,7 @@ export const ViewMore = styled.button`
 
   &:hover {
     color: #e8e8e8;
+    box-shadow: 0 1em 1em -0.5em grey;
   }
 
   &:hover::before {

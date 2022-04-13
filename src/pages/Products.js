@@ -99,7 +99,7 @@ const Products = (props) => {
 };
 
 const mapDispatchToProps = {
-  filterProducts: ProductActions.filerProducts,
+  filterProducts: ProductActions.filterProducts,
 }
 
 const mapStateToProps = (state) => {

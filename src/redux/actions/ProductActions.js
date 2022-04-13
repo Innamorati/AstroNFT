@@ -23,7 +23,7 @@ const ProductActions = {
             const res = await axios.put(`http://localhost:4000/api/product/${id}`, { data })
         }
     },
-    filerProducts: (products, search, categories, fileType) => {
+    filterProducts: (products, search, categories, fileType) => {
         return (dispatch, getState) => {
             dispatch({ type: 'filter_products', payload: { products, search, categories, fileType } })
         }

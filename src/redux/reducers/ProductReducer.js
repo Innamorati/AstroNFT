@@ -43,9 +43,6 @@ const ProductReducer = (state = initialState, action) => {
                     }
                 }
             }
-            console.log(search);
-            console.log(categories);
-            console.log(fileType);
 
             return {
                 ...state,

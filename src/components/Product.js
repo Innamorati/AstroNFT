@@ -4,7 +4,8 @@ import ErrorProducts from "./ErrorProducts";
 import { connect } from "react-redux";
 import {
   Title,
-  ItemProduct,
+  ItemProductImage,
+  ItemProductVideo,
   PriceUser,
   UserName,
   UserImg,
@@ -38,14 +39,11 @@ function Product(props) {
       {props?.allProducts && props.filteredProducts.length > 0 ? (
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
-            <ItemProduct
-              style={{
-                backgroundImage: `url('${product.file}')`,
-                backgroundPosition: "center center",
-                backgroundSize: "cover",
-                objectFit: "cover",
-              }}
-            />
+            {
+              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif' || product.file.split('.')[3] === 'gifv'
+              ? <ItemProductImage src={product.file}/>
+              : <ItemProductVideo controls><source src={product.file} type="" /></ItemProductVideo>
+            }
             <Title>{product.name}</Title>
             <PriceUser>
               <DivPriceETH>

@@ -40,7 +40,7 @@ function DetailsProducts(props) {
   useEffect(() => {
     props.getOneProduct(id);
   }, []);
-
+  
   return (
     <>
       <DivFather>

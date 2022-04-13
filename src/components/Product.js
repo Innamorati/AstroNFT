@@ -36,7 +36,7 @@ function Product(props) {
   return (
     <>
       {props.allProducts && props.filteredProducts.length > 0 ? (
-        props.filteredProducts.map((productNft) => (
+        props.filteredProducts.map((product) => (
           <ConteinerProduct>
             <ItemProduct
               style={{

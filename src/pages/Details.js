@@ -4,7 +4,7 @@ import DetailsProducts from "../components/DetailsProducts";
 export default function Body() {
   return (
     <>
-      <DetailsProducts />
+      <DetailsProducts/>
     </>
   );
 }

@@ -27,7 +27,7 @@ export const SignUp = (props) => {
             <FormContainer>
                 <Form onSubmit={signup}>
                     <Title>Sign up</Title>
-                    <Label for="name">First name</Label>
+                    <Label htmlFor="name">First name</Label>
                     <Input id="name" />
                     <Label htmlFor="lastName" >Last name</Label>
                     <Input id="lastName" />
@@ -35,7 +35,7 @@ export const SignUp = (props) => {
                     <Input id="email" type="email" />
                     <Label htmlFor="password" >Password</Label>
                     <Input id="password" type="password" />
-                    <Label for="mail" >URL Profile Picture</Label>
+                    <Label hmtlFor="mail" >URL Profile Picture</Label>
                     <Input id="mail" />
                     <SignUpButton>
                         <button type="submit">Register</button>

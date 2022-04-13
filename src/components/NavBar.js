@@ -59,19 +59,15 @@ const NavBar = (props) => {
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  props.user ? (
-                    props.user.user ? (
-                      <img
-                        style={{
-                          height: "3rem",
-                          width: "3rem",
-                          borderRadius: "3rem",
-                        }}
-                        src={props.user.user.image}
-                      />
-                    ) : (
-                      <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
-                    )
+                  props.user?.user ? (
+                    <img
+                      style={{
+                        height: "3rem",
+                        width: "3rem",
+                        borderRadius: "3rem",
+                      }}
+                      src={props.user.user.image}
+                    />
                   ) : (
                     <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
                   )

@@ -26,13 +26,14 @@ import {
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
 const Products = () => {
+
+
   return (
     <>
       <Hero
         style={{
-          backgroundImage: `url('${
-            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
-          }')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+            }')`,
           backgroundPosition: "center center",
         }}
       >

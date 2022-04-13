@@ -141,6 +141,7 @@ const UserControllers = {
                     let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
+                            basket: existingUser.basket,
                             id: existingUser._id,
                             firtsName: existingUser.firstName,
                             lastName: existingUser.lastName,
@@ -163,6 +164,7 @@ const UserControllers = {
                         let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
                         if (passwordMatch.length > 0) {
                             const userData = {
+                                basket: existingUser.basket,
                                 id: existingUser._id,
                                 firstName: existingUser.firstName,
                                 lastName: existingUser.lastName,
@@ -198,16 +200,18 @@ const UserControllers = {
     },
     tokenVerified: (req, res) => {
         if (!req.err) {
-            res.json({ success: true, response: { admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
+            res.json({ success: true, response: { basket: req.user.basket, id: req.user._id, admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
         }
         else {
             res.json({ success: false, })
         }
     },
     addToBasket: async (req, res) => {
+        const userId = req.body.userId
         const id = req.body.id
         try {
-            const basketAdd = await usuario.findOneAndUpdate({ _id: id }, { $push: { nftId: id } })
+            const basketAdd = await usuario.findOneAndUpdate({ _id: userId }, { $push: { basket: { nftId: id } } })
+            console.log(basketAdd)
             res.json({ success: true, response: basketAdd })
         }
         catch {

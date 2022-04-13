@@ -25,7 +25,7 @@ const NavBar = (props) => {
     props.userLogout(props.user.user.email);
   };
 
-  console.log(props.user)
+
   return (
     <>
       <NavBarAstroNFT>

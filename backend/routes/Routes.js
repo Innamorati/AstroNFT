@@ -33,7 +33,7 @@ Router.route("/user/token")
 Router.route("/user/logout")
   .post(userLogout);
 
-Router.route("/backet/:id")
+Router.route("/bascket")
   .post(addToBasket);
 
 module.exports = Router;

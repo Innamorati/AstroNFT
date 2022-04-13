@@ -36,7 +36,7 @@ function CreateProduct(props) {
 
     return (
         <div>
-           {/*  <BasicModal buttonName='Crear NFT'>
+            <BasicModal buttonName='Crear NFT'>
                 <form onSubmit={handleAddProduct} style={{
                     margin: '0 auto',
                     width: '100%',
@@ -57,7 +57,7 @@ function CreateProduct(props) {
                     <input style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
                     <button type='submit'>Cargar</button>
                 </form>
-            </BasicModal> */}
+            </BasicModal>
             <div className='styleAdmin'>
                 {
                     props.allProducts?.map((product, index) =>

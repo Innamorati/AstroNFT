@@ -30,7 +30,7 @@ function Product(props) {
   useEffect(() => {
     props.getAllProducts();
   }, []);
-  
+
   console.log(props.allProducts);
   console.log(props.filteredProducts);
   return (

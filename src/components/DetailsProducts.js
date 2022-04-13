@@ -34,28 +34,25 @@ function DetailsProducts(props) {
   const { id } = useParams();
 
   console.log(id);
-  const Product = props.oneProduct;
-  console.log(Product);
-
+  console.log(props.oneProduct);
   useEffect(() => {
     props.getOneProduct(id);
   }, []);
   
   return (
-    <>
       <DivFather>
         <FatherDetails>
           <HeaderDetails>
             <ImgDetails
               style={{
-                backgroundImage: `url('${Product.file}')`,
+                backgroundImage: `url('${props.oneProduct?.file}')`,
               }}
             />
           </HeaderDetails>
           <HeaderDetails2>
             <ConteinerTitleAndLike>
-              <TitleDetails>{Product.name}</TitleDetails>
-              <CategoryDetails>{Product.category}</CategoryDetails>
+              <TitleDetails>{props.oneProduct?.name}</TitleDetails>
+              <CategoryDetails>{props.oneProduct?.category}</CategoryDetails>
               <BtnLike
                 style={{
                   backgroundImage: `url('${
@@ -76,7 +73,7 @@ function DetailsProducts(props) {
                     }}
                   />
                   <EtherDetails>
-                    {Product.price} {Product.token}{" "}
+                    {props.oneProduct?.price} {props.oneProduct?.token}{" "}
                   </EtherDetails>
                 </DivPrice>
                 <ArMoney>≈ ARS$ 46,828.55 "ficticio"</ArMoney>
@@ -88,7 +85,7 @@ function DetailsProducts(props) {
             <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Description</Accordion.Header>
-                <Accordion.Body>{Product.description}</Accordion.Body>
+                <Accordion.Body>{props.oneProduct?.description}</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Details</Accordion.Header>
@@ -96,11 +93,11 @@ function DetailsProducts(props) {
                   <CreatorDetails>
                     <Creator>
                       <TitleCreator>Creator</TitleCreator>
-                      <DivCreator>{Product.creator} </DivCreator>
+                      <DivCreator>{props.oneProduct?.creator} </DivCreator>
                     </Creator>
                     <Creator>
                       <TitleCreator>Network</TitleCreator>
-                      <DivCreator>{Product.red}</DivCreator>
+                      <DivCreator>{props.oneProduct?.red}</DivCreator>
                     </Creator>
                     <Creator>
                       <TitleCreator>Contract Address</TitleCreator>
@@ -117,8 +114,6 @@ function DetailsProducts(props) {
           </HeaderDetails2>
         </FatherDetails>
       </DivFather>
-      <Footer />
-    </>
   );
 }
 

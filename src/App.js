@@ -17,6 +17,7 @@ import React, { useEffect } from "react";
 import Details from "./pages/Details";
 import Admin from "./pages/Admin";
 import WalletUser from "./pages/WalletUser";
+import Footer from './components/Footer';
 
 function App(props) {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App(props) {
         <Route path="/admin" element={<Admin />} />
         <Route path="/wallet" element={<WalletUser />} />
       </Routes>
+        <Footer />
       <CustomizedSnackbars />
     </BrowserRouter>
   );

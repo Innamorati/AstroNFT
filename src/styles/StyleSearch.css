@@ -17,8 +17,9 @@
   display: flex;
   justify-content: space-between;
   background-color: #fffbf8;
+  margin-top: 1rem;
   padding: 1rem;
-  width: 30%;
+  width: 18rem;
   height: 4rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -38,7 +39,7 @@
     0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
 }
 .inputSearch[type="search"] {
-  width: 20rem;
+  width: 14rem;
   height: 30px;
   padding-left: 15px;
   border-radius: 6px;

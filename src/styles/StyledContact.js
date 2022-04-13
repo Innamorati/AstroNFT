@@ -4,7 +4,7 @@ export const ContactBack = styled.div`
   display: flex;
   width: 100%;
   /* min-height: 100vh; */
-  height: 75rem;
+  height: 50rem;
   background-image: url("${process.env.PUBLIC_URL + "/assets/contact.png"}");
   background-position:center ;
   background-size:cover ;

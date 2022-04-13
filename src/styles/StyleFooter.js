@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 //Footer
 export const Footer = styled.div`
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   width: auto;
   height: auto;
   background-color: #494949;

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from '../components/Footer'
 import {
     ContactBack,
     ContactContainer,
@@ -13,6 +14,7 @@ import {
 } from "../styles/StyledContact";
 const Contact = () => {
     return (
+        <>
         <ContactBack>
             <ContactContainer>
                 <Form onSubmit={Contact}>
@@ -44,6 +46,8 @@ const Contact = () => {
                 </Form>
             </ContactContainer>
         </ContactBack>
+        <Footer/>
+        </>
     );
 };
 

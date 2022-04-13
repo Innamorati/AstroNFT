@@ -1,8 +1,8 @@
 import React from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
-import { Accordion } from "react-bootstrap";
 import "../styles/StyleSearch.css";
+import "../styles/StyleDropdown.css";
 import {
   ProductsFather,
   FilterProducts,
@@ -15,13 +15,13 @@ import {
   Slider,
   Input,
   InputPrice,
-  InputTextPrice,
+  InputPrice2,
   Categories,
   ButtonCategory,
   DivFilterProducts,
   Hero,
   TitleHead,
-  Search,
+  Option,
 } from "../styles/StyledProducts";
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
@@ -30,8 +30,9 @@ const Products = () => {
     <>
       <Hero
         style={{
-          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/HeroProducts.png"
-            }')`,
+          backgroundImage: `url('${
+            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+          }')`,
           backgroundPosition: "center center",
         }}
       >
@@ -44,99 +45,41 @@ const Products = () => {
             &nbsp;
           </button>
         </form>
-        <Accordion
-          style={{
-            width: "70%",
-          }}
-        >
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Filters</Accordion.Header>
-            <Accordion.Body>
-              <FilterProducts>
-                <DivFilterProducts>
-                  <FilterClean>
-                    <Title>Filters</Title>
-                    <Title>Clean all</Title>
-                  </FilterClean>
-                  <Title2>Order</Title2>
-                  <Order>
-                    <option>Lowest Price</option>
-                    <option>Highest price</option>
-                    <option>More relevant</option>
-                  </Order>
-                  <SelectPrice>
-                    <Title2>Price</Title2>
-                    <Slider>
-                      <Input
-                        type="range"
-                        min="0"
-                        max="100"
-                        onchange="rangevalue.value=value"
-                      />
-                    </Slider>
-                  </SelectPrice>
-                  <InputPrice>
-                    <Title2>From</Title2>
-                    <InputTextPrice />
-                    <Title2>to</Title2>
-                    <InputTextPrice />
-                  </InputPrice>
-                </DivFilterProducts>
+        <div class="dropdown2">
+          <input type="checkbox" id="dropdown2" />
 
-                <DivFilterProducts>
-                  <FilterClean>
-                    <Title2>Categories</Title2>
-                  </FilterClean>
+          <label class="dropdown2__face" for="dropdown2">
+            <div class="dropdown2__text">Filters NFTs</div>
 
-                  <Categories>
-                    <ButtonCategory>Premium</ButtonCategory>
-                    <ButtonCategory>Arts</ButtonCategory>
-                    <ButtonCategory>Sports</ButtonCategory>
-                    <ButtonCategory>Entertainment</ButtonCategory>
-                    <ButtonCategory>Gaming</ButtonCategory>
-                    <ButtonCategory>Collectibles</ButtonCategory>
-                  </Categories>
-                  <Categories>
-                    <Title2>File Type</Title2>
+            <div class="dropdown2__arrow"></div>
+          </label>
 
-                    <ButtonCategory>Image</ButtonCategory>
-                    <ButtonCategory>Video</ButtonCategory>
-                    <ButtonCategory>Audio</ButtonCategory>
-                  </Categories>
-                </DivFilterProducts>
-              </FilterProducts>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-        <ListProducts>
-          {/* 1 */}
-          <Product />
-          {/* 2 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 1 */}
-          <Product />
-          {/* 2 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 1 */}
-          <Product />
-          {/* 2 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-          {/* 3 */}
-          <Product />
-        </ListProducts>
+          <ul class="dropdown2__items">
+            <Categories>
+              <Title2>Categories</Title2>
+              <ButtonCategory>Premium</ButtonCategory>
+              <ButtonCategory>Arts</ButtonCategory>
+              <ButtonCategory>Sports</ButtonCategory>
+              <ButtonCategory>Entertainment</ButtonCategory>
+              <ButtonCategory>Gaming</ButtonCategory>
+              <ButtonCategory>Collectibles</ButtonCategory>
+              <Title2>Order</Title2>
+              <Order>
+                <Option>Lowest Price</Option>
+                <Option>Highest price</Option>
+                <Option>More relevant</Option>
+              </Order>
+
+              <Title2>File Type</Title2>
+              <ButtonCategory>Image</ButtonCategory>
+              <ButtonCategory>Video</ButtonCategory>
+            </Categories>
+          </ul>
+        </div>
       </ProductsFather>
+      <ListProducts>
+        <Product />
+      </ListProducts>
       <FooterComp />
     </>
   );

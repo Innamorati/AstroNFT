@@ -27,39 +27,43 @@ function CreateProduct(props) {
     async function handleEditProduct(event) {
         event.preventDefault();
         const data = Object.fromEntries(new FormData(event.target))
-        console.log(data);
-        console.log(event.target.id);
+        props.updateProduct(event.target.id, data)
+        // console.log(data);
+        setReload(!reload);
     }
+
 
     return (
         <div>
-            <form onSubmit={handleAddProduct} style={{
-                margin: '0 auto',
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: 100
-            }}>
-                <input style={{ width: 200 }} placeholder='Name' type="text" name='name' />
-                <input style={{ width: 200 }} placeholder='Price' type="text" name='price' />
-                <input style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
-                <input style={{ width: 200 }} placeholder='file' type="text" name='file' />
-                <textarea name="description" id="" cols="30" rows="10" defaultValue={'Agregar descripcion'}></textarea>
-                <input style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
-                <input style={{ width: 200 }} placeholder='red' type="text" name='red' />
-                <input style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
-                <input style={{ width: 200 }} placeholder='category' type="text" name='category' />
-                <input style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
-                <button type='submit'>Cargar</button>
-            </form>
+            <BasicModal buttonName='Crear NFT'>
+                <form onSubmit={handleAddProduct} style={{
+                    margin: '0 auto',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    padding: 100
+                }}>
+                    <input style={{ width: 200 }} placeholder='Name' type="text" name='name' />
+                    <input style={{ width: 200 }} placeholder='Price' type="text" name='price' />
+                    <input style={{ width: 200 }} placeholder='Creator' type="text" name='creator' />
+                    <input style={{ width: 200 }} placeholder='file' type="text" name='file' />
+                    <textarea name="description" id="" cols="30" rows="10" defaultValue={'Agregar descripcion'}></textarea>
+                    <input style={{ width: 200 }} placeholder='owner' type="text" name='owner' />
+                    <input style={{ width: 200 }} placeholder='red' type="text" name='red' />
+                    <input style={{ width: 200 }} placeholder='contract address' type="text" name='contractAddress' />
+                    <input style={{ width: 200 }} placeholder='category' type="text" name='category' />
+                    <input style={{ width: 200 }} placeholder='file type' type="text" name='fileType' />
+                    <button type='submit'>Cargar</button>
+                </form>
+            </BasicModal>
             <div style={{ width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                 {
                     props.allProducts?.map((product, index) =>
                         <div>
                             <p>{product.name}</p>
                             <button onClick={handleDeleteProduct} id={product._id}>Eliminar</button>
-                            <BasicModal>
+                            <BasicModal buttonName='Editar'>
                                 <form id={product._id} onSubmit={handleEditProduct} action="">
                                     <input style={{ width: 200 }} defaultValue={product.name} placeholder='Name' type="text" name='name' />
                                     <input style={{ width: 200 }} placeholder='Price' type="text" name='price' />
@@ -86,6 +90,7 @@ const mapDispatchToProps = {
     getAllProducts: ProductActions.getAllProducts,
     addProduct: ProductActions.addProduct,
     deleteProduct: ProductActions.deleteProduct,
+    updateProduct: ProductActions.updateProduct,
 }
 
 const mapStateToProps = (state) => {

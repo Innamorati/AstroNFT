@@ -30,13 +30,13 @@ function Product(props) {
   useEffect(() => {
     props.getAllProducts();
   }, []);
-  
+
   console.log(props.allProducts);
   console.log(props.filteredProducts);
   return (
     <>
-      {props.allProducts && props.filteredProducts.length > 0 ? (
-        props.filteredProducts.map((productNft) => (
+      {props?.allProducts && props.filteredProducts.length > 0 ? (
+        props.filteredProducts.map((product) => (
           <ConteinerProduct>
             <ItemProduct
               style={{

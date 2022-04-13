@@ -13,9 +13,9 @@ import UserActions from "./redux/actions/UserActions";
 import React, { useEffect } from "react";
 // import DetailsProducts from "./pages/DetailsProducts";
 import Details from "./pages/Details";
-import Footer from './components/Footer'
 import Admin from "./pages/Admin";
 import WalletUser from "./pages/WalletUser";
+import Footer from './components/Footer';
 
 function App(props) {
   useEffect(() => {

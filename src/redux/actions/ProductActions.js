@@ -13,6 +13,13 @@ const ProductActions = {
             dispatch({ type: 'all_products', payload: res.data.response });
         }
     },
+    getOneProduct: (id) => {
+        return async (dispatch, getState) => {
+            const res = await axios.get("http://localhost:4000/api/details/" + id);
+            console.log(res);
+            dispatch({ type: "one_product", payload: res.data.response });
+        };
+    },
     deleteProduct: (id) => {
         return async (dispatch, getState) => {
             const res = await axios.delete(`http://localhost:4000/api/product/${id}`)

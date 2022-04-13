@@ -12,20 +12,19 @@ import Error404 from "./pages/Error404";
 import { AdminPage } from "./pages/AdminPage";
 import { connect } from "react-redux";
 import UserActions from "./redux/actions/UserActions";
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 // import DetailsProducts from "./pages/DetailsProducts";
 import Details from "./pages/Details";
-import Admin from './pages/Admin';
+import Admin from "./pages/Admin";
+import WalletUser from "./pages/WalletUser";
 
 function App(props) {
-
-
   useEffect(() => {
-    if (localStorage.getItem('token') !== null) {
-      const token = localStorage.getItem("token")
-      props.verifiedToken(token)
+    if (localStorage.getItem("token") !== null) {
+      const token = localStorage.getItem("token");
+      props.verifiedToken(token);
     }
-  }, [])
+  }, []);
   return (
     <BrowserRouter>
       <NavBar />
@@ -39,21 +38,22 @@ function App(props) {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/details/:id" element={<Details />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/wallet" element={<WalletUser />} />
       </Routes>
       <CustomizedSnackbars />
     </BrowserRouter>
-  )
+  );
 }
 
 const mapDispatchToProps = {
-  verifiedToken: UserActions.verifiedToken
-}
+  verifiedToken: UserActions.verifiedToken,
+};
 const mapStateToProps = (state) => {
   return {
-    user: state.UserReducer.user
-  }
-}
+    user: state.UserReducer.user,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

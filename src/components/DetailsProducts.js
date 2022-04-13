@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import Footer from "./Footer";
+import { useParams } from "react-router-dom";
 import {
   FatherDetails,
   DivFather,
@@ -25,8 +26,21 @@ import {
   DivCreator,
   ConteinerTitleAndLike,
 } from "../styles/StyleDetailsProducts";
+import { connect } from "react-redux";
+import ProductActions from "../redux/actions/ProductActions";
+import { useEffect, useState } from "react";
 
-const DetailsProducts = () => {
+function DetailsProducts(props) {
+  const { id } = useParams();
+
+  console.log(id);
+  const Product = props.oneProduct;
+  console.log(Product);
+
+  useEffect(() => {
+    props.getOneProduct(id);
+  }, []);
+
   return (
     <>
       <DivFather>
@@ -34,20 +48,19 @@ const DetailsProducts = () => {
           <HeaderDetails>
             <ImgDetails
               style={{
-                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image1.png"
-                  }')`,
+                backgroundImage: `url('${Product.file}')`,
               }}
             />
           </HeaderDetails>
-
           <HeaderDetails2>
             <ConteinerTitleAndLike>
-              <TitleDetails>Fekiki Club #187</TitleDetails>
-              <CategoryDetails>Collectibles</CategoryDetails>
+              <TitleDetails>{Product.name}</TitleDetails>
+              <CategoryDetails>{Product.category}</CategoryDetails>
               <BtnLike
                 style={{
-                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/Heart.png"
-                    }')`,
+                  backgroundImage: `url('${
+                    process.env.PUBLIC_URL + "/assets/Heart.png"
+                  }')`,
                 }}
               />
             </ConteinerTitleAndLike>
@@ -57,13 +70,16 @@ const DetailsProducts = () => {
                 <DivPrice>
                   <IconEther
                     style={{
-                      backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
-                        }')`,
+                      backgroundImage: `url('${
+                        process.env.PUBLIC_URL + "/assets/IconEth.png"
+                      }')`,
                     }}
                   />
-                  <EtherDetails>0.121 ETH</EtherDetails>
+                  <EtherDetails>
+                    {Product.price} {Product.token}{" "}
+                  </EtherDetails>
                 </DivPrice>
-                <ArMoney>≈ ARS$ 46,828.55</ArMoney>
+                <ArMoney>≈ ARS$ 46,828.55 "ficticio"</ArMoney>
               </PriceDetails>
               <BtnDetails>
                 <BtnBuy>BUY</BtnBuy>
@@ -72,16 +88,7 @@ const DetailsProducts = () => {
             <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Description</Accordion.Header>
-                <Accordion.Body>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </Accordion.Body>
+                <Accordion.Body>{Product.description}</Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
                 <Accordion.Header>Details</Accordion.Header>
@@ -89,11 +96,11 @@ const DetailsProducts = () => {
                   <CreatorDetails>
                     <Creator>
                       <TitleCreator>Creator</TitleCreator>
-                      <DivCreator>Fekiki</DivCreator>
+                      <DivCreator>{Product.creator} </DivCreator>
                     </Creator>
                     <Creator>
                       <TitleCreator>Network</TitleCreator>
-                      <DivCreator>BSC</DivCreator>
+                      <DivCreator>{Product.red}</DivCreator>
                     </Creator>
                     <Creator>
                       <TitleCreator>Contract Address</TitleCreator>
@@ -113,6 +120,15 @@ const DetailsProducts = () => {
       <Footer />
     </>
   );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    oneProduct: state.ProductReducer.oneProduct,
+  };
 };
 
-export default DetailsProducts;
+const mapDispatchToProps = {
+  getOneProduct: ProductActions.getOneProduct,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsProducts);

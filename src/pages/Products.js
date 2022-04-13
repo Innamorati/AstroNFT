@@ -60,16 +60,16 @@ const Products = (props) => {
             &nbsp;
           </button>
         </form>
-        <div class="dropdown">
-          <input type="checkbox" id="dropdown" />
+        <div class="dropdown2">
+          <input type="checkbox" id="dropdown2" />
 
-          <label class="dropdown__face" for="dropdown">
-            <div class="dropdown__text">Dropdown</div>
+          <label class="dropdown2__face" for="dropdown2">
+            <div class="dropdown2__text">Filters NFTs</div>
 
-            <div class="dropdown__arrow"></div>
+            <div class="dropdown2__arrow"></div>
           </label>
 
-          <ul class="dropdown__items">
+          <ul class="dropdown2__items">
             <Categories>
               <Title2>Categories</Title2>
               <ButtonCategory onClick={(event) => setCategory(event.target.innerText)}>Art</ButtonCategory>
@@ -88,11 +88,10 @@ const Products = (props) => {
             </Categories>
           </ul>
         </div>
-
-        <ListProducts>
-          <Product />
-        </ListProducts>
       </ProductsFather>
+      <ListProducts>
+        <Product />
+      </ListProducts>
       <FooterComp />
     </>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
-import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import {
   FatherDetails,

@@ -42,7 +42,6 @@ function DetailsProducts(props) {
   }, []);
 
   return (
-    <>
       <DivFather>
         <FatherDetails>
           <HeaderDetails>
@@ -117,8 +116,6 @@ function DetailsProducts(props) {
           </HeaderDetails2>
         </FatherDetails>
       </DivFather>
-      <Footer />
-    </>
   );
 }
 

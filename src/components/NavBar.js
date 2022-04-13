@@ -16,6 +16,8 @@ import {
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const NavBar = (props) => {
@@ -52,25 +54,19 @@ const NavBar = (props) => {
               </NavButton>
             </LinkRouter> : ""}
           <NavIconButtons>
-            <LinkRouter to={"/cart"}>
-              <img src={process.env.PUBLIC_URL + "/assets/shopping-cart.jpg"} />
+            <LinkRouter to={"/basket"}>
+              <ShoppingCartIcon style={{ color: "black" }} />
             </LinkRouter>
             <DropdownSign>
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  props.user?.user ? (
-                    <img
-                      style={{
-                        height: "3rem",
-                        width: "3rem",
-                        borderRadius: "3rem",
-                      }}
-                      src={props.user.user.image}
-                    />
-                  ) : (
-                    <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
-                  )
+                  props.user?.user ?
+                    <img style={{ height: "3rem", width: "3rem", borderRadius: "3rem", }} src={props.user.user.image} />
+                    :
+                    <AccountCircleIcon style={{ height: "3rem", width: "3rem", color: "lightgray" }} />
+                  // <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
+
                 }
               >
                 {props.user.user ? (

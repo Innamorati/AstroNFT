@@ -37,7 +37,7 @@ function App(props) {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/basket" element={<Cart />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/wallet" element={<WalletUser />} />

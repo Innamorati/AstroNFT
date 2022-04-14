@@ -35,10 +35,10 @@ function Product(props) {
 
   const addBasket = (id) => {
     const userId = props.user?.user?.id
+    console.log(id, userId)
     props.addToBasket(id, userId)
-    // console.log(id, props.user?.user?.id)
   }
-
+  console.log(props.user)
   return (
     <>
       {props.allProducts ? (
@@ -66,13 +66,11 @@ function Product(props) {
                 </Eth>
               </DivPriceETH>
               <ConteinerUser>
-                <UserImg
-                  style={{
-                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/userImage.png"
-                      }')`,
-                    backgroundPosition: "center center",
-                    objectFit: "contain",
-                  }}
+                <UserImg style={{
+                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/userImage.png"}')`,
+                  backgroundPosition: "center center",
+                  objectFit: "contain",
+                }}
                 />
                 <UserName>{product.creator}</UserName>
               </ConteinerUser>

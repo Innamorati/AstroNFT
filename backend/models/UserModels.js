@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
     verifiedMail: { type: String, require: true },
     image: { type: String, },
     basket: [{
-        nftId: { type: mongoose.Types.ObjectId, ref: "Product" }
+        nftId: { type: mongoose.Types.ObjectId, ref: "product" },
     }]
 })
 

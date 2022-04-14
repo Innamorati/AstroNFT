@@ -15,56 +15,63 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
 import ProductActions from "../redux/actions/ProductActions";
+import UserActions from "../redux/actions/UserActions";
 
 function CartContent(props) {
-    function productGet() {
-        { props.allProducts.length === 0 ? props.getAllProducts() : console.log("mayor que 0") }
-    }
-    const products = props.user?.user?.basket.map(userNft => props.allProducts.filter(product => product._id === userNft.nftId))
+    const productos = []
 
-    productGet()
-    console.log(products)
+    const deleteNft = (id) => {
+        props.delteNftToBasket(id)
+        console.log(id)
+    }
+
     return (
         <>
-            {products?.map(products =>
-                < CardProducts >
-                    <ImageProducts style={{ backgroundImage: `url('${products.file}')`, backgroundPosition: "center center", }} />
-                    <DivTitle>
-                        <TitleProducts>{products.name}</TitleProducts>
-                        <CategoryProducts>CATEGORY: Premium TYPE: Image</CategoryProducts>
-                    </DivTitle>
-                    <PrecioArg>
-                        <PrecioEth>
-                            {
+            {props.user?.user?.basket.length !== 0 ?
+                props.user?.user?.basket.map(products =>
+                    < CardProducts >
+                        <ImageProducts style={{ backgroundImage: `url('${products.nftId.file}')`, backgroundPosition: "center center", }} />
+                        <DivTitle>
+                            <TitleProducts>{products.nftId.name}</TitleProducts>
+                            <CategoryProducts>{products.nftId.category}</CategoryProducts>
+                        </DivTitle>
+                        <PrecioArg>
+                            <PrecioEth>
                                 <IconEth
                                     style={{
                                         backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconETH.png"
                                             }')`,
                                     }}
                                 />
-                            }
-                            <Ether>0.121 ETH</Ether>
-                        </PrecioEth>
-                        <ArsMoney>≈ ARS$ 46,828.55</ArsMoney>
-                    </PrecioArg>
-                    <FontAwesomeIcon
-                        style={{
-                            width: "35px",
-                            height: "35px",
-                            cursor: "pointer",
-                            marginRight: "1rem",
-                            color: "#45A9F2",
-                            padding: "1rem",
-                        }}
-                        icon={faXmark}
-                    />
-                </CardProducts>
-            )}
+                                <Ether>{products.nftId.price}ETH</Ether>
+                            </PrecioEth>
+                            <ArsMoney>≈ ARS$ 46,828.55</ArsMoney>
+                        </PrecioArg>
+                        <FontAwesomeIcon
+                            style={{
+                                width: "35px",
+                                height: "35px",
+                                cursor: "pointer",
+                                marginRight: "1rem",
+                                color: "#45A9F2",
+                                padding: "1rem",
+                            }}
+                            icon={faXmark}
+                            onClick={() => deleteNft(products._id)}
+                        />
+                    </CardProducts>
+                )
+
+                : ""
+            }
+
+
         </>
     )
 }
 const mapDispatchToProps = {
     getAllProducts: ProductActions.getAllProducts,
+    delteNftToBasket: UserActions.delteNftToBasket,
 }
 const mapStateToProps = (state) => {
     return {

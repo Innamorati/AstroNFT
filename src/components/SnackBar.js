@@ -30,7 +30,7 @@ function CustomizedSnackbars(props) {
                 ...props.user,
                 view: false,
                 message: '',
-                success: null,
+                success: props.user.success,
             }
         })
     };

@@ -5,7 +5,7 @@ const validator = require("../config/validator");
 const passport = require("../config/Passport");
 const { AddComment } = require("@mui/icons-material");
 
-const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket } = UserControllers;
+const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket, deleteToBasket } = UserControllers;
 const {
   getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
 
@@ -35,5 +35,8 @@ Router.route("/user/logout")
 
 Router.route("/bascket")
   .post(addToBasket);
+
+Router.route("/basket/:id")
+  .post(deleteToBasket);
 
 module.exports = Router;

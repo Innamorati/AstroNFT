@@ -18,13 +18,25 @@ import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import { red } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 
+const theme = createTheme({
+  palette: {
+    primary:
+    {
+      main: red[500]
+    }
 
+  },
+});
 const NavBar = (props) => {
+
   const Logout = () => {
     props.userLogout(props.user.user.email);
   };
-
+  // const primary = red[500];
 
   return (
     <>
@@ -55,7 +67,9 @@ const NavBar = (props) => {
             </LinkRouter> : ""}
           <NavIconButtons>
             <LinkRouter to={"/basket"}>
-              <ShoppingCartIcon style={{ color: "black" }} />
+              <Badge anchorOrigin={{ vertical: 'top', horizontal: 'left', }} badgeContent={props.user?.user ? props.user?.user?.basket?.length : 0} color="primary" showZero>
+                <ShoppingCartIcon style={{ color: "black" }} />
+              </Badge>
             </LinkRouter>
             <DropdownSign>
               <DropdownButton
@@ -65,8 +79,6 @@ const NavBar = (props) => {
                     <img style={{ height: "3rem", width: "3rem", borderRadius: "3rem", }} src={props.user.user.image} />
                     :
                     <AccountCircleIcon style={{ height: "3rem", width: "3rem", color: "lightgray" }} />
-                  // <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
-
                 }
               >
                 {props.user.user ? (

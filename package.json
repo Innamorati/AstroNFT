@@ -1,61 +1,28 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "@iconscout/unicons": "^4.0.1",
-    "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.3",
-    "@mui/styled-engine-sc": "^5.5.2",
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.1",
-    "bootstrap": "^5.1.3",
-    "material-ui-popup-state": "^2.0.0",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.2.2",
-    "react-countup": "^6.2.0",
-    "react-dom": "^17.0.2",
-    "react-facebook-login": "^4.1.1",
-    "react-google-login": "^5.2.2",
-    "react-icons": "^4.3.1",
-    "react-redux": "^7.2.8",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.0",
-    "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend AstroNFT",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Grupo 6",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "googleapis": "^100.0.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.10",
+    "nodemailer": "^6.7.3",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0"
   }
 }

@@ -8,12 +8,9 @@ import {
   NavIconButtons,
   DropdownSign,
   SignButton,
-  NavButton
+  NavButton,
 } from "../styles/StyleNavBar";
-import {
-  DropdownButton,
-  Dropdown,
-} from "react-bootstrap";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -38,6 +35,7 @@ const NavBar = (props) => {
   };
   // const primary = red[500];
 
+  console.log(props.user);
   return (
     <>
       <NavBarAstroNFT>
@@ -51,20 +49,21 @@ const NavBar = (props) => {
         </LogoAstroNFT>
         <NavBarButtons>
           <LinkRouter to={"/home"}>
-            <NavButton >Home</NavButton>
+            <NavButton>Home</NavButton>
           </LinkRouter>
           <LinkRouter to={"/products"}>
-            <NavButton >Products</NavButton>
+            <NavButton>Products</NavButton>
           </LinkRouter>
           <LinkRouter to={"/contact"}>
-            <NavButton >Contact</NavButton>
+            <NavButton>Contact</NavButton>
           </LinkRouter>
-          {props.user.user?.admin === true ?
-            <LinkRouter to={'/admin'}>
-              <NavButton activeClassName="any">
-                admin page
-              </NavButton>
-            </LinkRouter> : ""}
+          {props.user.user?.admin === true ? (
+            <LinkRouter to={"/admin"}>
+              <NavButton activeClassName="any">admin page</NavButton>
+            </LinkRouter>
+          ) : (
+            ""
+          )}
           <NavIconButtons>
             <LinkRouter to={"/basket"}>
               <Badge anchorOrigin={{ vertical: 'top', horizontal: 'left', }} badgeContent={props.user?.user ? props.user?.user?.basket?.length : 0} color="primary" showZero>
@@ -83,14 +82,12 @@ const NavBar = (props) => {
               >
                 {props.user.user ? (
                   <Dropdown.Item>
-                    {" "}
                     <SignButton onClick={Logout}>Logout</SignButton>
                   </Dropdown.Item>
                 ) : (
                   <>
                     <Dropdown.Item>
                       <LinkRouter to={"/signin"}>
-                        {" "}
                         <SignButton>Sign In</SignButton>{" "}
                       </LinkRouter>
                     </Dropdown.Item>

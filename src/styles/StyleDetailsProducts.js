@@ -1,4 +1,3 @@
-import { style } from "@mui/system";
 import styled from "styled-components";
 
 export const DivFather = styled.div`
@@ -6,6 +5,8 @@ export const DivFather = styled.div`
   background-color: white;
   padding: 3rem;
   min-height: 100vh;
+  margin-bottom: 12rem;
+
   @media (max-width: 1000px) {
     padding: 1rem;
   }
@@ -37,7 +38,6 @@ export const FatherDetails = styled.div`
   }
   @media (max-width: 580px) {
     margin-bottom: 3rem;
-
     padding: 0;
   }
 `;
@@ -49,7 +49,6 @@ export const ImgDetails = styled.div`
   background-size: cover;
   border-radius: 10px;
   margin-bottom: 2rem;
-
   @media (max-width: 850px) {
     margin-bottom: 1.5rem;
   }

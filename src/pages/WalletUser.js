@@ -1,59 +1,96 @@
 import React from "react";
-import Footer from "../components/Footer";
 
 import {
-  ConteinerWallet,
-  UserWallet,
-  NameUser,
-  ImgUser,
   DivNfts,
   ProductWallet,
   NameNFT,
   Sell,
   ConteinerNFT,
-  Money,
-  Ethereum,
-  Bnb,
-  DivUser,
-  TextMoney,
   Title,
-  TextDescription,
+  HeaderWallet,
+  Portfolio,
+  Assets,
+  Balance,
+  Title2,
+  Paragraph,
+  Nfts1,
+  Nfts2,
+  Nfts3,
+  ConteinAssets,
+  Coin,
+  ConteinCoin,
+  TextCoin,
 } from "../styles/StyleWallet";
 
 export default function WalletUser() {
   return (
     <>
-      <ConteinerWallet>
-        <UserWallet>
-          <DivUser>
-            <ImgUser
-              style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Photo1.png"
-                }')`,
-                objectFit: "contain",
-                backgroundPosition: "center center",
-                backgroundSize: "cover",
-              }}
-            />
-            <NameUser>Kevin</NameUser>
-          </DivUser>
-          <Money>
-            <TextMoney>Money in Wallet</TextMoney>
-            <TextDescription>500 USD</TextDescription>
-          </Money>
-          <Ethereum>
-            <TextMoney>Ethereum</TextMoney>
-            <TextDescription>0,1645077762825849 ETH</TextDescription>
-          </Ethereum>
-          <Bnb>
-            <TextMoney>BNB</TextMoney>
-            <TextDescription>1,205778088600574 BNB</TextDescription>
-          </Bnb>
-        </UserWallet>
-      </ConteinerWallet>
-      <Title>NFT´s in collection</Title>
-
+      <HeaderWallet>
+        <Portfolio>
+          <Title>Portfolio</Title>
+          <Balance>
+            <Title2>$17.643,41</Title2>
+            <TextCoin>Portfolio balance</TextCoin>
+          </Balance>
+        </Portfolio>
+        <Assets>
+          <Title>Your Assets</Title>
+          <ConteinAssets>
+            <Nfts1>
+              <Title2>1 BTC</Title2>
+              <Paragraph>$2546</Paragraph>
+              <ConteinCoin>
+                <Coin
+                  style={{
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/btc.png"
+                    }')`,
+                    backgroundPosition: "center center",
+                    objectFit: "contain",
+                    backgroundSize: "cover",
+                  }}
+                />
+                <TextCoin>+14%</TextCoin>
+              </ConteinCoin>
+            </Nfts1>
+            <Nfts2>
+              <Title2>0.32 LTC</Title2>
+              <Paragraph>$2546</Paragraph>
+              <ConteinCoin>
+                <Coin
+                  style={{
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/ltc.png"
+                    }')`,
+                    backgroundPosition: "center center",
+                    objectFit: "contain",
+                    backgroundSize: "cover",
+                  }}
+                />
+                <TextCoin>+14%</TextCoin>
+              </ConteinCoin>
+            </Nfts2>
+            <Nfts3>
+              <Title2>1.25 ETH</Title2>
+              <Paragraph>$2546</Paragraph>
+              <ConteinCoin>
+                <Coin
+                  style={{
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/eth.png"
+                    }')`,
+                    backgroundPosition: "center center",
+                    objectFit: "contain",
+                    backgroundSize: "cover",
+                  }}
+                />
+                <TextCoin>+14%</TextCoin>
+              </ConteinCoin>
+            </Nfts3>
+          </ConteinAssets>
+        </Assets>
+      </HeaderWallet>
+      <Title>NFT in collection</Title>
       <ConteinerNFT>
         <DivNfts>
           <ProductWallet
@@ -126,7 +163,6 @@ export default function WalletUser() {
           <Sell>Sell</Sell>
         </DivNfts>
       </ConteinerNFT>
-      <Footer />
     </>
   );
 }

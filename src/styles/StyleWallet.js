@@ -1,30 +1,5 @@
 import styled from "styled-components";
 
-export const ConteinerWallet = styled.div`
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-`;
-
-export const UserWallet = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  margin: 1rem;
-  width: 100%;
-  height: 8rem;
-`;
-export const NameUser = styled.h5`
-  text-align: center;
-  padding: 0.5rem;
-  color: black;
-`;
-export const ImgUser = styled.div`
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-`;
 export const ConteinerNFT = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -57,24 +32,26 @@ export const NameNFT = styled.h3`
   padding: 1rem;
   text-align: center;
 `;
-export const TextMoney = styled.h4`
-  padding: 1rem;
-  text-align: center;
-  color: black;
-`;
-export const Title = styled.h3`
-  padding: 1rem;
-  text-align: center;
-  color: black;
-`;
-export const TextDescription = styled.h5`
-  width: 100%;
-  padding: 1rem;
-  font-weight: 400;
-  text-align: center;
-  color: black;
-`;
 
+export const Title = styled.h3`
+  padding: 0.2rem;
+  text-align: center;
+  color: black;
+`;
+export const Title2 = styled.h5`
+  margin: 0;
+  padding: 0.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+`;
+export const Paragraph = styled.h6`
+  font-weight: 500;
+
+  padding: 1rem;
+  text-align: center;
+  color: black;
+`;
 export const Sell = styled.button`
   padding: 0.5rem;
   border: unset;
@@ -113,26 +90,111 @@ export const Sell = styled.button`
     width: 100%;
   }
 `;
-
-export const Money = styled.div`
-  margin-top: 1rem;
-  width: 30%;
-  height: 10rem;
+export const HeaderWallet = styled.div`
+  width: 100%;
+  height: 23rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
-export const Ethereum = styled.div`
-  margin-top: 1rem;
+export const Portfolio = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 30%;
-  height: 10rem;
+  height: 20rem;
 `;
-
-export const Bnb = styled.div`
-  margin-top: 1rem;
-  width: 30%;
-  height: 10rem;
-`;
-export const DivUser = styled.div`
+export const Balance = styled.div`
   display: flex;
   flex-direction: column;
-  color: black;
+  justify-content: center;
+  width: 85%;
+  height: 50%;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #e6f2fe;
+  box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
+    rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.001) 0px 3px 4px, rgba(0, 0, 0, 0.09) 0px 2px 0px,
+    rgba(0, 0, 0, 0.001) 0px 8px 8px;
+`;
+export const ConteinAssets = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+`;
+export const Assets = styled.div`
+  height: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+`;
+export const Nfts1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  height: 13rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #efebf6;
+  box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
+    rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.001) 0px 3px 4px, rgba(0, 0, 0, 0.09) 0px 2px 0px,
+    rgba(0, 0, 0, 0.001) 0px 8px 8px;
+`;
+export const Nfts2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  height: 13rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #e6f4e8;
+  box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
+    rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.001) 0px 3px 4px, rgba(0, 0, 0, 0.09) 0px 2px 0px,
+    rgba(0, 0, 0, 0.001) 0px 8px 8px;
+`;
+export const Nfts3 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  height: 13rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f8f4e3;
+  box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
+    rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
+    rgba(0, 0, 0, 0.001) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.001) 0px 3px 4px, rgba(0, 0, 0, 0.09) 0px 2px 0px,
+    rgba(0, 0, 0, 0.001) 0px 8px 8px;
+`;
+export const ConteinCoin = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+`;
+export const TextCoin = styled.h5`
+  font-size: 15px;
+  text-align: center;
+`;
+export const Coin = styled.div`
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
 `;

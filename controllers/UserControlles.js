@@ -1,8 +1,7 @@
 const dotenv = require('dotenv');
-
-// *Useful for getting environment vairables
-dotenv.config();
 const usuario = require('../models/UserModels')
+
+dotenv.config();
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
@@ -59,6 +58,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
 
 
 const UserControllers = {
+
     verifyEmail: async (req, res) => {
 
         const { uniqueString } = req.params;
@@ -132,7 +132,8 @@ const UserControllers = {
     userSignin: async (req, res,) => {
         const { email, password, from } = req.body.data
         try {
-            const existingUser = await usuario.findOne({ email })
+            const existingUser = await usuario.findOne({ email }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1 })
+            console.log(existingUser)
             if (!existingUser) {
                 res.json({ success: false, message: "Your user has not been found please register" })
             }
@@ -141,6 +142,7 @@ const UserControllers = {
                     let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (passwordMatch.length > 0) {
                         const userData = {
+                            basket: existingUser.basket,
                             id: existingUser._id,
                             firtsName: existingUser.firstName,
                             lastName: existingUser.lastName,
@@ -163,6 +165,7 @@ const UserControllers = {
                         let passwordMatch = existingUser.password.filter(pass => bcryptjs.compareSync(password, pass))
                         if (passwordMatch.length > 0) {
                             const userData = {
+                                basket: existingUser.basket,
                                 id: existingUser._id,
                                 firstName: existingUser.firstName,
                                 lastName: existingUser.lastName,
@@ -198,11 +201,36 @@ const UserControllers = {
     },
     tokenVerified: (req, res) => {
         if (!req.err) {
-            res.json({ success: true, response: { admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
+            res.json({ success: true, response: { basket: req.user.basket, id: req.user._id, admin: req.user.admin, firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, from: "token", message: "Welcome again " + req.user.firstName + " " + req.user.lastName, image: req.user.image } })
         }
         else {
             res.json({ success: false, })
         }
+    },
+    addToBasket: async (req, res) => {
+        const userId = req.body.userId
+        const id = req.body.id
+        try {
+            const basketAdd = await usuario.findOneAndUpdate({ _id: userId }, { $push: { basket: { nftId: id, } } }, { new: true }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1 })
+            // console.log(basketAdd)
+            res.json({ success: true, response: { message: " Nft add to basket" } })
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false })
+        }
+    },
+    deleteToBasket: async (req, res) => {
+        const id = req.params.id
+        try {
+            const basketDelete = await usuario.findOneAndUpdate({ "basket._id": id }, { $pull: { basket: { _id: id } } }, { new: true })
+            res.json({ success: true, response: { message: "Nft delete to basket" } })
+        }
+        catch (error) {
+            console.log(error)
+            res.json({ success: false, response: { message: "Algo salio mal intente en unos minutos", } })
+        }
     }
+
 }
 module.exports = UserControllers

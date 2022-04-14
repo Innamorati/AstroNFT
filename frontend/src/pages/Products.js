@@ -61,9 +61,8 @@ const Products = (props) => {
     <>
       <Hero
         style={{
-          backgroundImage: `url('${
-            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
-          }')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+            }')`,
           backgroundPosition: "center center",
         }}
       >
@@ -104,7 +103,7 @@ const Products = (props) => {
                 <ToggleButton value="Gaming">Gaming</ToggleButton>
                 <ToggleButton value="Collectibles">Collectibles</ToggleButton>
               </ToggleButtonGroup>
-              <Title2 style={{marginTop: 10}}>Order</Title2>
+              <Title2 style={{ marginTop: 10 }}>Order</Title2>
               <Order onChange={handleSort}>
                 <Option value='none'>More relevant</Option>
                 <Option value='lowest'>Lowest Price</Option>
@@ -122,7 +121,7 @@ const Products = (props) => {
                 <ToggleButton value="Image">Image</ToggleButton>
                 <ToggleButton value="Video">Video</ToggleButton>
               </ToggleButtonGroup>
-              </Categories>
+            </Categories>
           </ul>
         </div>
       </ProductsFather>

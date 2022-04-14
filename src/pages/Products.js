@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import ProductActions from "../redux/actions/ProductActions";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -61,8 +61,9 @@ const Products = (props) => {
     <>
       <Hero
         style={{
-          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/HeroProducts.png"
-            }')`,
+          backgroundImage: `url('${
+            process.env.PUBLIC_URL + "/assets/HeroProducts.png"
+          }')`,
           backgroundPosition: "center center",
         }}
       >
@@ -70,7 +71,12 @@ const Products = (props) => {
       </Hero>
       <ProductsFather>
         <form className="searchbox">
-          <input onChange={handleSearch} className="inputSearch" type="search" placeholder="Search" />
+          <input
+            onChange={handleSearch}
+            className="inputSearch"
+            type="search"
+            placeholder="Search"
+          />
           <button className="ButtonSearch" type="submit" value="search">
             &nbsp;
           </button>
@@ -123,19 +129,18 @@ const Products = (props) => {
       <ListProducts>
         <Product />
       </ListProducts>
-      <FooterComp />
     </>
   );
 };
 
 const mapDispatchToProps = {
   filterProducts: ProductActions.filterProducts,
-}
+};
 
 const mapStateToProps = (state) => {
   return {
     allProducts: state.ProductReducer.allProducts,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

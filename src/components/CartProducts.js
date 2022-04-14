@@ -83,12 +83,12 @@ const CartProducts = () => {
           </DivTitle>
           <PrecioArg>
             <PrecioEth>
-                <IconEth
-                  style={{
-                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
-                      }')`,
-                  }}
-                />
+              <IconEth
+                style={{
+                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
+                    }')`,
+                }}
+              />
               <Ether>0.121 ETH</Ether>
             </PrecioEth>
             <ArsMoney>≈ ARS$ 46,828.55</ArsMoney>

@@ -49,8 +49,8 @@ const ProductReducer = (state = initialState, action) => {
                     }
                 }
             }
-            
-            if(sort === 'lowest') {
+
+            if (sort === 'lowest') {
                 filtered = filtered.sort((a, b) => a.price - b.price);
             } else if (sort === 'highest') {
                 filtered = filtered.sort((a, b) => b.price - a.price);

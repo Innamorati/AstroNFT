@@ -59,7 +59,7 @@ const NavBar = (props) => {
           </LinkRouter>
           {props.user.user?.admin === true ? (
             <LinkRouter to={"/admin"}>
-              <NavButton activeClassName="any">admin page</NavButton>
+              <NavButton activeClassName="any">Admin</NavButton>
             </LinkRouter>
           ) : (
             ""

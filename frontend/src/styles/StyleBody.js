@@ -143,4 +143,7 @@ export const IconWP = styled.div`
   background-size: contain;
   object-fit: cover;
   cursor: pointer;
+
+ 
+  
 `;

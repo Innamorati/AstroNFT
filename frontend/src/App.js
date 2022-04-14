@@ -31,17 +31,31 @@ function App(props) {
       <NavBar />
       <SideNavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/basket" element={<Cart />} />
-        <Route path="/details/:id" element={<Details />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/wallet" element={<WalletUser />} />
+        {props?.user.user ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/basket" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/wallet" element={<WalletUser />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/basket" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </>
+        )}
       </Routes>
         <Footer />
       <CustomizedSnackbars />

@@ -19,9 +19,8 @@ export default function Body() {
         <BodyConteiner>
           <Image
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/image1.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image1.png"
+                }')`,
               backgroundPosition: "center center",
             }}
           />
@@ -57,23 +56,23 @@ export default function Body() {
           </TextConteiner>
           <Image
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/image2.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image2.png"
+                }')`,
               backgroundPosition: "center center",
             }}
           />
         </BodyConteiner2>
         <BodyConteiner3>
-          <IconWP
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/wsp2.png"
-              }')`,
-            }}
-          />
+          <a href="https://wa.me/3513154171" target="_blank">
+            <IconWP
+              style={{
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/wsp2.png"
+                  }')`,
+              }}
+            />
+          </a>
         </BodyConteiner3>
-        {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
+
       </BodyFather>
     </>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import FooterComp from "../components/Footer";
 import {
   Text,
   BodyConteiner,
@@ -76,7 +75,6 @@ export default function Body() {
         </BodyConteiner3>
         {/* <FontAwesomeIcon icon="fa-brands fa-whatsapp" /> */}
       </BodyFather>
-      <FooterComp />
     </>
   );
 }

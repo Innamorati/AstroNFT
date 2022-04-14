@@ -4,7 +4,8 @@ import ErrorProducts from "./ErrorProducts";
 import { connect } from "react-redux";
 import {
   Title,
-  ItemProduct,
+  ItemProductImage,
+  ItemProductVideo,
   PriceUser,
   UserName,
   UserImg,
@@ -29,6 +30,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 function Product(props) {
 
+
   useEffect(() => {
     props.getAllProducts();
   }, []);
@@ -41,17 +43,14 @@ function Product(props) {
   console.log(props.user)
   return (
     <>
-      {props.allProducts ? (
-        props.allProducts.map((product) => (
+      {props?.allProducts && props.filteredProducts.length > 0 ? (
+        props.filteredProducts.map((product) => (
           <ConteinerProduct>
-            <ItemProduct
-              style={{
-                background: `url('${product.file}')`,
-                backgroundPosition: "center center",
-                backgroundSize: "cover",
-                objectFit: "cover",
-              }}
-            />
+            {
+              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif'
+                ? <ItemProductImage src={product.file} />
+                : <ItemProductVideo controls><source src={product.file} type="" /></ItemProductVideo>
+            }
             <Title>{product.name}</Title>
             <PriceUser>
               <DivPriceETH>
@@ -98,7 +97,8 @@ function Product(props) {
 const mapStateToProps = (state) => {
   return {
     allProducts: state.ProductReducer.allProducts,
-    user: state.UserReducer.user
+    user: state.UserReducer.user,
+    filteredProducts: state.ProductReducer.filteredProducts,
   };
 };
 

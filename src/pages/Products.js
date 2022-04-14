@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FooterComp from "../components/Footer";
 import Product from "../components/Product";
+import { connect } from "react-redux";
+import ProductActions from "../redux/actions/ProductActions";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import "../styles/StyleSearch.css";
 import "../styles/StyleDropdown.css";
 import {
@@ -25,8 +29,33 @@ import {
 } from "../styles/StyledProducts";
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
-const Products = () => {
+const Products = (props) => {
+  const [category, setCategory] = useState('');
+  const [search, setSearch] = useState('');
+  const [fileType, setFileType] = useState('');
+  const [sort, setSort] = useState('');
 
+
+  const handleCategory = (event, newCategory) => {
+    setCategory(newCategory);
+  };
+
+  const handleFileType = (event, newFileType) => {
+    setFileType(newFileType);
+  };
+
+  const handleSort = (event) => {
+    setSort(event.target.value);
+  }
+
+  useEffect(() => {
+    props.filterProducts(props.allProducts, search, category, fileType, sort)
+  }, [category, search, fileType, props.allProducts, sort]);
+
+  function handleSearch(event) {
+    event.preventDefault();
+    setSearch(event.target.value)
+  }
 
   return (
     <>
@@ -37,11 +66,16 @@ const Products = () => {
           backgroundPosition: "center center",
         }}
       >
-        <TitleHead>Products</TitleHead>
+        <TitleHead onClick={() => console.log(category, fileType)}>Products</TitleHead>
       </Hero>
       <ProductsFather>
         <form className="searchbox">
-          <input className="inputSearch" type="search" placeholder="Search" />
+          <input
+            onChange={handleSearch}
+            className="inputSearch"
+            type="search"
+            placeholder="Search"
+          />
           <button className="ButtonSearch" type="submit" value="search">
             &nbsp;
           </button>
@@ -58,22 +92,35 @@ const Products = () => {
           <ul class="dropdown2__items">
             <Categories>
               <Title2>Categories</Title2>
-              <ButtonCategory>Premium</ButtonCategory>
-              <ButtonCategory>Arts</ButtonCategory>
-              <ButtonCategory>Sports</ButtonCategory>
-              <ButtonCategory>Entertainment</ButtonCategory>
-              <ButtonCategory>Gaming</ButtonCategory>
-              <ButtonCategory>Collectibles</ButtonCategory>
-              <Title2>Order</Title2>
-              <Order>
-                <Option>Lowest Price</Option>
-                <Option>Highest price</Option>
-                <Option>More relevant</Option>
+              <ToggleButtonGroup
+                color="standard"
+                value={category}
+                exclusive
+                onChange={handleCategory}
+                size='small'
+              >
+                <ToggleButton value="Art">Art</ToggleButton>
+                <ToggleButton value="Gaming">Gaming</ToggleButton>
+                <ToggleButton value="Collectibles">Collectibles</ToggleButton>
+              </ToggleButtonGroup>
+              <Title2 style={{ marginTop: 10 }}>Order</Title2>
+              <Order onChange={handleSort}>
+                <Option value='none'>More relevant</Option>
+                <Option value='lowest'>Lowest Price</Option>
+                <Option value='highest'>Highest price</Option>
               </Order>
 
               <Title2>File Type</Title2>
-              <ButtonCategory>Image</ButtonCategory>
-              <ButtonCategory>Video</ButtonCategory>
+              <ToggleButtonGroup
+                color="standard"
+                value={fileType}
+                exclusive
+                onChange={handleFileType}
+                size='small'
+              >
+                <ToggleButton value="Image">Image</ToggleButton>
+                <ToggleButton value="Video">Video</ToggleButton>
+              </ToggleButtonGroup>
             </Categories>
           </ul>
         </div>
@@ -81,9 +128,18 @@ const Products = () => {
       <ListProducts>
         <Product />
       </ListProducts>
-      <FooterComp />
     </>
   );
 };
 
-export default Products;
+const mapDispatchToProps = {
+  filterProducts: ProductActions.filterProducts,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    allProducts: state.ProductReducer.allProducts,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

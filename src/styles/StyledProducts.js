@@ -96,7 +96,7 @@ export const Title2 = styled.h3`
 `;
 export const Order = styled.select`
   border: 0;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   height: 1.5rem;
 `;
 export const SelectPrice = styled.div`
@@ -172,7 +172,6 @@ export const ConteinerProduct = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 
   &:hover {
-    transform: scale(0.98);
     border-radius: 50px;
   }
 
@@ -224,7 +223,36 @@ export const ConteinerProduct = styled.div`
     margin-bottom: 1rem;
   }
 `;
-export const ItemProduct = styled.div`
+export const ItemProductImage = styled.img`
+  margin: 1rem;
+  width: 258px;
+  height: 258px;
+  border-radius: 1rem 1rem 1rem 1rem;
+  box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+  @media (max-width: 880px) {
+    width: 250px;
+    height: 250px;
+    left: 309.82px;
+    top: 671px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    border: solid 1px white;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 750px) {
+    width: 258px;
+    height: 258px;
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+
+  @media (max-width: 360px) {
+    width: 258px;
+    height: 258px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    border: solid 1px white;
+    margin-bottom: 1rem;
+  }
+`;
+export const ItemProductVideo = styled.video`
   margin: 1rem;
   width: 258px;
   height: 258px;

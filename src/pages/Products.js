@@ -3,6 +3,8 @@ import FooterComp from "../components/Footer";
 import Product from "../components/Product";
 import { connect } from 'react-redux';
 import ProductActions from "../redux/actions/ProductActions";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import "../styles/StyleSearch.css";
 import "../styles/StyleDropdown.css";
 import {
@@ -31,15 +33,28 @@ const Products = (props) => {
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [fileType, setFileType] = useState('');
+  const [sort, setSort] = useState('');
+
+
+  const handleCategory = (event, newCategory) => {
+    setCategory(newCategory);
+  };
+
+  const handleFileType = (event, newFileType) => {
+    setFileType(newFileType);
+  };
+
+  const handleSort = (event) => {
+    setSort(event.target.value);
+  }
 
   useEffect(() => {
-    props.filterProducts(props.allProducts, search, category, fileType)
-  }, [category, search, fileType, props.allProducts]);
+    props.filterProducts(props.allProducts, search, category, fileType, sort)
+  }, [category, search, fileType, props.allProducts, sort]);
 
   function handleSearch(event) {
     event.preventDefault();
     setSearch(event.target.value)
-    console.log(search)
   }
 
   return (
@@ -51,7 +66,7 @@ const Products = (props) => {
           backgroundPosition: "center center",
         }}
       >
-        <TitleHead>Products</TitleHead>
+        <TitleHead onClick={() => console.log(category, fileType)}>Products</TitleHead>
       </Hero>
       <ProductsFather>
         <form className="searchbox">
@@ -72,20 +87,36 @@ const Products = (props) => {
           <ul class="dropdown2__items">
             <Categories>
               <Title2>Categories</Title2>
-              <ButtonCategory onClick={(event) => setCategory(event.target.innerText)}>Art</ButtonCategory>
-              <ButtonCategory onClick={(event) => setCategory(event.target.innerText)}>Gaming</ButtonCategory>
-              <ButtonCategory onClick={(event) => setCategory(event.target.innerText)}>Collectibles</ButtonCategory>
-              <Title2>Order</Title2>
-              <Order>
-                <Option>Lowest Price</Option>
-                <Option>Highest price</Option>
-                <Option>More relevant</Option>
+              <ToggleButtonGroup
+                color="standard"
+                value={category}
+                exclusive
+                onChange={handleCategory}
+                size='small'
+              >
+                <ToggleButton value="Art">Art</ToggleButton>
+                <ToggleButton value="Gaming">Gaming</ToggleButton>
+                <ToggleButton value="Collectibles">Collectibles</ToggleButton>
+              </ToggleButtonGroup>
+              <Title2 style={{marginTop: 10}}>Order</Title2>
+              <Order onChange={handleSort}>
+                <Option value='none'>More relevant</Option>
+                <Option value='lowest'>Lowest Price</Option>
+                <Option value='highest'>Highest price</Option>
               </Order>
 
               <Title2>File Type</Title2>
-              <ButtonCategory onClick={(event) => setFileType(event.target.innerText)}>Image</ButtonCategory>
-              <ButtonCategory onClick={(event) => setFileType(event.target.innerText)}>Video</ButtonCategory>
-            </Categories>
+              <ToggleButtonGroup
+                color="standard"
+                value={fileType}
+                exclusive
+                onChange={handleFileType}
+                size='small'
+              >
+                <ToggleButton value="Image">Image</ToggleButton>
+                <ToggleButton value="Video">Video</ToggleButton>
+              </ToggleButtonGroup>
+              </Categories>
           </ul>
         </div>
       </ProductsFather>

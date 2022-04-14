@@ -27,20 +27,18 @@ import ProductActions from "../redux/actions/ProductActions";
 // ARCHIVO STYLED PRODUCTS
 
 function Product(props) {
-  console.log(props);
+  
   useEffect(() => {
     props.getAllProducts();
   }, []);
 
-  console.log(props.allProducts);
-  console.log(props.filteredProducts);
   return (
     <>
       {props?.allProducts && props.filteredProducts.length > 0 ? (
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
             {
-              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif' || product.file.split('.')[3] === 'gifv'
+              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif'
               ? <ItemProductImage src={product.file}/>
               : <ItemProductVideo controls><source src={product.file} type="" /></ItemProductVideo>
             }

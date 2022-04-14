@@ -96,7 +96,7 @@ export const Title2 = styled.h3`
 `;
 export const Order = styled.select`
   border: 0;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   height: 1.5rem;
 `;
 export const SelectPrice = styled.div`

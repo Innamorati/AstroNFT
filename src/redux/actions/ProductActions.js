@@ -30,9 +30,9 @@ const ProductActions = {
             const res = await axios.put(`http://localhost:4000/api/product/${id}`, { data })
         }
     },
-    filterProducts: (products, search, categories, fileType) => {
+    filterProducts: (products, search, categories, fileType, sort) => {
         return (dispatch, getState) => {
-            dispatch({ type: 'filter_products', payload: { products, search, categories, fileType } })
+            dispatch({ type: 'filter_products', payload: { products, search, categories, fileType, sort } })
         }
     }
 }

@@ -149,7 +149,9 @@ function CreateProduct(props) {
                     )
                 }
             </div>
+          </div>
           )
+}
 
 const mapDispatchToProps = {
   getAllProducts: ProductActions.getAllProducts,

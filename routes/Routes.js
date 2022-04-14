@@ -3,11 +3,9 @@ const UserControllers = require("../controllers/UserControlles");
 const ProductControllers = require("../controllers/ProductControllers");
 const validator = require("../config/validator");
 const passport = require("../config/Passport");
-const { AddComment } = require("@mui/icons-material");
 
 const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket, deleteToBasket } = UserControllers;
-const {
-  getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
 
 Router.route("/products")
   .get(getAllProducts).post(addProduct);

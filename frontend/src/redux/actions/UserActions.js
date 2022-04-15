@@ -3,10 +3,9 @@ import axios from "axios";
 const UserActions = {
   userSignUp: (data) => {
     return async (dispatch, getState) => {
-      const res = await axios.post(
-        "https://astronft.herokuapp.com/api/user/singup",
-        { data }
-      );
+      const res = await axios.post("http://localhost:4000/api/user/singup", {
+        data,
+      });
       dispatch({
         type: "user",
         payload: {
@@ -22,7 +21,6 @@ const UserActions = {
       const res = await axios.post("http://localhost:4000/api/user/signin", {
         data,
       });
-      console.log(res.data.response.user);
       if (res.data.success) {
         dispatch({
           type: "user",
@@ -55,7 +53,7 @@ const UserActions = {
       const user = await axios.get("http://localhost:4000/api/user/token", {
         headers: { Authorization: "Bearer " + token },
       });
-
+      console.log(user);
       if (user.data.success) {
         dispatch({
           type: "user",
@@ -74,7 +72,7 @@ const UserActions = {
   addToBasket: (id, userId) => {
     console.log(id, userId);
     return async (dispatch, getSatate) => {
-      const addNft = await axios.post(`http://localhost:4000/api/bascket`, {
+      const addNft = await axios.post(`http://localhost:4000/api/basket`, {
         id,
         userId,
       });

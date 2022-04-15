@@ -259,6 +259,7 @@ const UserControllers = {
     await user.save();
   },
   tokenVerified: (req, res) => {
+    console.log(req.user);
     if (!req.err) {
       res.json({
         success: true,
@@ -277,6 +278,7 @@ const UserControllers = {
       });
     } else {
       res.json({ success: false });
+      console.log(err);
     }
   },
   addToBasket: async (req, res) => {

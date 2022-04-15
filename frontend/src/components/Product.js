@@ -24,21 +24,29 @@ import {
 import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
-//ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
-// ARCHIVO STYLED PRODUCTS
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 function Product(props) {
-
+  let navigate = useNavigate();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     props.getAllProducts();
   }, []);
 
+
   const addBasket = (id) => {
     const userId = props.user?.user?.id
-    console.log(id, userId)
-    props.addToBasket(id, userId)
+    console.log(props.user.user)
+    const searchNftInBasket = props.user?.user?.basket.filter(filter => filter.nftId._id === id)
+    {
+      userId === undefined ? navigate('/signin') :
+        searchNftInBasket.length === 1 ?
+          dispatch({ type: 'user', payload: { view: true, message: "You have already added this nft to the basket", user: props.user.user } }) :
+          props.addToBasket(id, userId)
+
+    }
   }
   console.log(props.user)
   return (

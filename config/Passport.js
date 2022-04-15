@@ -11,7 +11,6 @@ module.exports = passport.use(
     },
     (jwt_payload, done) => {
       User.findOne({ _id: jwt_payload.id })
-
         .then((user) => {
           if (user) {
             return done(null, user);

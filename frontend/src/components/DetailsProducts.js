@@ -27,18 +27,27 @@ import {
   ConteinerTitleAndLike,
 } from "../styles/StyleDetailsProducts";
 import { connect } from "react-redux";
+import UserActions from "../redux/actions/UserActions";
 import ProductActions from "../redux/actions/ProductActions";
 import { useEffect, useState } from "react";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useNavigate } from "react-router-dom";
 
 function DetailsProducts(props) {
   const { id } = useParams();
+  let navigate = useNavigate();
 
-  console.log(id);
-  console.log(props.oneProduct);
   useEffect(() => {
+    window.scrollTo(0, 0)
     props.getOneProduct(id);
   }, []);
 
+  function buy() {
+    const userId = props.user?.user?.id
+    console.log(id)
+    props.addToBasket(id, userId)
+    navigate('/basket')
+  }
   return (
     <DivFather>
       <FatherDetails>
@@ -53,13 +62,7 @@ function DetailsProducts(props) {
           <ConteinerTitleAndLike>
             <TitleDetails>{props.oneProduct?.name}</TitleDetails>
             <CategoryDetails>{props.oneProduct?.category}</CategoryDetails>
-            <BtnLike
-              style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Heart.png"
-                }')`,
-              }}
-            />
+            <FavoriteBorderIcon />
           </ConteinerTitleAndLike>
           <PriceFatherDetails>
             <PriceDetails>
@@ -67,9 +70,8 @@ function DetailsProducts(props) {
               <DivPrice>
                 <IconEther
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/IconEth.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
+                      }')`,
                   }}
                 />
                 <EtherDetails>
@@ -79,7 +81,7 @@ function DetailsProducts(props) {
               <ArMoney>≈ ARS$ 46,828.55 "ficticio"</ArMoney>
             </PriceDetails>
             <BtnDetails>
-              <BtnBuy>BUY</BtnBuy>
+              <BtnBuy onClick={buy}>BUY</BtnBuy>
             </BtnDetails>
           </PriceFatherDetails>
 
@@ -148,10 +150,13 @@ function DetailsProducts(props) {
 const mapStateToProps = (state) => {
   return {
     oneProduct: state.ProductReducer.oneProduct,
+    user: state.UserReducer.user
   };
 };
 
 const mapDispatchToProps = {
   getOneProduct: ProductActions.getOneProduct,
+  addToBasket: UserActions.addToBasket,
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsProducts);

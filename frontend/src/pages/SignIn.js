@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, FormContainer, Input, Label, MainContainer, Title, SignInButton, GoogleButton, FacebookButton, CallToAction, RememberMe, Or, InputPassword, PasswordDiv } from "../styles/StyleSign";
 import { Link as LinkRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,6 +7,10 @@ import GoogleSignIn from '../components/GoogleSignIn';
 import FacebookSignIn from "../components/FacebookLogIn";
 
 const SignIn = (props) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 250)
+    }, []);
 
     const [shown, setShown] = useState(false)
     const switchShown = () => setShown(!shown);

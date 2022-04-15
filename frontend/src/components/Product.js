@@ -22,14 +22,19 @@ import {
 } from "../styles/StyledProducts";
 import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useState } from "react";
 import axios from "axios";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
 
 function Product(props) {
+
+  let navigate = useNavigate();
+  const dispatch = useDispatch()
   const [BTC, setBTC] = useState();
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
@@ -76,11 +81,19 @@ function Product(props) {
     getBNB();
   }, []);
 
+
   const addBasket = (id) => {
-    const userId = props.user?.user?.id;
-    console.log(id, userId);
-    props.addToBasket(id, userId);
-  };
+    const userId = props.user?.user?.id
+    console.log(props.user.user)
+    const searchNftInBasket = props.user?.user?.basket.filter(filter => filter.nftId._id === id)
+    {
+      userId === undefined ? navigate('/signin') :
+        searchNftInBasket.length === 1 ?
+          dispatch({ type: 'user', payload: { view: true, message: "You have already added this nft to the basket", user: props.user.user } }) :
+          props.addToBasket(id, userId)
+
+    }
+  }
   console.log(props.user);
 
   function financial(x) {
@@ -93,7 +106,7 @@ function Product(props) {
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
             {product.file.split(".")[3] === "png" ||
-            product.file.split(".")[3] === "gif" ? (
+              product.file.split(".")[3] === "gif" ? (
               <ItemProductImage src={product.file} />
             ) : (
               <ItemProductVideo controls>
@@ -105,9 +118,8 @@ function Product(props) {
               <DivPriceETH>
                 <IconEth
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/IconEth.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
+                      }')`,
                   }}
                 />
 

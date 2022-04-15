@@ -10,9 +10,6 @@ module.exports = passport.use(
       secretOrKey: process.env.SECRET_KEY,
     },
     (jwt_payload, done) => {
-      User.findOne({ _id: jwt_payload.id });
-    },
-    (jwt_payload, done) => {
       User.findOne({ _id: jwt_payload.id })
         .populate("basket.nftId", {
           price: 1,

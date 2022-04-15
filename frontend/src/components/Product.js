@@ -82,6 +82,11 @@ function Product(props) {
     props.addToBasket(id, userId);
   };
   console.log(props.user);
+
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
+  }
+
   return (
     <>
       {props?.allProducts && props.filteredProducts.length > 0 ? (
@@ -127,8 +132,8 @@ function Product(props) {
             <DivArs>
               <ArsMadeBy>
                 {product.token == "ETH"
-                  ? Math.trunc(product.price * ETH?.ethereum.usd) + " "
-                  : Math.trunc(product.price * BNB?.binancecoin.usd) + " "}
+                  ? financial(product.price * ETH?.ethereum.usd) + " "
+                  : financial(product.price * BNB?.binancecoin.usd) + " "}
                 USD
               </ArsMadeBy>
               <ArsMadeBy>Made By</ArsMadeBy>

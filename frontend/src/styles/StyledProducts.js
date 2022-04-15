@@ -370,7 +370,7 @@ export const ArsMadeBy = styled.h4`
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: 75%;
+  width: 65%;
   height: 2.3rem;
   display: flex;
   justify-content: space-between;

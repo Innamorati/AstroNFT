@@ -40,7 +40,7 @@ Router.route("/user/token").get(
 
 Router.route("/user/logout").post(userLogout);
 
-Router.route("/basket").post(addToBasket);
+Router.route("/bascket").post(addToBasket);
 
 Router.route("/basket/:id").post(deleteToBasket);
 

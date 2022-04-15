@@ -47,7 +47,7 @@ const sendEmail = async (email, uniqueString) => {
     subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
     html: `
         <div >
-        <h1 style="color:red">Presiona <a href=https://astronft.herokuapp.com/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
         </div>
         `,
   };
@@ -162,7 +162,6 @@ const UserControllers = {
           fileType: 1,
           token: 1,
         });
-
       console.log(existingUser);
       if (!existingUser) {
         res.json({
@@ -259,7 +258,6 @@ const UserControllers = {
     await user.save();
   },
   tokenVerified: (req, res) => {
-    console.log(req.user);
     if (!req.err) {
       res.json({
         success: true,
@@ -278,19 +276,26 @@ const UserControllers = {
       });
     } else {
       res.json({ success: false });
-      console.log(err);
     }
   },
   addToBasket: async (req, res) => {
     const userId = req.body.userId;
     const id = req.body.id;
     try {
-      const basketAdd = await usuario.findOneAndUpdate(
-        { _id: userId },
-        { $push: { basket: { nftId: id } } },
-        { new: true }
-      );
-
+      const basketAdd = await usuario
+        .findOneAndUpdate(
+          { _id: userId },
+          { $push: { basket: { nftId: id } } },
+          { new: true }
+        )
+        .populate("basket.nftId", {
+          price: 1,
+          name: 1,
+          file: 1,
+          category: 1,
+          fileType: 1,
+          token: 1,
+        });
       // console.log(basketAdd)
       res.json({ success: true, response: { message: " Nft add to basket" } });
     } catch (error) {

@@ -72,7 +72,9 @@ function CartContent(props) {
               </DivTitle>
               <PrecioArg>
                 <PrecioEth>
-                  <Ether>{products.nftId.price} ETH</Ether>
+                  <Ether>
+                    {products.nftId.price} {products.nftId.token}
+                  </Ether>
                 </PrecioEth>
                 <ArsMoney>
                   ≈

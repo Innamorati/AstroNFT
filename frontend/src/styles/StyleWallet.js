@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const ConteinerNFT = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 export const DivNfts = styled.div`
   display: flex;
@@ -10,8 +13,9 @@ export const DivNfts = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin: 1rem;
-  width: 22%;
+  margin: 1.2rem;
+  margin-bottom: 4rem;
+  width: 26%;
   border-radius: 1rem;
   color: black;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
@@ -42,25 +46,27 @@ export const Title2 = styled.h5`
   margin: 0;
   padding: 0.2rem;
   font-weight: 700;
+  font-size: 14px;
   text-align: center;
   color: black;
 `;
 export const Paragraph = styled.h6`
   font-weight: 500;
-
-  padding: 1rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem;
   text-align: center;
   color: black;
 `;
 export const Sell = styled.button`
-  padding: 0.5rem;
+  padding: 0.3rem;
+  margin: 1rem;
   border: unset;
   border-radius: 1rem;
   color: #212121;
   z-index: 1;
   background: white;
   position: relative;
-  font-weight: 650;
+  font-weight: 500;
   font-size: 1.1rem;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 0 0.7em 1.5em -0.5em grey;
@@ -94,7 +100,14 @@ export const HeaderWallet = styled.div`
   width: 100%;
   height: 23rem;
   display: flex;
+  justify-content: center;
   justify-content: space-between;
+  @media (max-width: 1070px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Portfolio = styled.div`
@@ -125,6 +138,7 @@ export const ConteinAssets = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 export const Assets = styled.div`
   height: 23rem;
@@ -135,10 +149,11 @@ export const Assets = styled.div`
   width: 70%;
 `;
 export const Nfts1 = styled.div`
+  margin: 0.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20%;
+  width: 30%;
   height: 13rem;
   border-radius: 1rem;
   padding: 1rem;
@@ -151,10 +166,12 @@ export const Nfts1 = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 `;
 export const Nfts2 = styled.div`
+  margin: 0.3rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20%;
+  width: 30%;
   height: 13rem;
   border-radius: 1rem;
   padding: 1rem;
@@ -167,14 +184,15 @@ export const Nfts2 = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 `;
 export const Nfts3 = styled.div`
+  margin: 0.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20%;
+  width: 30%;
   height: 13rem;
   border-radius: 1rem;
   padding: 1rem;
-  background-color: #f8f4e3;
+  background-color: #ffd9c9;
   box-shadow: rgba(0, 0, 0, 0.17) -5px -5px 5px 5px inset,
     rgba(0, 0, 0, 0) 0px -15px 15px 0px inset,
     rgba(0, 0, 0, 0.001) 0px -20px 40px 0px inset,
@@ -193,8 +211,19 @@ export const TextCoin = styled.h5`
   text-align: center;
 `;
 export const Coin = styled.div`
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   border-radius: 50%;
   object-fit: cover;
+`;
+export const DivButton = styled.div`
+  display: flex;
+`;
+export const DivTitleCoin = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const ConteinerNftCollection = styled.div`
+  width: 100%;
 `;

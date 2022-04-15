@@ -15,7 +15,6 @@ function GoogleSignIn(props) {
         }
         props.userLoging(data)
     }
-    console.log(props)
     return (
         <GoogleButton>
             <GoogleLogin

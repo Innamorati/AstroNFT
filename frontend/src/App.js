@@ -18,6 +18,7 @@ import Details from "./pages/Details";
 import Admin from "./pages/Admin";
 import WalletUser from "./pages/WalletUser";
 import Footer from "./components/Footer";
+import ScrollToTop from "../src/components/Scrolltotop";
 
 function App(props) {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App(props) {
     <BrowserRouter>
       <NavBar />
       <SideNavBar />
+      <ScrollToTop />
       <Routes>
         {props?.user.user ? (
           <>

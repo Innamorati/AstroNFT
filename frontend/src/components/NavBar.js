@@ -15,11 +15,22 @@ import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Badge from "@mui/material/Badge";
+import { red } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: red[500],
+    },
+  },
+});
 const NavBar = (props) => {
   const Logout = () => {
     props.userLogout(props.user.user.email);
   };
+  // const primary = red[500];
 
   console.log(props.user);
   return (
@@ -44,21 +55,35 @@ const NavBar = (props) => {
             <NavButton>Contact</NavButton>
           </LinkRouter>
           {props.user.user?.admin === true ? (
-            <LinkRouter to={"/admin"}>
-              <NavButton activeClassName="any">admin page</NavButton>
-            </LinkRouter>
+            <>
+              <LinkRouter to={"/admin"}>
+                <NavButton activeClassName="any">Admin</NavButton>
+              </LinkRouter>
+              <LinkRouter to={"/wallet"}>
+                <NavButton activeClassName="any">Wallet</NavButton>
+              </LinkRouter>
+            </>
           ) : (
             ""
           )}
           <NavIconButtons>
             <LinkRouter to={"/basket"}>
-              <ShoppingCartIcon style={{ color: "black" }} />
+              <Badge
+                anchorOrigin={{ vertical: "top", horizontal: "left" }}
+                badgeContent={
+                  props.user?.user ? props.user?.user?.basket?.length : 0
+                }
+                color="primary"
+                showZero
+              >
+                <ShoppingCartIcon style={{ color: "black" }} />
+              </Badge>
             </LinkRouter>
             <DropdownSign>
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  props?.user.user ? (
+                  props.user?.user ? (
                     <img
                       style={{
                         height: "3rem",
@@ -76,7 +101,6 @@ const NavBar = (props) => {
                       }}
                     />
                   )
-                  // <img src={process.env.PUBLIC_URL + "/assets/user.jpg"} />
                 }
               >
                 {props.user.user ? (

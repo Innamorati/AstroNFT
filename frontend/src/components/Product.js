@@ -22,26 +22,36 @@ import {
   ConteinerUser,
 } from "../styles/StyledProducts";
 import ProductActions from "../redux/actions/ProductActions";
+import UserActions from "../redux/actions/UserActions";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
 
 function Product(props) {
-  
   useEffect(() => {
     props.getAllProducts();
   }, []);
 
+  const addBasket = (id) => {
+    const userId = props.user?.user?.id;
+    console.log(id, userId);
+    props.addToBasket(id, userId);
+  };
+  console.log(props.user);
   return (
     <>
       {props?.allProducts && props.filteredProducts.length > 0 ? (
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
-            {
-              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif'
-              ? <ItemProductImage src={product.file}/>
-              : <ItemProductVideo controls><source src={product.file} type="" /></ItemProductVideo>
-            }
+            {product.file.split(".")[3] === "png" ||
+            product.file.split(".")[3] === "gif" ? (
+              <ItemProductImage src={product.file} />
+            ) : (
+              <ItemProductVideo controls>
+                <source src={product.file} type="" />
+              </ItemProductVideo>
+            )}
             <Title>{product.name}</Title>
             <PriceUser>
               <DivPriceETH>
@@ -78,15 +88,7 @@ function Product(props) {
                 <ViewMore>View more</ViewMore>
               </LinkRouter>
               <AddCart>
-                <AddImg
-                  style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/cart.png"
-                    }')`,
-                    backgroundPosition: "center center",
-                    objectFit: "contain",
-                  }}
-                />
+                <AddShoppingCartIcon onClick={() => addBasket(product._id)} />
               </AddCart>
             </DivButtons>
           </ConteinerProduct>
@@ -100,11 +102,13 @@ function Product(props) {
 const mapStateToProps = (state) => {
   return {
     allProducts: state.ProductReducer.allProducts,
+    user: state.UserReducer.user,
     filteredProducts: state.ProductReducer.filteredProducts,
   };
 };
 
 const mapDispatchToProps = {
   getAllProducts: ProductActions.getAllProducts,
+  addToBasket: UserActions.addToBasket,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Product);

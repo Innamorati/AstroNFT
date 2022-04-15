@@ -94,7 +94,7 @@ function Product(props) {
 
     }
   }
-  console.log(props.user);
+  console.log(props);
 
   function financial(x) {
     return Number.parseFloat(x).toFixed(2);

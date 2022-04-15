@@ -4,22 +4,8 @@ const ProductControllers = require("../controllers/ProductControllers");
 const validator = require("../config/validator");
 const passport = require("../config/Passport");
 
-const {
-  userRegistration,
-  userSignin,
-  verifyEmail,
-  userLogout,
-  tokenVerified,
-  addToBasket,
-  deleteToBasket,
-} = UserControllers;
-const {
-  getAllProducts,
-  addProduct,
-  deleteProduct,
-  updateProduct,
-  getOneProduct,
-} = ProductControllers;
+const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket, deleteToBasket, } = UserControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
 
 Router.route("/products").get(getAllProducts).post(addProduct);
 
@@ -33,10 +19,8 @@ Router.route("/user/signin").post(userSignin);
 
 Router.route("/verify/:uniqueString").get(verifyEmail);
 
-Router.route("/user/token").get(
-  passport.authenticate("jwt", { session: false }),
-  tokenVerified
-);
+Router.route("/user/token")
+  .get(passport.authenticate("jwt", { session: false }), tokenVerified);
 
 Router.route("/user/logout").post(userLogout);
 

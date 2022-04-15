@@ -210,9 +210,10 @@ const UserControllers = {
     addToBasket: async (req, res) => {
         const userId = req.body.userId
         const id = req.body.id
+
         try {
             const basketAdd = await usuario.findOneAndUpdate({ _id: userId }, { $push: { basket: { nftId: id, } } }, { new: true }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1, token: 1 })
-            // console.log(basketAdd)
+            console.log(basketAdd)
             res.json({ success: true, response: { message: " Nft add to basket" } })
         }
         catch (error) {

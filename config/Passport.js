@@ -12,13 +12,19 @@ module.exports = passport.use(
     (jwt_payload, done) => {
       User.findOne({ _id: jwt_payload.id })
 
-        .then((user) => {
+    }, (jwt_payload, done) => {
+
+      User.findOne({ _id: jwt_payload.id }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1, token: 1 })
+
+        .then(user => {
           if (user) {
-            return done(null, user);
-          } else if (err) {
+            return done(null, user)
+          }
+          else if (err) {
             return done(err, false);
-          } else {
-            return done(null, false);
+          }
+          else {
+            return done(null, false)
           }
         })
         .catch((err) => {

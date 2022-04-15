@@ -9,7 +9,7 @@ module.exports = passport.use(new jwtStrategy({
 
 }, (jwt_payload, done) => {
 
-    User.findOne({ _id: jwt_payload.id }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1 })
+    User.findOne({ _id: jwt_payload.id }).populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1, token: 1 })
 
         .then(user => {
             if (user) {

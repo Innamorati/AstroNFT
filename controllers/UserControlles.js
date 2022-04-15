@@ -152,7 +152,16 @@ const UserControllers = {
   userSignin: async (req, res) => {
     const { email, password, from } = req.body.data;
     try {
-      const existingUser = await usuario.findOne({ email });
+      const existingUser = await usuario
+        .findOne({ email })
+        .populate("basket.nftId", {
+          price: 1,
+          name: 1,
+          file: 1,
+          category: 1,
+          fileType: 1,
+          token: 1,
+        });
 
       console.log(existingUser);
       if (!existingUser) {

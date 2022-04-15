@@ -35,9 +35,9 @@ function WalletUser(props) {
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
 
-  console.log(BTC);
-  console.log(ETH);
-  console.log(BNB);
+  //console.log(BTC);
+  //console.log(ETH);
+  //console.log(BNB);
 
   const getBTC = async () => {
     try {
@@ -69,14 +69,12 @@ function WalletUser(props) {
       console.error(error);
     }
   };
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
+  }
 
   useEffect(() => {
-    const id = [
-      "6255be1a675d3c93869c44de",
-      "6255be1a675d3c93869c44d2",
-      "6255be1a675d3c93869c4495",
-    ];
-    props.getOneProduct(id);
+    props.getOneProduct();
     getBTC();
     getETH();
     getBNB();
@@ -88,9 +86,12 @@ function WalletUser(props) {
           <Title>Portfolio</Title>
           <Balance>
             <Title2>
-              {BTC?.bitcoin.usd * 6 +
-                ETH?.ethereum.usd * 3 +
-                BNB?.binancecoin.usd * 21}{" "}
+              {financial(
+                BTC?.bitcoin.usd * 6 +
+                  ETH?.ethereum.usd * 3 +
+                  BNB?.binancecoin.usd * 21
+              )}
+              {"  "}
               USD
             </Title2>
             <TextCoin>Portfolio balance</TextCoin>
@@ -102,7 +103,7 @@ function WalletUser(props) {
             <Nfts1>
               <DivTitleCoin>
                 <Title2>6 BTC =</Title2>
-                <Paragraph>{BTC?.bitcoin.usd * 6} USD</Paragraph>
+                <Paragraph>{financial(BTC?.bitcoin.usd * 6)} USD</Paragraph>
               </DivTitleCoin>
               <ConteinCoin>
                 <Coin
@@ -115,13 +116,13 @@ function WalletUser(props) {
                     backgroundSize: "cover",
                   }}
                 />
-                <TextCoin>{BTC?.bitcoin.usd_24h_change}%</TextCoin>
+                <TextCoin>{financial(BTC?.bitcoin.usd_24h_change)}%</TextCoin>
               </ConteinCoin>
             </Nfts1>
             <Nfts2>
               <DivTitleCoin>
                 <Title2>3 ETH =</Title2>
-                <Paragraph>{ETH?.ethereum.usd * 3} USD</Paragraph>
+                <Paragraph>{financial(ETH?.ethereum.usd * 3)} USD</Paragraph>
               </DivTitleCoin>
 
               <ConteinCoin>
@@ -135,13 +136,15 @@ function WalletUser(props) {
                     backgroundSize: "cover",
                   }}
                 />
-                <TextCoin>{ETH?.ethereum.usd_24h_change}%</TextCoin>
+                <TextCoin>{financial(ETH?.ethereum.usd_24h_change)}%</TextCoin>
               </ConteinCoin>
             </Nfts2>
             <Nfts3>
               <DivTitleCoin>
                 <Title2>21 BNB =</Title2>
-                <Paragraph>{BNB?.binancecoin.usd * 21} USD</Paragraph>
+                <Paragraph>
+                  {financial(BNB?.binancecoin.usd * 21)} USD
+                </Paragraph>
               </DivTitleCoin>
 
               <ConteinCoin>
@@ -155,7 +158,9 @@ function WalletUser(props) {
                     backgroundSize: "cover",
                   }}
                 />
-                <TextCoin>{BNB?.binancecoin.usd_24h_change}%</TextCoin>
+                <TextCoin>
+                  {financial(BNB?.binancecoin.usd_24h_change)}%
+                </TextCoin>
               </ConteinCoin>
             </Nfts3>
           </ConteinAssets>

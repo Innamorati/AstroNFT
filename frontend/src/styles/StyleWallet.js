@@ -117,6 +117,8 @@ export const Portfolio = styled.div`
   flex-direction: column;
   width: 30%;
   height: 20rem;
+  @media (max-width: 1070px) {
+  }
 `;
 export const Balance = styled.div`
   display: flex;
@@ -149,7 +151,6 @@ export const Assets = styled.div`
   width: 70%;
 `;
 export const Nfts1 = styled.div`
-  margin: 0.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -166,8 +167,6 @@ export const Nfts1 = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 `;
 export const Nfts2 = styled.div`
-  margin: 0.3rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +183,6 @@ export const Nfts2 = styled.div`
     rgba(0, 0, 0, 0.001) 0px 8px 8px;
 `;
 export const Nfts3 = styled.div`
-  margin: 0.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

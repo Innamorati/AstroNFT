@@ -17,7 +17,8 @@ import React, { useEffect } from "react";
 import Details from "./pages/Details";
 import Admin from "./pages/Admin";
 import WalletUser from "./pages/WalletUser";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
+import ScrollToTop from "../src/components/Scrolltotop";
 
 function App(props) {
   useEffect(() => {
@@ -26,10 +27,12 @@ function App(props) {
       props.verifiedToken(token);
     }
   }, []);
+
   return (
     <BrowserRouter>
       <NavBar />
       <SideNavBar />
+      <ScrollToTop />
       <Routes>
         {props?.user.user ? (
           <>
@@ -57,7 +60,7 @@ function App(props) {
           </>
         )}
       </Routes>
-        <Footer />
+      <Footer />
       <CustomizedSnackbars />
     </BrowserRouter>
   );

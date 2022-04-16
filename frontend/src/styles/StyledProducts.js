@@ -358,19 +358,19 @@ export const DivPriceETH = styled.div`
   display: flex;
 `;
 export const ArsMadeBy = styled.h4`
-  width: 95px;
   height: 15px;
+  text-align: center;
   left: 2px;
   top: 0px;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 125%;
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: 80%;
+  width: 75%;
   height: 2.3rem;
   display: flex;
   justify-content: space-between;

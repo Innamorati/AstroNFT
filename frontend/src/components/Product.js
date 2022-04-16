@@ -18,66 +18,122 @@ import {
   ViewMore,
   AddCart,
   DivButtons,
-  AddImg,
   ConteinerUser,
 } from "../styles/StyledProducts";
 import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useState } from "react";
+import axios from "axios";
 
 //ESTILOS DE PRODUCTS Y PRODUCT ESTAN EN UNICO COMPONENTE DE ESTILOS
 // ARCHIVO STYLED PRODUCTS
 
 function Product(props) {
+  const [BTC, setBTC] = useState();
+  const [ETH, setETH] = useState();
+  const [BNB, setBNB] = useState();
 
+  console.log(BTC);
+  console.log(ETH);
+  console.log(BNB);
+
+  const getBTC = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setBTC(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getETH = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setETH(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getBNB = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setBNB(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     props.getAllProducts();
+    getBTC();
+    getETH();
+    getBNB();
   }, []);
 
   const addBasket = (id) => {
-    const userId = props.user?.user?.id
-    console.log(id, userId)
-    props.addToBasket(id, userId)
-  }
-  console.log(props.user)
+    const userId = props.user?.user?.id;
+    console.log(id, userId);
+    props.addToBasket(id, userId);
+  };
+  console.log(props.user);
   return (
     <>
       {props?.allProducts && props.filteredProducts.length > 0 ? (
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
-            {
-              product.file.split('.')[3] === 'png' || product.file.split('.')[3] === 'gif'
-                ? <ItemProductImage src={product.file} />
-                : <ItemProductVideo controls><source src={product.file} type="" /></ItemProductVideo>
-            }
+            {product.file.split(".")[3] === "png" ||
+            product.file.split(".")[3] === "gif" ? (
+              <ItemProductImage src={product.file} />
+            ) : (
+              <ItemProductVideo controls>
+                <source src={product.file} type="" />
+              </ItemProductVideo>
+            )}
             <Title>{product.name}</Title>
             <PriceUser>
               <DivPriceETH>
                 <IconEth
                   style={{
-                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
-                      }')`,
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/IconEth.png"
+                    }')`,
                   }}
                 />
+
                 <Eth>
                   {product.price} {product.token}
                 </Eth>
               </DivPriceETH>
               <ConteinerUser>
-                <UserImg style={{
-                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/userImage.png"}')`,
-                  backgroundPosition: "center center",
-                  objectFit: "contain",
-                }}
-                />
+                {/*  <UserImg
+                  style={{
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/userImage.png"
+                    }')`,
+                    backgroundPosition: "center center",
+                    objectFit: "contain",
+                  }}
+                /> */}
                 <UserName>{product.creator}</UserName>
               </ConteinerUser>
             </PriceUser>
+
             <DivArs>
-              <ArsMadeBy>≈ ARS$ 46,828.55</ArsMadeBy>
+              <ArsMadeBy>
+                {product.token == "ETH"
+                  ? Math.trunc(product.price * ETH?.ethereum.usd) + " "
+                  : Math.trunc(product.price * BNB?.binancecoin.usd) + " "}
+                USD
+              </ArsMadeBy>
               <ArsMadeBy>Made By</ArsMadeBy>
             </DivArs>
+
             <DivButtons>
               <LinkRouter to={`/details/${product._id}`}>
                 <ViewMore>View more</ViewMore>

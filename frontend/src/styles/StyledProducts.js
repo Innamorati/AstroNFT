@@ -258,6 +258,8 @@ export const ItemProductVideo = styled.video`
   height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+  background-position: center;
+  background-size: cover;
   @media (max-width: 880px) {
     width: 250px;
     height: 250px;

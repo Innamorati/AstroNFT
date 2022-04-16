@@ -29,7 +29,6 @@ import {
 import { connect } from "react-redux";
 
 export default function Cart() {
-
   return (
     <DivGeneral>
       <ContainerCart>
@@ -40,8 +39,9 @@ export default function Cart() {
           <CardProducts2>
             <ImagePay
               style={{
-                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/MercadoPago.png"
-                  }')`,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/MercadoPago.png"
+                }')`,
               }}
             />
             <DivTitlePay>
@@ -62,8 +62,9 @@ export default function Cart() {
           <CardProducts2>
             <ImagePay
               style={{
-                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/Paypal.png"
-                  }')`,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/Paypal.png"
+                }')`,
               }}
             />
             <DivTitlePay>
@@ -88,11 +89,11 @@ export default function Cart() {
       </ContainerCart>
       <ImgAstro
         style={{
-          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/AstroCart.png"
-            }')`,
+          backgroundImage: `url('${
+            process.env.PUBLIC_URL + "/assets/AstroCart.png"
+          }')`,
         }}
       />
     </DivGeneral>
   );
-};
-
+}

@@ -13,23 +13,20 @@ import {
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
-import { red } from '@mui/material/colors';
-import { createTheme } from '@mui/material/styles';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Badge from "@mui/material/Badge";
+import { red } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    primary:
-    {
-      main: red[500]
-    }
-
+    primary: {
+      main: red[500],
+    },
   },
 });
 const NavBar = (props) => {
-
   const Logout = () => {
     props.userLogout(props.user.user.email);
   };
@@ -58,15 +55,27 @@ const NavBar = (props) => {
             <NavButton>Contact</NavButton>
           </LinkRouter>
           {props.user.user?.admin === true ? (
-            <LinkRouter to={"/admin"}>
-              <NavButton activeClassName="any">admin page</NavButton>
-            </LinkRouter>
+            <>
+              <LinkRouter to={"/admin"}>
+                <NavButton activeClassName="any">Admin</NavButton>
+              </LinkRouter>
+              <LinkRouter to={"/wallet"}>
+                <NavButton activeClassName="any">Wallet</NavButton>
+              </LinkRouter>
+            </>
           ) : (
             ""
           )}
           <NavIconButtons>
             <LinkRouter to={"/basket"}>
-              <Badge anchorOrigin={{ vertical: 'top', horizontal: 'left', }} badgeContent={props.user?.user ? props.user?.user?.basket?.length : 0} color="primary" showZero>
+              <Badge
+                anchorOrigin={{ vertical: "top", horizontal: "left" }}
+                badgeContent={
+                  props.user?.user ? props.user?.user?.basket?.length : 0
+                }
+                color="primary"
+                showZero
+              >
                 <ShoppingCartIcon style={{ color: "black" }} />
               </Badge>
             </LinkRouter>
@@ -74,10 +83,24 @@ const NavBar = (props) => {
               <DropdownButton
                 id="dropdown-button-drop"
                 title={
-                  props.user?.user ?
-                    <img style={{ height: "3rem", width: "3rem", borderRadius: "3rem", }} src={props.user.user.image} />
-                    :
-                    <AccountCircleIcon style={{ height: "3rem", width: "3rem", color: "lightgray" }} />
+                  props.user?.user ? (
+                    <img
+                      style={{
+                        height: "3rem",
+                        width: "3rem",
+                        borderRadius: "3rem",
+                      }}
+                      src={props.user.user.image}
+                    />
+                  ) : (
+                    <AccountCircleIcon
+                      style={{
+                        height: "3rem",
+                        width: "3rem",
+                        color: "lightgray",
+                      }}
+                    />
+                  )
                 }
               >
                 {props.user.user ? (

@@ -281,6 +281,7 @@ const UserControllers = {
   addToBasket: async (req, res) => {
     const userId = req.body.userId;
     const id = req.body.id;
+
     try {
       const basketAdd = await usuario
         .findOneAndUpdate(
@@ -296,7 +297,7 @@ const UserControllers = {
           fileType: 1,
           token: 1,
         });
-      // console.log(basketAdd)
+      console.log(basketAdd);
       res.json({ success: true, response: { message: " Nft add to basket" } });
     } catch (error) {
       console.log(error);

@@ -22,10 +22,8 @@ import ScrollToTop from "../src/components/Scrolltotop";
 
 function App(props) {
   useEffect(() => {
-    if (localStorage.getItem("token") !== null) {
-      const token = localStorage.getItem("token");
-      props.verifiedToken(token);
-    }
+    const token = localStorage.getItem("token")
+    props.verifiedToken(token);
   }, []);
 
   return (

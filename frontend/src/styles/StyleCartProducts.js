@@ -263,7 +263,7 @@ export const BtnCart = styled.button`
 export const ButtonMethod = styled.div`
   width: 80%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   padding-bottom: 8rem;
   padding-top: 2rem;
   z-index: 10;
@@ -278,5 +278,57 @@ export const ButtonMethod = styled.div`
   @media (max-width: 995px) {
     display: flex;
     justify-content: center;
+  }
+`;
+export const ButtonMethod2 = styled.div`
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  @media (max-width: 1289px) {
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 995px) {
+    display: flex;
+    justify-content: center;
+  }
+`;
+export const BtnCart2 = styled.button`
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  background-color: #2355f2;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+
+  &:hover {
+    background-color: #0034b3;
+  }
+`;
+export const TotalBuy = styled.div`
+  width: 80%;
+  background-color: red;
+  display: flex;
+  justify-content: end;
+`;
+export const TotalCart = styled.div`
+  margin: 2rem;
+  width: 70%;
+  @media (max-width: 890px) {
+    width: 100%;
+  }
+`;
+export const Text = styled.h3`
+  text-align: end;
+  @media (max-width: 890px) {
+    text-align: center;
   }
 `;

@@ -35,8 +35,9 @@ const CartProducts = () => {
         <CardProducts>
           <ImageProducts
             style={{
-              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image1.png"
-                }')`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/image1.png"
+              }')`,
               backgroundPosition: "center center",
             }}
           />
@@ -49,8 +50,9 @@ const CartProducts = () => {
               {
                 <IconEth
                   style={{
-                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconETH.png"
-                      }')`,
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/IconETH.png"
+                    }')`,
                   }}
                 />
               }
@@ -73,8 +75,9 @@ const CartProducts = () => {
         <CardProducts>
           <ImageProducts
             style={{
-              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/image1.png"
-                }')`,
+              backgroundImage: `url('${
+                process.env.PUBLIC_URL + "/assets/image1.png"
+              }')`,
               backgroundPosition: "center",
             }}
           />
@@ -86,8 +89,9 @@ const CartProducts = () => {
             <PrecioEth>
               <IconEth
                 style={{
-                  backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
-                    }')`,
+                  backgroundImage: `url('${
+                    process.env.PUBLIC_URL + "/assets/IconEth.png"
+                  }')`,
                 }}
               />
               <Ether>0.121 ETH</Ether>
@@ -111,8 +115,9 @@ const CartProducts = () => {
           <CardProducts2>
             <ImagePay
               style={{
-                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/MercadoPago.png"
-                  }')`,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/MercadoPago.png"
+                }')`,
               }}
             />
             <DivTitlePay>
@@ -133,8 +138,9 @@ const CartProducts = () => {
           <CardProducts2>
             <ImagePay
               style={{
-                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/Paypal.png"
-                  }')`,
+                backgroundImage: `url('${
+                  process.env.PUBLIC_URL + "/assets/Paypal.png"
+                }')`,
               }}
             />
             <DivTitlePay>
@@ -160,8 +166,9 @@ const CartProducts = () => {
       </ContainerCart>
       <ImgAstro
         style={{
-          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/AstroCart.png"
-            }')`,
+          backgroundImage: `url('${
+            process.env.PUBLIC_URL + "/assets/AstroCart.png"
+          }')`,
         }}
       />
     </DivGeneral>

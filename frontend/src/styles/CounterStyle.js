@@ -49,15 +49,16 @@ export const Count2 = styled.div`
     @media (max-width:1000px){
         /* Width:30%;
         min-Height:28%; */
-        margin:1rem ;
-        
+        margin:1rem ; 
     }
 
     @media (max-width:650px){
         padding: 6px;
+        margin:1rem .2rem;
     }
     @media (max-width:480px){
         padding: 3.5px;
+        margin:1rem .2rem;
     }
 `;
 export const Count3 = styled.div`
@@ -78,9 +79,11 @@ export const Count3 = styled.div`
     }
     @media (max-width:650px){
         padding: 6px;
+        margin:1rem .2rem;
     }
     @media (max-width:480px){
         padding: 3.5px;
+        margin:1rem .2rem;
     }
 `;
 export const Count4 = styled.div`
@@ -101,36 +104,38 @@ export const Count4 = styled.div`
     }
     @media (max-width:650px){
         padding: 6px;
+        margin:1rem .2rem;
     }
     @media (max-width:480px){
         padding: 3.5px;
+        margin:1rem .2rem;
     }
 `;
 
-export const primerP = styled.div`
+export const PrimerP = styled.div`
     font-size:1.7rem ;
     font-weight:900 ;
 
     @media (max-width:500px){
-        font-size: 8px;
+        font-size: 18px;
         font-weight:400;
     }
     @media (max-width: 380px) {
-        font-size: 8px;
-        font-weight: 200;
+        font-size: 12px;
+        font-weight: 400;
     }
 `;
 
-export const segundoP = styled.div`
+export const SegundoP = styled.div`
     font-size:.8rem ;
     font-weight:300 ;
 
     @media (max-width:500px){
-        font-size: 8px;
-        font-weight:300 ;
+        font-size: 18px;
+        font-weight:400 ;
     }
     @media (max-width: 380px) {
-        font-size: 8px;
-        font-weight: 200;
+        font-size: 12px;
+        font-weight: 400;
     }
 `;

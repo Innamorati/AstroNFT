@@ -5,8 +5,8 @@ import {
   Count2,
   Count3,
   Count4,
-  primerP,
-  segundoP,
+  PrimerP,
+  SegundoP,
 } from "../styles/CounterStyle";
 import CountUp from "react-countup";
 import '../styles/StyleCheckbox.css'
@@ -25,8 +25,8 @@ const HeroCounter = () => {
             suffix="k"
             className="contador"
           />
-          <primerP>NFT Sold</primerP>
-          <segundoP>Last Month</segundoP>
+          <PrimerP>NFT Sold</PrimerP>
+          <SegundoP>Last Month</SegundoP>
         </Count1>
         <Count2>
           <CountUp
@@ -38,8 +38,8 @@ const HeroCounter = () => {
             suffix="k"
             className="contador"
           />
-          <primerP>New User</primerP>
-          <segundoP>Last Week</segundoP>
+          <PrimerP>New User</PrimerP>
+          <SegundoP>Last Week</SegundoP>
         </Count2>
         <Count3>
           <CountUp
@@ -51,8 +51,8 @@ const HeroCounter = () => {
             suffix="+"
             className="contador"
           />
-          <primerP>New NFT</primerP>
-          <segundoP>ON Market</segundoP>
+          <PrimerP>New NFT</PrimerP>
+          <SegundoP>ON Market</SegundoP>
         </Count3>
         <Count4>
           <CountUp
@@ -65,8 +65,8 @@ const HeroCounter = () => {
             suffix="ETH"
             className="contador"
           />
-          <primerP>Floor Price</primerP>
-          <segundoP>Last Month</segundoP>
+          <PrimerP>Floor Price</PrimerP>
+          <SegundoP>Last Month</SegundoP>
         </Count4>
       </Counter>
     </>

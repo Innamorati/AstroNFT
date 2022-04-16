@@ -30,7 +30,6 @@ import {
 import { connect } from "react-redux";
 import PayPal from "../components/PayForm/PayPal";
 
-import { connect } from "react-redux";
 import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
 import { useState, useEffect } from "react";

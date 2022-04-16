@@ -41,7 +41,7 @@ function App(props) {
         <Route path="/admin" element={<Admin />} />
         <Route path="/wallet" element={<WalletUser />} />
       </Routes>
-        <Footer />
+      <Footer />
       <CustomizedSnackbars />
     </BrowserRouter>
   );

@@ -18,6 +18,9 @@ margin-top: -3rem;
 `;
 
 export const Count1 = styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: column;
 Width:10rem;
 Height:8rem;  
 border-radius:13px ;
@@ -45,13 +48,16 @@ p:nth-child(3){
    font-weight:900 ;
 }
 p:nth-child(3){
-   font-size:.3rem ;
+   font-size:.8rem ;
    font-weight:300 ;
 }
    
 }
 `;
 export const Count2 = styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: column;
 Width:10rem;
 Height:8rem;  
 border-radius:13px ;
@@ -79,13 +85,16 @@ p:nth-child(3){
    font-weight:900 ;
 }
 p:nth-child(3){
-   font-size:.3rem ;
+   font-size:.8rem ;
    font-weight:300 ;
 }
    
 }
 `;
 export const Count3 = styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: column;
 Width:10rem;
 Height:8rem; 
 border-radius:13px ;
@@ -113,19 +122,23 @@ p:nth-child(3){
    font-weight:900 ;
 }
 p:nth-child(3){
-   font-size:.3rem ;
+   font-size:.8rem ;
    font-weight:300 ;
 }
    
 }
 `;
 export const Count4 = styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: column;
 Width:10rem;
 Height:8rem;  
 border-radius:13px ; 
 background-color:#ffff ;
 text-align:center ;
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
+box-shadow: 0 12px 16px rgba(0, 0, 0, 0.270);
+
 p:nth-child(1){
     font-size:1.7rem ;
     font-weight:900 ;
@@ -138,7 +151,6 @@ p:nth-child(3){
     Width:30%;
     min-Height:28%;
     margin:1rem ;
-    
 }
 @media (max-width:500px){
    
@@ -147,7 +159,7 @@ p:nth-child(3){
     font-weight:900 ;
 }
 p:nth-child(3){
-    font-size:.3rem ;
+    font-size:.8rem ;
     font-weight:300 ;
 }
     

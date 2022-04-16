@@ -5,8 +5,11 @@ import {
   Count2,
   Count3,
   Count4,
+  PrimerP,
+  SegundoP,
 } from "../styles/CounterStyle";
 import CountUp from "react-countup";
+import '../styles/StyleCheckbox.css'
 
 const HeroCounter = () => {
   return (
@@ -20,14 +23,10 @@ const HeroCounter = () => {
             delay={0.5}
             duration={4}
             suffix="k"
-            style={{
-              fontSize: "32px",
-              fontFamily: "ubuntu",
-              fontWeight: "800",
-            }}
+            className="contador"
           />
-          <p>NFT Sold</p>
-          <p>Last Month</p>
+          <PrimerP>NFT Sold</PrimerP>
+          <SegundoP>Last Month</SegundoP>
         </Count1>
         <Count2>
           <CountUp
@@ -37,14 +36,10 @@ const HeroCounter = () => {
             delay={0.5}
             duration={4}
             suffix="k"
-            style={{
-              fontSize: "32px",
-              fontFamily: "ubuntu",
-              fontWeight: "800",
-            }}
+            className="contador"
           />
-          <p>New User</p>
-          <p>Last Week</p>
+          <PrimerP>New User</PrimerP>
+          <SegundoP>Last Week</SegundoP>
         </Count2>
         <Count3>
           <CountUp
@@ -54,14 +49,10 @@ const HeroCounter = () => {
             delay={0.5}
             duration={4}
             suffix="+"
-            style={{
-              fontSize: "32px",
-              fontFamily: "ubuntu",
-              fontWeight: "800",
-            }}
+            className="contador"
           />
-          <p>New NFT</p>
-          <p>ON Market</p>
+          <PrimerP>New NFT</PrimerP>
+          <SegundoP>ON Market</SegundoP>
         </Count3>
         <Count4>
           <CountUp
@@ -72,14 +63,10 @@ const HeroCounter = () => {
             delay={0.5}
             duration={4}
             suffix="ETH"
-            style={{
-              fontSize: "32px",
-              fontFamily: "ubuntu",
-              fontWeight: "800",
-            }}
+            className="contador"
           />
-          <p>Floor Price</p>
-          <p>Last Month</p>
+          <PrimerP>Floor Price</PrimerP>
+          <SegundoP>Last Month</SegundoP>
         </Count4>
       </Counter>
     </>

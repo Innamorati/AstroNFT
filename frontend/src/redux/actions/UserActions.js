@@ -27,7 +27,6 @@ const UserActions = {
         }
     },
     verifiedToken: (token) => {
-        console.log(token)
         return async (dispatch, getState) => {
             const user = await axios.get('http://localhost:4000/api/user/token', { headers: { 'Authorization': 'Bearer ' + token } })
             if (user.data.success) {

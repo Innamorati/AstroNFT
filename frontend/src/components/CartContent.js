@@ -19,7 +19,6 @@ import UserActions from "../redux/actions/UserActions";
 import { useState } from "react";
 import axios from "axios";
 function CartContent(props) {
-  console.log(props);
   const products = [];
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();

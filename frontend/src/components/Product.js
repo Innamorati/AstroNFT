@@ -84,17 +84,15 @@ function Product(props) {
 
   const addBasket = (id) => {
     const userId = props.user?.user?.id
-    console.log(props.user.user)
     const searchNftInBasket = props.user?.user?.basket.filter(filter => filter.nftId._id === id)
     {
       userId === undefined ? navigate('/signin') :
-        searchNftInBasket.length === 1 ?
-          dispatch({ type: 'user', payload: { view: true, message: "You have already added this nft to the basket", user: props.user.user } }) :
-          props.addToBasket(id, userId)
-
+      searchNftInBasket.length === 1 ?
+      dispatch({ type: 'user', payload: { view: true, message: "You have already added this nft to the basket", user: props.user.user } }) :
+      props.addToBasket(id, userId)
+      
     }
   }
-  console.log(props);
 
   function financial(x) {
     return Number.parseFloat(x).toFixed(2);

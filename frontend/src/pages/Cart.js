@@ -27,6 +27,7 @@ import {
   ImagePay,
 } from "../styles/StyleCartProducts";
 import { connect } from "react-redux";
+import PayPal from "../components/PayForm/PayPal";
 
 export default function Cart() {
   return (
@@ -86,6 +87,7 @@ export default function Cart() {
         <ButtonMethod>
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
+        <PayPal sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
       </ContainerCart>
       <ImgAstro
         style={{

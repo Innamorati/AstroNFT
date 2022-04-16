@@ -35,9 +35,9 @@ function WalletUser(props) {
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
 
-  //console.log(BTC);
-  //console.log(ETH);
-  //console.log(BNB);
+  console.log(BTC);
+  console.log(ETH);
+  console.log(BNB);
 
   const getBTC = async () => {
     try {

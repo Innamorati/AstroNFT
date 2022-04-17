@@ -25,33 +25,23 @@ export default function Body() {
             }}
           />
           <TextConteiner>
-            <Text>Lorem ipsum dolor sit amet, consectetur</Text>
+            <Text>What is a NFT?</Text>
             <Paragraph>
-              Proin turpis mauris elementum adipiscing leo. At mauris
-              pellentesque eget imperdiet. Porttitor aliquet iaculis sed arcu
-              diam et, sit. Cras ut proin quis consequat fringilla orci, velit,
-              quis. Malesuada tellus facilisi odio lectus blandit morbi risus.
-              Quis mattis proin pretium accumsan, scelerisque luctus.nulla.
-              Vitae est duis vitae lacus, purus molestie tellus. Feugiat odio
-              varius ullamcorper pulvinar sagittis sed vulputate quis. Odio
-              urna, id amet quam interdum elementum sed. Senectus sollicitudin
-              tortor, mi, a quis
+              NFT stands for non-fungible token. It's generally built using the
+              same kind of programming as cryptocurrency, like Bitcoin or
+              Ethereum, but that's where the similarity ends.The reason is that
+              physical money and cryptocurrencies are “fungible,” meaning they
+              can be traded or exchanged for one another.
             </Paragraph>
           </TextConteiner>
         </BodyConteiner>
         <BodyConteiner2>
           <TextConteiner>
-            <Text>Lorem ipsum dolor sit amet, consectetur</Text>
+            <Text>About Us:</Text>
             <Paragraph>
-              Proin turpis mauris elementum adipiscing leo. At mauris
-              pellentesque eget imperdiet. Porttitor aliquet iaculis sed arcu
-              diam et, sit. Cras ut proin quis consequat fringilla orci, velit,
-              quis. Malesuada tellus facilisi odio lectus blandit morbi risus.
-              Quis mattis proin pretium accumsan, scelerisque luctus.nulla.
-              Vitae est duis vitae lacus, purus molestie tellus. Feugiat odio
-              varius ullamcorper pulvinar sagittis sed vulputate quis. Odio
-              urna, id amet quam interdum elementum sed. Senectus sollicitudin
-              tortor, mi, a quis
+              We are a company who built the biggest marketplace of NFTs in the
+              world, in our website you can sell and buy NTFs safely with the
+              privacity your need.
             </Paragraph>
           </TextConteiner>
           <Image

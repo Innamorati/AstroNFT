@@ -21,9 +21,11 @@ const Hero = () => {
       }}
     >
       <HeroText>
-        <HeroTitle> Lorem ipsum dolor sit amet. </HeroTitle>
+        <HeroTitle> Sell, buy and hold NFTs </HeroTitle>
         <HeroParagraph>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          We are a company whou built the biggest marketplace of NFTs in the
+          world. In our website, you can sell and buy NFTs safely with the
+          privacity you need.
         </HeroParagraph>
         <LinkRouter to={"/products"}>
           {" "}

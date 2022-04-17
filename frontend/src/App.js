@@ -8,8 +8,6 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import CustomizedSnackbars from "./components/SnackBar";
-import Error404 from "./pages/Error404";
-import { AdminPage } from "./pages/AdminPage";
 import { connect } from "react-redux";
 import UserActions from "./redux/actions/UserActions";
 import React, { useEffect } from "react";

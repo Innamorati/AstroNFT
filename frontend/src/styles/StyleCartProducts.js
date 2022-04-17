@@ -8,8 +8,8 @@ export const DivGeneral = styled.div`
 `;
 
 export const ImgAstro = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background-position: center;
   background-size: cover;
   position: absolute;

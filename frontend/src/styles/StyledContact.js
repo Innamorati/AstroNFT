@@ -11,7 +11,6 @@ export const ContactBack = styled.div`
 `;
 export const ContactContainer = styled.div`
   width: 30%;
-  min-height: 75vh;
   display: flex;
   justify-content: center;
   background-color: #fff;

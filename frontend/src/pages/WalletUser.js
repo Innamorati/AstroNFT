@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link as LinkRouter } from "react-router-dom";
 import {
   DivNfts,
   ProductWallet,
@@ -20,16 +20,80 @@ import {
   Coin,
   ConteinCoin,
   TextCoin,
+  DivButton,
+  DivTitleCoin,
+  ConteinerNftCollection,
 } from "../styles/StyleWallet";
+import { connect } from "react-redux";
+import ProductActions from "../redux/actions/ProductActions";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function WalletUser() {
+function WalletUser(props) {
+  console.log(props);
+  const [BTC, setBTC] = useState();
+  const [ETH, setETH] = useState();
+  const [BNB, setBNB] = useState();
+
+  console.log(BTC);
+  console.log(ETH);
+  console.log(BNB);
+
+  const getBTC = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setBTC(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getETH = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setETH(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getBNB = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setBNB(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
+  }
+
+  useEffect(() => {
+    props.getOneProduct();
+    getBTC();
+    getETH();
+    getBNB();
+  }, []);
   return (
     <>
       <HeaderWallet>
         <Portfolio>
           <Title>Portfolio</Title>
           <Balance>
-            <Title2>$17.643,41</Title2>
+            <Title2>
+              {financial(
+                BTC?.bitcoin.usd * 6 +
+                  ETH?.ethereum.usd * 3 +
+                  BNB?.binancecoin.usd * 21
+              )}
+              {"  "}
+              USD
+            </Title2>
             <TextCoin>Portfolio balance</TextCoin>
           </Balance>
         </Portfolio>
@@ -37,8 +101,10 @@ export default function WalletUser() {
           <Title>Your Assets</Title>
           <ConteinAssets>
             <Nfts1>
-              <Title2>1 BTC</Title2>
-              <Paragraph>$2546</Paragraph>
+              <DivTitleCoin>
+                <Title2>6 BTC =</Title2>
+                <Paragraph>{financial(BTC?.bitcoin.usd * 6)} USD</Paragraph>
+              </DivTitleCoin>
               <ConteinCoin>
                 <Coin
                   style={{
@@ -50,29 +116,15 @@ export default function WalletUser() {
                     backgroundSize: "cover",
                   }}
                 />
-                <TextCoin>+14%</TextCoin>
+                <TextCoin>{financial(BTC?.bitcoin.usd_24h_change)}%</TextCoin>
               </ConteinCoin>
             </Nfts1>
             <Nfts2>
-              <Title2>0.32 LTC</Title2>
-              <Paragraph>$2546</Paragraph>
-              <ConteinCoin>
-                <Coin
-                  style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/ltc.png"
-                    }')`,
-                    backgroundPosition: "center center",
-                    objectFit: "contain",
-                    backgroundSize: "cover",
-                  }}
-                />
-                <TextCoin>+14%</TextCoin>
-              </ConteinCoin>
-            </Nfts2>
-            <Nfts3>
-              <Title2>1.25 ETH</Title2>
-              <Paragraph>$2546</Paragraph>
+              <DivTitleCoin>
+                <Title2>3 ETH =</Title2>
+                <Paragraph>{financial(ETH?.ethereum.usd * 3)} USD</Paragraph>
+              </DivTitleCoin>
+
               <ConteinCoin>
                 <Coin
                   style={{
@@ -84,13 +136,39 @@ export default function WalletUser() {
                     backgroundSize: "cover",
                   }}
                 />
-                <TextCoin>+14%</TextCoin>
+                <TextCoin>{financial(ETH?.ethereum.usd_24h_change)}%</TextCoin>
+              </ConteinCoin>
+            </Nfts2>
+            <Nfts3>
+              <DivTitleCoin>
+                <Title2>21 BNB =</Title2>
+                <Paragraph>
+                  {financial(BNB?.binancecoin.usd * 21)} USD
+                </Paragraph>
+              </DivTitleCoin>
+
+              <ConteinCoin>
+                <Coin
+                  style={{
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/bnb.png"
+                    }')`,
+                    backgroundPosition: "center center",
+                    objectFit: "contain",
+                    backgroundSize: "cover",
+                  }}
+                />
+                <TextCoin>
+                  {financial(BNB?.binancecoin.usd_24h_change)}%
+                </TextCoin>
               </ConteinCoin>
             </Nfts3>
           </ConteinAssets>
         </Assets>
       </HeaderWallet>
-      <Title>NFT in collection</Title>
+      <ConteinerNftCollection>
+        <Title>NFT in collection</Title>
+      </ConteinerNftCollection>
       <ConteinerNFT>
         <DivNfts>
           <ProductWallet
@@ -104,7 +182,12 @@ export default function WalletUser() {
             }}
           />
           <NameNFT>NAME NFT 1</NameNFT>
-          <Sell>Sell </Sell>
+          <DivButton>
+            <Sell>Sell</Sell>
+            <LinkRouter to={"/details/:id"}>
+              <Sell>Details</Sell>
+            </LinkRouter>
+          </DivButton>
         </DivNfts>
         <DivNfts>
           <ProductWallet
@@ -118,7 +201,12 @@ export default function WalletUser() {
             }}
           />
           <NameNFT>NAME NFT 2</NameNFT>
-          <Sell>Sell</Sell>
+          <DivButton>
+            <Sell>Sell</Sell>
+            <LinkRouter to={"/details/:id"}>
+              <Sell>Details</Sell>
+            </LinkRouter>{" "}
+          </DivButton>
         </DivNfts>
         <DivNfts>
           <ProductWallet
@@ -132,7 +220,12 @@ export default function WalletUser() {
             }}
           />
           <NameNFT>NAME NFT 3</NameNFT>
-          <Sell>Sell</Sell>
+          <DivButton>
+            <Sell>Sell</Sell>
+            <LinkRouter to={"/details/:id"}>
+              <Sell>Details</Sell>
+            </LinkRouter>
+          </DivButton>
         </DivNfts>
         <DivNfts>
           <ProductWallet
@@ -146,23 +239,25 @@ export default function WalletUser() {
             }}
           />
           <NameNFT>NAME NFT 4</NameNFT>
-          <Sell>Sell</Sell>
-        </DivNfts>
-        <DivNfts>
-          <ProductWallet
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
-              objectFit: "contain",
-              backgroundPosition: "center center",
-              backgroundSize: "cover",
-            }}
-          />
-          <NameNFT>NAME NFT 5</NameNFT>
-          <Sell>Sell</Sell>
+          <DivButton>
+            <Sell>Sell</Sell>
+            <LinkRouter to={"/details/:id"}>
+              <Sell>Details</Sell>
+            </LinkRouter>{" "}
+          </DivButton>
         </DivNfts>
       </ConteinerNFT>
     </>
   );
 }
+const mapDispatchToProps = {
+  getOneProduct: ProductActions.getOneProduct,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    oneProduct: state.ProductReducer.oneProduct,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WalletUser);

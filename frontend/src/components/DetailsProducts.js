@@ -25,29 +25,40 @@ import {
   TitleCreator,
   DivCreator,
   ConteinerTitleAndLike,
+  FavContainer,
+  CounterFav,
 } from "../styles/StyleDetailsProducts";
 import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
 import ProductActions from "../redux/actions/ProductActions";
 import { useEffect, useState } from "react";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useNavigate } from "react-router-dom";
 
 function DetailsProducts(props) {
   const { id } = useParams();
   let navigate = useNavigate();
+  const [reload, setReload] = useState(false)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
     props.getOneProduct(id);
-  }, []);
+  }, [reload]);
 
   function buy() {
     const userId = props.user?.user?.id
-    console.log(id)
     props.addToBasket(id, userId)
     navigate('/basket')
   }
+  async function fav(productId) {
+    { props.user?.user === null ? navigate('/signin') : await props.likeDislike(productId) }
+
+
+    setReload(!reload)
+    console.log(props.user?.user)
+  }
+  console.log(props.oneProduct?.likes?.includes(props.user?.user?.id))
+  console.log(props.user?.user)
   return (
     <DivFather>
       <FatherDetails>
@@ -62,7 +73,14 @@ function DetailsProducts(props) {
           <ConteinerTitleAndLike>
             <TitleDetails>{props.oneProduct?.name}</TitleDetails>
             <CategoryDetails>{props.oneProduct?.category}</CategoryDetails>
-            <FavoriteBorderIcon />
+
+            <FavContainer onClick={() => fav(props.oneProduct?._id)}>
+              {props.oneProduct?.likes?.includes(props.user?.user?.id) ?
+                <FavoriteIcon style={{ color: "red" }} /> :
+                <FavoriteBorderIcon />
+              }
+              <CounterFav>{props.oneProduct?.likes?.length}</CounterFav>
+            </FavContainer>
           </ConteinerTitleAndLike>
           <PriceFatherDetails>
             <PriceDetails>
@@ -143,7 +161,7 @@ function DetailsProducts(props) {
           </Accordion> */}
         </HeaderDetails2>
       </FatherDetails>
-    </DivFather>
+    </DivFather >
   );
 }
 
@@ -157,6 +175,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getOneProduct: ProductActions.getOneProduct,
   addToBasket: UserActions.addToBasket,
+  likeDislike: ProductActions.likeDislike,
 
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsProducts);

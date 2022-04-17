@@ -8,8 +8,6 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import CustomizedSnackbars from "./components/SnackBar";
-import Error404 from "./pages/Error404";
-import { AdminPage } from "./pages/AdminPage";
 import { connect } from "react-redux";
 import UserActions from "./redux/actions/UserActions";
 import React, { useEffect } from "react";
@@ -17,33 +15,48 @@ import React, { useEffect } from "react";
 import Details from "./pages/Details";
 import Admin from "./pages/Admin";
 import WalletUser from "./pages/WalletUser";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
+import ScrollToTop from "../src/components/Scrolltotop";
 
 function App(props) {
   useEffect(() => {
-    if (localStorage.getItem("token") !== null) {
-      const token = localStorage.getItem("token");
-      props.verifiedToken(token);
-    }
+    const token = localStorage.getItem("token")
+    props.verifiedToken(token);
   }, []);
+
   return (
     <BrowserRouter>
       <NavBar />
       <SideNavBar />
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/basket" element={<Cart />} />
-        <Route path="/details/:id" element={<Details />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/wallet" element={<WalletUser />} />
+        {props?.user.user ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/basket" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/wallet" element={<WalletUser />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/basket" element={<Cart />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </>
+        )}
       </Routes>
-        <Footer />
+      <Footer />
       <CustomizedSnackbars />
     </BrowserRouter>
   );

@@ -258,6 +258,8 @@ export const ItemProductVideo = styled.video`
   height: 258px;
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0 12px 16px rgb(0 0 0 / 27%);
+  background-position: center;
+  background-size: cover;
   @media (max-width: 880px) {
     width: 250px;
     height: 250px;
@@ -358,19 +360,19 @@ export const DivPriceETH = styled.div`
   display: flex;
 `;
 export const ArsMadeBy = styled.h4`
-  width: 95px;
   height: 15px;
+  text-align: center;
   left: 2px;
   top: 0px;
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 125%;
   color: #828282;
 `;
 export const DivArs = styled.div`
-  width: 80%;
+  width: 65%;
   height: 2.3rem;
   display: flex;
   justify-content: space-between;

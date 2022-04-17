@@ -231,7 +231,7 @@ const UserControllers = {
             console.log(error)
             res.json({ success: false, response: { message: "Algo salio mal intente en unos minutos", } })
         }
-    }
+    },
 
 }
 module.exports = UserControllers

@@ -49,6 +49,19 @@ const ProductActions = {
       });
     };
   },
+  likeDislike: (productId) => {
+    const token = localStorage.getItem('token')
+    return async () => {
+      try {
+        let response = await axios.put(`http://localhost:4000/api/LikeDislike/${productId}`, {}, { headers: { 'Authorization': 'Bearer ' + token } })
+        console.log(response.data.success)
+        return response
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+  }
 };
 
 export default ProductActions;

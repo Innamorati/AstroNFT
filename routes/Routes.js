@@ -5,7 +5,7 @@ const validator = require("../config/validator");
 const passport = require("../config/Passport");
 
 const { userRegistration, userSignin, verifyEmail, userLogout, tokenVerified, addToBasket, deleteToBasket, } = UserControllers;
-const { getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, } = ProductControllers;
+const { getAllProducts, addProduct, deleteProduct, updateProduct, getOneProduct, likeDislike } = ProductControllers;
 
 Router.route("/products").get(getAllProducts).post(addProduct);
 
@@ -27,5 +27,8 @@ Router.route("/user/logout").post(userLogout);
 Router.route("/bascket").post(addToBasket);
 
 Router.route("/basket/:id").post(deleteToBasket);
+
+Router.route("/LikeDislike/:id")
+  .put(passport.authenticate("jwt", { session: false }), likeDislike);
 
 module.exports = Router;

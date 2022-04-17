@@ -169,3 +169,9 @@ export const ConteinerTitleAndLike = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+export const FavContainer = styled.div`
+
+`;
+export const CounterFav = styled.h4`
+  text-align: center;
+`;

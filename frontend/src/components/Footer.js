@@ -43,6 +43,10 @@ export default function FooterComp() {
               backgroundImage: `url('${
                 process.env.PUBLIC_URL + "/assets/instagram.png"
               }')`,
+              backgroundPosition: 'center',
+              backgroundSize:'cover',
+              objectFit:'cover',
+              backgroundRepeat:'no-repeat',
             }}
           />
           <IconSocial
@@ -50,6 +54,10 @@ export default function FooterComp() {
               backgroundImage: `url('${
                 process.env.PUBLIC_URL + "/assets/facebook.png"
               }')`,
+              backgroundPosition: 'center',
+              backgroundSize:'cover',
+              objectFit:'cover',
+              backgroundRepeat:'no-repeat',
             }}
           />
 
@@ -58,6 +66,10 @@ export default function FooterComp() {
               backgroundImage: `url('${
                 process.env.PUBLIC_URL + "/assets/twitter.png"
               }')`,
+              backgroundPosition: 'center',
+              backgroundSize:'cover',
+              objectFit:'cover',
+              backgroundRepeat:'no-repeat',
             }}
           />
         </SocialMedia>

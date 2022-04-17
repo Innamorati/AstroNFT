@@ -25,6 +25,7 @@ import {
   DivTitlePay,
   ImagePay,
 } from "../styles/StyleCartProducts";
+import PayPal from "./PayForm/PayPal";
 
 const CartProducts = () => {
   return (
@@ -161,6 +162,7 @@ const CartProducts = () => {
         <ButtonMethod>
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
+        
       </ContainerCart>
       <ImgAstro
         style={{

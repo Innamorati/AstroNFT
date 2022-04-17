@@ -27,8 +27,9 @@ import {
   ButtonMethod2,
   BtnCart2,
 } from "../styles/StyleCartProducts";
-
 import { connect } from "react-redux";
+import PayPal from "../components/PayForm/PayPal";
+
 import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
 import { useState, useEffect } from "react";
@@ -187,6 +188,7 @@ function Cart(props) {
         <ButtonMethod>
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
+        <PayPal sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
       </ContainerCart>
       <ImgAstro
         style={{

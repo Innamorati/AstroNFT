@@ -28,6 +28,7 @@ export const SocialMedia = styled.div`
   align-items: center;
   @media (max-width: 880px) {
     width: 100%;
+    padding-bottom:2rem;
   }
 `;
 //div contacto footer
@@ -61,12 +62,10 @@ export const InAstroNFT = styled.div`
 `;
 // iconos de redes en footer
 export const IconSocial = styled.div`
-  margin: 0.3rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  object-fit: cover;
-  border-radius: 0.3rem;
-  padding: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  /* border-radius: 0.3rem; */
+  margin-left: 1rem;
   cursor: pointer;
   @media (max-width: 376px) {
     object-fit: cover;

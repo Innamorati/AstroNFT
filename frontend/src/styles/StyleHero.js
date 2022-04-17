@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const BackgroundHero = styled.div`
     display: flex;
+    justify-content: space-around;
     width: 100%;
     height: 30rem;
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
 `;
 export const HeroTitle = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50%;
+    width: 68%;
     color: white;
     font-weight: 700;
     margin: 2rem 0 1rem;
@@ -20,15 +22,18 @@ export const HeroTitle = styled.h1`
     @media (max-width: 800px) {
         font-size: 1.5rem;
         font-weight: 700;
+        width: 65%;
     }
 
     @media (max-width: 600px) {
-        font-size: 1rem;
+        /* font-size: 1rem; */
         font-weight:700;
+        width: 100%;
     }
     @media (max-width: 350px) {
-        font-size: .8rem;
+        /* font-size: .8rem; */
         font-weight:500;
+        width: 100%;
     }
 `;
 
@@ -37,7 +42,6 @@ export const HeroText = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
 
     a {
         text-decoration: none;
@@ -50,21 +54,22 @@ export const HeroParagraph = styled.p`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50%;
+    width: 68%;
     color: white;
     margin: 1rem 0 2rem;
     text-align: center;
 
     @media (max-width: 800px) {
         font-size: 1rem;
+        width: 65%;
     }
     @media (max-width: 600px) {
         font-size: .8rem;
         margin: 1rem 0 1.5rem;
+        width: 100%;
     }
     @media (max-width: 350px) {
-        font-size: .7rem;
-        margin: 1rem 0 1.5rem;
+        width: 100%;
     }
 `;
 
@@ -149,17 +154,18 @@ export const HeroImage = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    /* width: 50%; */
 `;
 export const Astronaut = styled.div`
-    display: flex;
-    flex-wrap: wrap;
     
     @media (max-width: 900px) {
 
         img {
-            width: 70%;
-            height: 50%;
+            width: 90%;
+            height: 85%;
         }
+    }
+    @media (max-width: 600px) {
+        
     }
 `;

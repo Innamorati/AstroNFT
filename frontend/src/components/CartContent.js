@@ -23,7 +23,6 @@ import axios from "axios";
 import { Link as LinkRouter } from "react-router-dom";
 
 function CartContent(props) {
-  console.log(props);
   const products = [];
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();

@@ -122,6 +122,26 @@ const productController = {
       });
     }
   },
+  likeDislike: async (req, res) => {
+    const id = req.params.id
+    const userId = req.user.id
+
+    await Product.findOne({ _id: id })
+
+      .then((product) => {
+        if (product.likes.includes(userId)) {
+          Product.findOneAndUpdate({ _id: id }, { $pull: { likes: userId } }, { new: true })
+            .then((response) => res.json({ success: true, response: response.likes }))
+            .catch((error) => console.log(error))
+        }
+        else {
+          Product.findOneAndUpdate({ _id: id }, { $push: { likes: userId } }, { new: true })
+            .then((response) => res.json({ success: true, response: response.likes }))
+            .catch((error) => console.log(error))
+        }
+      })
+      .catch((error) => res.json({ success: false, response: error }))
+  }
 };
 
 module.exports = productController;

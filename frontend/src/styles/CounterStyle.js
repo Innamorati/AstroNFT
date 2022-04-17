@@ -30,9 +30,12 @@ export const Count1 = styled.div`
     }
     @media (max-width:650px){
         padding: 6px;
+        margin:1rem .2rem;
     }
     @media (max-width:480px){
         padding: 3.5px;
+        margin:1rem .2rem;
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.270);
     }
 `;
 export const Count2 = styled.div`
@@ -59,6 +62,7 @@ export const Count2 = styled.div`
     @media (max-width:480px){
         padding: 3.5px;
         margin:1rem .2rem;
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.270);
     }
 `;
 export const Count3 = styled.div`
@@ -84,6 +88,7 @@ export const Count3 = styled.div`
     @media (max-width:480px){
         padding: 3.5px;
         margin:1rem .2rem;
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.270);
     }
 `;
 export const Count4 = styled.div`
@@ -109,15 +114,21 @@ export const Count4 = styled.div`
     @media (max-width:480px){
         padding: 3.5px;
         margin:1rem .2rem;
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.270);
     }
 `;
 
 export const PrimerP = styled.div`
     font-size:1.7rem ;
-    font-weight:900 ;
+    font-weight:500 ;
+
+    @media (max-width:750px){
+        font-size: 22px;
+        font-weight:400;
+    }
 
     @media (max-width:500px){
-        font-size: 18px;
+        font-size: 14px;
         font-weight:400;
     }
     @media (max-width: 380px) {
@@ -131,7 +142,7 @@ export const SegundoP = styled.div`
     font-weight:300 ;
 
     @media (max-width:500px){
-        font-size: 18px;
+        font-size: 14px;
         font-weight:400 ;
     }
     @media (max-width: 380px) {

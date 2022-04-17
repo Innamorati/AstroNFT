@@ -9,6 +9,8 @@ import {
   Ether,
   PrecioArg,
   ArsMoney,
+  ButtonMethod2,
+  BtnCart2,
 } from "../styles/StyleCartProducts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -18,8 +20,9 @@ import ProductActions from "../redux/actions/ProductActions";
 import UserActions from "../redux/actions/UserActions";
 import { useState } from "react";
 import axios from "axios";
+import { Link as LinkRouter } from "react-router-dom";
+
 function CartContent(props) {
-  console.log(props);
   const products = [];
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
@@ -55,53 +58,7 @@ function CartContent(props) {
     getBNB();
   }, []);
 
-  return (
-    <>
-      {props.user?.user?.basket.length !== 0
-        ? props.user?.user?.basket.map((products) => (
-            <CardProducts>
-              <ImageProducts
-                style={{
-                  backgroundImage: `url('${products.nftId.file}')`,
-                  backgroundPosition: "center center",
-                }}
-              />
-              <DivTitle>
-                <TitleProducts>{products.nftId.name}</TitleProducts>
-                <CategoryProducts>{products.nftId.category}</CategoryProducts>
-              </DivTitle>
-              <PrecioArg>
-                <PrecioEth>
-                  <Ether>
-                    {products.nftId.price} {products.nftId.token}
-                  </Ether>
-                </PrecioEth>
-                <ArsMoney>
-                  ≈
-                  {products.nftId.token === "ETH"
-                    ? financial(products.nftId.price * ETH?.ethereum.usd) + " "
-                    : financial(products.nftId.price * BNB?.binancecoin.usd) +
-                      " "}
-                  USD
-                </ArsMoney>
-              </PrecioArg>
-              <FontAwesomeIcon
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  cursor: "pointer",
-                  marginRight: "1rem",
-                  color: "#45A9F2",
-                  padding: "1rem",
-                }}
-                icon={faXmark}
-                onClick={() => deleteNft(products._id)}
-              />
-            </CardProducts>
-          ))
-        : ""}
-    </>
-  );
+  return <></>;
 }
 const mapDispatchToProps = {
   getAllProducts: ProductActions.getAllProducts,

@@ -32,7 +32,6 @@ const NavBar = (props) => {
   };
   // const primary = red[500];
 
-  console.log(props.user);
   return (
     <>
       <NavBarAstroNFT>

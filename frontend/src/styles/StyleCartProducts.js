@@ -58,6 +58,7 @@ export const ContainerCart = styled.div`
 
 export const HeaderCart = styled.h3`
   width: 100%;
+  text-align: center;
   color: black;
   font-size: 1.7rem;
   font-weight: 500;
@@ -246,38 +247,51 @@ export const Method = styled.div`
 
 export const BtnCart = styled.button`
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   margin-top: 1rem;
   color: white;
-  background-color: #2355f2;
+  background-color: #067817;
   border: none;
   font-size: 1.5rem;
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
+  border-radius: .4rem;
+  padding: 0.4rem .4rem;
 
   &:hover {
-    background-color: #0034b3;
+    background-color: #016610;
+  }
+`;
+export const BtnCart2 = styled.button`
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 1rem .2rem 0 0 ; 
+  background-color: #e6191b;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: .4rem;
+  padding: 0.2rem .2rem;
+  &:hover {
+    background-color: #c91214;
   }
 `;
 
 export const ButtonMethod = styled.div`
   width: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   padding-bottom: 8rem;
-  padding-top: 2rem;
   z-index: 10;
   @media (max-width: 1289px) {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
   @media (max-width: 1024px) {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
   @media (max-width: 995px) {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
 `;
 export const ButtonMethod2 = styled.div`
@@ -299,20 +313,6 @@ export const ButtonMethod2 = styled.div`
     justify-content: center;
   }
 `;
-export const BtnCart2 = styled.button`
-  display: flex;
-  justify-content: flex-end;
-  color: white;
-  background-color: #2355f2;
-  border: none;
-  font-size: 1.5rem;
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
-
-  &:hover {
-    background-color: #0034b3;
-  }
-`;
 export const TotalBuy = styled.div`
   width: 80%;
   background-color: red;
@@ -320,8 +320,8 @@ export const TotalBuy = styled.div`
   justify-content: end;
 `;
 export const TotalCart = styled.div`
-  margin: 2rem;
-  width: 70%;
+  margin-top: 2rem;
+  width: 80%;
   @media (max-width: 890px) {
     width: 100%;
   }

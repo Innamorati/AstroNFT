@@ -35,6 +35,9 @@ import UserActions from "../redux/actions/UserActions";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link as LinkRouter } from "react-router-dom";
+import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from "@mui/icons-material/Delete";
+import PaidIcon from '@mui/icons-material/Paid';
 
 function Cart(props) {
   console.log(props.user?.user?.basket);
@@ -83,8 +86,6 @@ function Cart(props) {
       Price.push(Number(financial(item.nftId.price * ETH?.ethereum.usd)));
     }
   });
-  console.log(Price.reduce((a, b) => a + b, 0));
-
   return (
     <DivGeneral>
       <ContainerCart>
@@ -113,9 +114,9 @@ function Cart(props) {
                     ≈
                     {products.nftId.token === "ETH"
                       ? financial(products.nftId.price * ETH?.ethereum.usd) +
-                        " "
+                      " "
                       : financial(products.nftId.price * BNB?.binancecoin.usd) +
-                        " "}
+                      " "}
                     USD
                   </ArsMoney>
                 </PrecioArg>
@@ -138,9 +139,8 @@ function Cart(props) {
           <CardProducts>
             <ImageProducts
               style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/errorProducts.png"
-                }')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/errorProducts.png"
+                  }')`,
                 backgroundPosition: "center center",
               }}
             />
@@ -159,14 +159,13 @@ function Cart(props) {
         )}
         <Total price={Price.reduce((a, b) => a + b, 0)} />
 
-        <HeaderCart2>Method</HeaderCart2>
+        {/* <HeaderCart2>Method</HeaderCart2>
         <Method>
           <CardProducts2>
             <ImagePay
               style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Paypal.png"
-                }')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/Paypal.png"
+                  }')`,
               }}
             />
             <DivTitlePay>
@@ -184,17 +183,17 @@ function Cart(props) {
               <label for="box1"></label>
             </DivTitlePay>
           </CardProducts2>
-        </Method>
+        </Method> */}
         <ButtonMethod>
-          <BtnCart>Purchase</BtnCart>
+          <BtnCart2>Delete cart <DeleteIcon /></BtnCart2>
+          <BtnCart>Purchase<PaidIcon /></BtnCart>
         </ButtonMethod>
-        <PayPal sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
+        <PayPal sx={{ marginTop: "1rem", fontSize: "large", width: "500px" }} />
       </ContainerCart>
       <ImgAstro
         style={{
-          backgroundImage: `url('${
-            process.env.PUBLIC_URL + "/assets/AstroCart.png"
-          }')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/AstroCart.png"
+            }')`,
         }}
       />
     </DivGeneral>

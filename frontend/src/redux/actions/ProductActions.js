@@ -53,7 +53,7 @@ const ProductActions = {
     const token = localStorage.getItem('token')
     return async () => {
       try {
-        let response = await axios.put(`http://astronft.herokuapp.com/LikeDislike/${productId}`, {}, { headers: { 'Authorization': 'Bearer ' + token } })
+        let response = await axios.put(`http://localhost:4000/api/LikeDislike/${productId}`, {}, { headers: { 'Authorization': 'Bearer ' + token } })
         console.log(response.data.success)
         return response
       }

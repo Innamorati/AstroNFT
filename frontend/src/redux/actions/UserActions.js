@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const UserActions = {
 
     userSignUp: (data) => {
@@ -10,7 +11,7 @@ const UserActions = {
     },
     userLoging: (data) => {
         return async (dispatch, gerState) => {
-            const res = await axios.post('http://localhost:4000/api/user/signin', { data });
+            const res = await axios.post('https://astronft.herokuapp.com/api/user/signin', { data });
             console.log(res.data.response.user)
             if (res.data.success) {
                 dispatch({ type: 'user', payload: { user: res.data.response.user, success: res.data.success, message: res.data.message, view: true } })
@@ -56,6 +57,16 @@ const UserActions = {
             if (deleteNft.data.success) {
                 const user = await axios.get('http://localhost:4000/api/user/token', { headers: { 'Authorization': 'Bearer ' + token } })
                 dispatch({ type: 'user', payload: { message: deleteNft.data.response.message, user: user.data.response, success: deleteNft.data.success, view: true } })
+            }
+        }
+    },
+    delteAllBasket: (id) => {
+        const token = localStorage.getItem("token")
+        return async (dispatch, getState) => {
+            const delteBasket = await axios.post(`http://localhost:4000/api/deleteAllBasket/${id}`)
+            if (delteBasket.data.success === true) {
+                const user = await axios.get('http://localhost:4000/api/user/token', { headers: { 'Authorization': 'Bearer ' + token } })
+                dispatch({ type: 'user', payload: { message: delteBasket.data.response.message, user: user.data.response, success: delteBasket.data.success, view: true } })
             }
         }
     }

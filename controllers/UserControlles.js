@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-const usuario = require("../models/UserModels");
+// const usuario = require("../models/UserModels");
 
 dotenv.config();
 const bcryptjs = require("bcryptjs");
@@ -307,22 +307,22 @@ const UserControllers = {
   deleteToBasket: async (req, res) => {
     const id = req.params.id;
     try {
-      const basketDelete = await usuario.findOneAndUpdate(
-        { "basket._id": id },
-        { $pull: { basket: { _id: id } } },
-        { new: true }
-      );
-      res.json({
-        success: true,
-        response: { message: "Nft delete to basket" },
-      });
+      const basketDelete = await usuario.findOneAndUpdate({ "basket._id": id }, { $pull: { basket: { _id: id } } }, { new: true });
+      res.json({ success: true, response: { message: "Nft delete to basket" }, });
     } catch (error) {
       console.log(error);
-      res.json({
-        success: false,
-        response: { message: "Algo salio mal intente en unos minutos" },
-      });
+      res.json({ success: false, response: { message: "Algo salio mal intente en unos minutos" }, });
     }
   },
+  deleteAllBasket: async (req, res) => {
+    const id = req.params.id;
+    try {
+      const basketDelete = await usuario.findOneAndUpdate({ _id: id }, { $pull: { basket } }, { new: true });
+      res.json({ success: true, response: { message: "Basket delete" } })
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
 };
 module.exports = UserControllers;

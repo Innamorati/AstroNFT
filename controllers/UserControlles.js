@@ -68,7 +68,7 @@ const UserControllers = {
     if (user) {
       user.verifiedMail = true;
       await user.save();
-      res.redirect("http://localhost:3000/");
+      res.redirect("https://astronft.herokuapp.com/");
     } else {
       res.json({ success: false, response: "Su email no se ha verificado" });
     }

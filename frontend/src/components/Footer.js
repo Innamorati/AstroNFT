@@ -17,9 +17,8 @@ export default function FooterComp() {
           <InAstroNFT>
             <IconAstroFoot
               style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/logo.png"
-                }')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/logo.png"
+                  }')`,
                 objectFit: "cover",
               }}
             />
@@ -38,40 +37,33 @@ export default function FooterComp() {
           </Paragraph2>
         </ContactUs>
         <SocialMedia>
-          <IconSocial
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/instagram.png"
-              }')`,
-              backgroundPosition: 'center',
-              backgroundSize:'cover',
-              objectFit:'cover',
-              backgroundRepeat:'no-repeat',
-            }}
-          />
-          <IconSocial
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/facebook.png"
-              }')`,
-              backgroundPosition: 'center',
-              backgroundSize:'cover',
-              objectFit:'cover',
-              backgroundRepeat:'no-repeat',
-            }}
-          />
 
-          <IconSocial
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/twitter.png"
-              }')`,
-              backgroundPosition: 'center',
-              backgroundSize:'cover',
-              objectFit:'cover',
-              backgroundRepeat:'no-repeat',
-            }}
-          />
+          <a href="https://www.instagram.com/astronft1/" target="_blank">
+            <IconSocial
+              style={{
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/instagram.png"
+                  }')`,
+              }}
+            />
+          </a>
+
+          <a href="https://www.facebook.com/profile.php?id=100080276206817" target="_blank">
+            <IconSocial
+              style={{
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/facebook.png"
+                  }')`,
+              }}
+            />
+          </a>
+
+          <a href="https://twitter.com/AstroNFT7" target="_blank">
+            <IconSocial
+              style={{
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/twitter.png"
+                  }')`,
+              }}
+            /></a>
+
         </SocialMedia>
       </Footer>
     </>

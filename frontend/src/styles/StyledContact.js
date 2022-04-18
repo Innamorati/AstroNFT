@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const ContactBack = styled.div`
   display: flex;
   width: 100%;
+<<<<<<< HEAD
   /* height: 82vh; */
   /* height: 40rem; */
+=======
+  height: 40rem;
+>>>>>>> 2bc2f03a3d16a0e325efeffbe13c44dcce47c503
   background-image: url("${process.env.PUBLIC_URL + "/assets/contact.png"}");
   background-position: center;
   background-size: cover;

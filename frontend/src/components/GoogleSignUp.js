@@ -23,10 +23,12 @@ function GoogleSignUp(props) {
 
   console.log(props)
   return (
+
     <GoogleButton>
+      <img src={process.env.PUBLIC_URL + '/assets/google.png'} alt="google" width={20} height={20}/>
       <GoogleLogin
         clientId="213097106218-go202vf7di8bbd7c7g9vkn685ptqdbeh.apps.googleusercontent.com"
-        buttonText="Sign Up with Google"
+        buttonText=" Sign Up with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}

@@ -12,6 +12,9 @@ function PayPal(props) {
     const [products, setProducts] = useState([])
     const [ETH, setETH] = useState();
     const [BNB, setBNB] = useState();
+    const [suma, setSuma] = useState(0)
+    const [precios, setPrecios] = useState([])
+    const [price, setPrice] = useState(0)
 
 
     const getETH = async () => {
@@ -36,22 +39,31 @@ function PayPal(props) {
     };
 
     useEffect(() => {
+
         getBNB();
         getETH();
-    }, []);
+        setPrecios(products?.map(product => Number(product?.unit_amount.value)))
+    }, [products, props.user.user?.basket]);
+
+    useEffect(() => {
+        if(precios.length > 0) {
+            setSuma(precios.reduce((a, b) => a + b))
+        }
+
+    }, [precios])
 
     function calcPrice(token, price) {
         if(token === 'ETH') {
-            return financial(price * ETH?.ethereum.usd)
+            return financial(price * ETH?.ethereum.usd).toFixed(2)
         } else if (token === 'BNB') {
-            return financial(price * BNB?.binancecoin.usd)
+            return financial(price * BNB?.binancecoin.usd).toFixed(2)
         }
     }
 
     function financial(x) {
-        return Number.parseFloat(x).toFixed(1);
+        return parseFloat(x);
     }
-    console.log(products, props.price)
+    console.log(products, props?.price, suma, precios, ETH?.ethereum.usd, BNB?.binancecoin.usd)
 
     console.log(1, orderID);
     console.log(2, success);
@@ -61,7 +73,8 @@ function PayPal(props) {
 
         PayPalCheckOut()//LLamo al cdn de PayPal cada vez que cambia el carrito
         let cartItems = [];
-        props.user.user?.basket.map((item, index) => {
+        props.user?.user?.basket.map((item, index) => {
+            console.log(calcPrice(item.nftId.token, item.nftId.price))
             cartItems.push({
                 name: item.nftId.name,
                 description: item.nftId.fileType,

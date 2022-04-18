@@ -188,7 +188,7 @@ function Cart(props) {
         <ButtonMethod>
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
-        <PayPal price={Price.reduce((a, b) => a + b, 0)} sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
+        <PayPal price={Price.reduce((a, b) => a + b, 0).toFixed(2)} sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
       </ContainerCart>
       <ImgAstro
         style={{

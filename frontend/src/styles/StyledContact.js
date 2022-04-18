@@ -3,18 +3,19 @@ import styled from "styled-components";
 export const ContactBack = styled.div`
   display: flex;
   width: 100%;
-  /* min-height: 100vh; */
-  height: 40rem;
+  /* height: 82vh; */
+  /* height: 40rem; */
   background-image: url("${process.env.PUBLIC_URL + "/assets/contact.png"}");
   background-position: center;
   background-size: cover;
 `;
 export const ContactContainer = styled.div`
   width: 30%;
+  height: 660px;
   display: flex;
   justify-content: center;
   background-color: #fff;
-  margin: auto;
+  margin: 2rem auto;
   border-radius: 20px;
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.27);
 

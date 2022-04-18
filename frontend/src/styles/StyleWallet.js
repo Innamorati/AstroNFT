@@ -70,7 +70,7 @@ export const ProductWallet = styled.div`
   background-color: grey;
   border-radius: 1rem;
 `;
-export const NameNFT = styled.h3`
+export const NameNFT = styled.h5`
   width: 258px;
   padding: 1rem;
   text-align: center;
@@ -97,6 +97,46 @@ export const Paragraph = styled.h6`
   color: black;
 `;
 export const Sell = styled.button`
+  padding: 0.3rem;
+  margin: 1rem;
+  border: unset;
+  border-radius: 1rem;
+  color: #212121;
+  z-index: 1;
+  background: white;
+  position: relative;
+  font-weight: 500;
+  font-size: 1.1rem;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 0 0.7em 1.5em -0.5em grey;
+  transition: all 250ms;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+  }
+
+  &:hover {
+    color: #e8e8e8;
+    box-shadow: 0 1em 1em -0.5em grey;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+`;
+export const CreateNFT = styled.button`
+  width: 10%;
   padding: 0.3rem;
   margin: 1rem;
   border: unset;
@@ -317,6 +357,7 @@ export const Coin = styled.div`
 `;
 export const DivButton = styled.div`
   display: flex;
+  align-items: center;
 `;
 export const DivTitleCoin = styled.div`
   display: flex;
@@ -325,6 +366,10 @@ export const DivTitleCoin = styled.div`
 `;
 export const ConteinerNftCollection = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const Text2 = styled.h3`
   margin-top: 1rem;

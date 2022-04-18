@@ -23,11 +23,13 @@ import {
   DivButton,
   DivTitleCoin,
   ConteinerNftCollection,
+  CreateNFT,
 } from "../styles/StyleWallet";
 import { connect } from "react-redux";
 import ProductActions from "../redux/actions/ProductActions";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BasicModal from "../components/ModalEdit";
 
 function WalletUser(props) {
   console.log(props);
@@ -87,9 +89,9 @@ function WalletUser(props) {
           <Balance>
             <Title2>
               {financial(
-                BTC?.bitcoin.usd * 6 +
+                BTC?.bitcoin.usd * 1 +
                   ETH?.ethereum.usd * 3 +
-                  BNB?.binancecoin.usd * 21
+                  BNB?.binancecoin.usd * 4
               )}
               {"  "}
               USD
@@ -102,8 +104,8 @@ function WalletUser(props) {
           <ConteinAssets>
             <Nfts1>
               <DivTitleCoin>
-                <Title2>6 BTC =</Title2>
-                <Paragraph>{financial(BTC?.bitcoin.usd * 6)} USD</Paragraph>
+                <Title2>1 BTC =</Title2>
+                <Paragraph>{financial(BTC?.bitcoin.usd * 1)} USD</Paragraph>
               </DivTitleCoin>
               <ConteinCoin>
                 <Coin
@@ -141,10 +143,8 @@ function WalletUser(props) {
             </Nfts2>
             <Nfts3>
               <DivTitleCoin>
-                <Title2>21 BNB =</Title2>
-                <Paragraph>
-                  {financial(BNB?.binancecoin.usd * 21)} USD
-                </Paragraph>
+                <Title2>4 BNB =</Title2>
+                <Paragraph>{financial(BNB?.binancecoin.usd * 4)} USD</Paragraph>
               </DivTitleCoin>
 
               <ConteinCoin>
@@ -168,82 +168,485 @@ function WalletUser(props) {
       </HeaderWallet>
       <ConteinerNftCollection>
         <Title>NFT in collection</Title>
+
+        <BasicModal buttonName="Create NFT" variant="contained">
+          <form
+            id=""
+            onSubmit=""
+            action=""
+            className="btnEdit"
+            style={{
+              backgroundColor: "white",
+              padding: "18px 36px",
+              fontSize: "18px",
+            }}
+          >
+            <div className="containerForm">
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  defaultValue=""
+                  placeholder="Name"
+                  type="text"
+                  name="name"
+                />
+              </div>
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="Price"
+                  type="text"
+                  name="price"
+                />
+              </div>
+            </div>
+            <div className="containerForm">
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="Creator"
+                  type="text"
+                  name="creator"
+                />
+              </div>
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="File"
+                  type="text"
+                  name="file"
+                />
+              </div>
+            </div>
+            <div className="containerForm">
+              <div className="divForm">
+                <textarea
+                  className="textArea"
+                  name="description"
+                  id=""
+                  defaultValue=""
+                  placeholder="Enter a message..."
+                ></textarea>
+              </div>
+            </div>
+            <div className="containerForm">
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="owner"
+                  type="text"
+                  name="owner"
+                />
+              </div>
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="red"
+                  type="text"
+                  name="red"
+                />
+              </div>
+            </div>
+            <div className="containerForm">
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="contract address"
+                  type="text"
+                  name="contractAddress"
+                />
+              </div>
+              <div className="divForm">
+                <input
+                  className="form-input"
+                  placeholder="category"
+                  type="text"
+                  name="category"
+                />
+              </div>
+            </div>
+            <div className="containerForm divForm">
+              <input
+                className="form-input"
+                placeholder="file type"
+                type="text"
+                name="fileType"
+              />
+            </div>
+            <button type="submit" className="containerForm btnCarga">
+              Update
+            </button>
+          </form>
+        </BasicModal>
       </ConteinerNftCollection>
       <ConteinerNFT>
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${"https://i.imgur.com/1sZrj3x.png"}')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
             }}
           />
-          <NameNFT>NAME NFT 1</NameNFT>
+          <NameNFT>CRYPTO-MAN 4045</NameNFT>
           <DivButton>
             <Sell>Sell</Sell>
-            <LinkRouter to={"/details/:id"}>
-              <Sell>Details</Sell>
-            </LinkRouter>
+            <BasicModal buttonName="Edit">
+              <form
+                id=""
+                onSubmit=""
+                action=""
+                className="btnEdit"
+                style={{
+                  backgroundColor: "white",
+                  padding: "18px 36px",
+                  fontSize: "18px",
+                }}
+              >
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      defaultValue=""
+                      placeholder="Name"
+                      type="text"
+                      name="name"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Price"
+                      type="text"
+                      name="price"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Creator"
+                      type="text"
+                      name="creator"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="file"
+                      type="text"
+                      name="file"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <textarea
+                      className="textArea"
+                      name="description"
+                      id=""
+                      defaultValue=""
+                      placeholder="Entra a message..."
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="owner"
+                      type="text"
+                      name="owner"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="red"
+                      type="text"
+                      name="red"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="contract address"
+                      type="text"
+                      name="contractAddress"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="category"
+                      type="text"
+                      name="category"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm divForm">
+                  <input
+                    className="form-input"
+                    placeholder="file type"
+                    type="text"
+                    name="fileType"
+                  />
+                </div>
+                <button type="submit" className="containerForm btnCarga">
+                  Cargar
+                </button>
+              </form>
+            </BasicModal>
           </DivButton>
         </DivNfts>
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${"https://i.imgur.com/PjfXmqR.png"}')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
             }}
           />
-          <NameNFT>NAME NFT 2</NameNFT>
+          <NameNFT>Bucks | 3347</NameNFT>
           <DivButton>
             <Sell>Sell</Sell>
-            <LinkRouter to={"/details/:id"}>
-              <Sell>Details</Sell>
-            </LinkRouter>{" "}
+            <BasicModal buttonName="Edit">
+              <form
+                id=""
+                onSubmit=""
+                action=""
+                className="btnEdit"
+                style={{
+                  backgroundColor: "white",
+                  padding: "18px 36px",
+                  fontSize: "18px",
+                }}
+              >
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      defaultValue=""
+                      placeholder="Name"
+                      type="text"
+                      name="name"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Price"
+                      type="text"
+                      name="price"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Creator"
+                      type="text"
+                      name="creator"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="file"
+                      type="text"
+                      name="file"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <textarea
+                      className="textArea"
+                      name="description"
+                      id=""
+                      defaultValue=""
+                      placeholder="Entra a message..."
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="owner"
+                      type="text"
+                      name="owner"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="red"
+                      type="text"
+                      name="red"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="contract address"
+                      type="text"
+                      name="contractAddress"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="category"
+                      type="text"
+                      name="category"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm divForm">
+                  <input
+                    className="form-input"
+                    placeholder="file type"
+                    type="text"
+                    name="fileType"
+                  />
+                </div>
+                <button type="submit" className="containerForm btnCarga">
+                  Cargar
+                </button>
+              </form>
+            </BasicModal>
           </DivButton>
         </DivNfts>
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${"https://i.imgur.com/6lqML6E.gif"}')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
             }}
           />
-          <NameNFT>NAME NFT 3</NameNFT>
+          <NameNFT>#55</NameNFT>
           <DivButton>
             <Sell>Sell</Sell>
-            <LinkRouter to={"/details/:id"}>
-              <Sell>Details</Sell>
-            </LinkRouter>
-          </DivButton>
-        </DivNfts>
-        <DivNfts>
-          <ProductWallet
-            style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
-              objectFit: "contain",
-              backgroundPosition: "center center",
-              backgroundSize: "cover",
-            }}
-          />
-          <NameNFT>NAME NFT 4</NameNFT>
-          <DivButton>
-            <Sell>Sell</Sell>
-            <LinkRouter to={"/details/:id"}>
-              <Sell>Details</Sell>
-            </LinkRouter>{" "}
+            <BasicModal buttonName="Edit">
+              <form
+                id=""
+                onSubmit=""
+                action=""
+                className="btnEdit"
+                style={{
+                  backgroundColor: "white",
+                  padding: "18px 36px",
+                  fontSize: "18px",
+                }}
+              >
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      defaultValue=""
+                      placeholder="Name"
+                      type="text"
+                      name="name"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Price"
+                      type="text"
+                      name="price"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="Creator"
+                      type="text"
+                      name="creator"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="file"
+                      type="text"
+                      name="file"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <textarea
+                      className="textArea"
+                      name="description"
+                      id=""
+                      defaultValue=""
+                      placeholder="Entra a message..."
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="owner"
+                      type="text"
+                      name="owner"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="red"
+                      type="text"
+                      name="red"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm">
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="contract address"
+                      type="text"
+                      name="contractAddress"
+                    />
+                  </div>
+                  <div className="divForm">
+                    <input
+                      className="form-input"
+                      placeholder="category"
+                      type="text"
+                      name="category"
+                    />
+                  </div>
+                </div>
+                <div className="containerForm divForm">
+                  <input
+                    className="form-input"
+                    placeholder="file type"
+                    type="text"
+                    name="fileType"
+                  />
+                </div>
+                <button type="submit" className="containerForm btnCarga">
+                  Cargar
+                </button>
+              </form>
+            </BasicModal>
           </DivButton>
         </DivNfts>
       </ConteinerNFT>
@@ -252,6 +655,8 @@ function WalletUser(props) {
 }
 const mapDispatchToProps = {
   getOneProduct: ProductActions.getOneProduct,
+  addProduct: ProductActions.addProduct,
+  updateProduct: ProductActions.updateProduct,
 };
 
 const mapStateToProps = (state) => {

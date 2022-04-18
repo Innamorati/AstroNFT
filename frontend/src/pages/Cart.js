@@ -83,8 +83,8 @@ function Cart(props) {
       Price.push(Number(financial(item.nftId.price * ETH?.ethereum.usd)));
     }
   });
-  console.log(Price.reduce((a, b) => a + b, 0));
-
+  /*   console.log(Price.reduce((a, b) => a + b, 0));
+   */
   return (
     <DivGeneral>
       <ContainerCart>
@@ -158,6 +158,7 @@ function Cart(props) {
           </CardProducts>
         )}
         <Total price={Price.reduce((a, b) => a + b, 0)} />
+<<<<<<< HEAD
 
         <HeaderCart2>Method</HeaderCart2>
         <Method>
@@ -189,6 +190,9 @@ function Cart(props) {
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
         <PayPal price={Price.reduce((a, b) => a + b, 0)} sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
+=======
+        <PayPal sx={{ marginTop: "1rem", fontSize: "large", width: "500px" }} />
+>>>>>>> 302d84ecd5587386e3228a15e0ef40148265ec83
       </ContainerCart>
       <ImgAstro
         style={{

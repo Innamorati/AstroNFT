@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.239de500.css",
-    "main.js": "/static/js/main.652ae7cf.js",
+    "main.js": "/static/js/main.0ed673bc.js",
     "static/media/AstroCart.png": "/static/media/AstroCart.b94bfc47bf4f51bcfbee.png",
     "index.html": "/index.html",
     "main.239de500.css.map": "/static/css/main.239de500.css.map",
-    "main.652ae7cf.js.map": "/static/js/main.652ae7cf.js.map"
+    "main.0ed673bc.js.map": "/static/js/main.0ed673bc.js.map"
   },
   "entrypoints": [
     "static/css/main.239de500.css",
-    "static/js/main.652ae7cf.js"
+    "static/js/main.0ed673bc.js"
   ]
 }

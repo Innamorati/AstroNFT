@@ -6,6 +6,10 @@ export const BackgroundHero = styled.div`
     width: 100%;
     height: 30rem;
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+    @media (max-width:500px) {
+        display: flex;
+        flex-direction: column;
+    }
 
 `;
 export const HeroTitle = styled.h1`
@@ -165,7 +169,9 @@ export const Astronaut = styled.div`
             height: 85%;
         }
     }
-    @media (max-width: 600px) {
-        
+    @media (max-width:500px) {
+        display: flex;
+        justify-content: center;
+        width: 370px;
     }
 `;

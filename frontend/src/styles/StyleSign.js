@@ -2,18 +2,18 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
   display: flex;
-  height: 65rem;
+  height: 56rem;
   width: 100%;
 `;
 export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 32%;
-  min-height: 60vh;
+  /* min-height: 60vh; */
   display: flex;
   justify-content: center;
   background-color: #fff;
-  margin: auto;
+  margin: 2rem auto;
   border-radius: 20px;
   p {
     text-align: center;

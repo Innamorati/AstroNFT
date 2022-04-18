@@ -160,31 +160,6 @@ function Cart(props) {
         <Total price={Price.reduce((a, b) => a + b, 0)} />
 
         <HeaderCart2>Method</HeaderCart2>
-        <Method>
-          <CardProducts2>
-            <ImagePay
-              style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Paypal.png"
-                }')`,
-              }}
-            />
-            <DivTitlePay>
-              <TitleProducts>Paypal</TitleProducts>
-              <CategoryProducts>Debit or Credit Card</CategoryProducts>
-              <CategoryProducts>Paypal Credit</CategoryProducts>
-            </DivTitlePay>
-            <DivTitlePay>
-              <input
-                className="InputCheckBox"
-                type="radio"
-                name="option"
-                id="box1"
-              />
-              <label for="box1"></label>
-            </DivTitlePay>
-          </CardProducts2>
-        </Method>
         <ButtonMethod>
           <BtnCart>Purchase</BtnCart>
         </ButtonMethod>

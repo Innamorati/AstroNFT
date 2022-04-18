@@ -67,6 +67,7 @@ export const IconSocial = styled.div`
   /* border-radius: 0.3rem; */
   margin-left: 1rem;
   cursor: pointer;
+  background-repeat: no-repeat;
   @media (max-width: 376px) {
     object-fit: cover;
     cursor: pointer;

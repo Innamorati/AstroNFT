@@ -32,33 +32,64 @@ import { connect } from "react-redux";
 import UserActions from "../redux/actions/UserActions";
 import ProductActions from "../redux/actions/ProductActions";
 import { useEffect, useState } from "react";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function DetailsProducts(props) {
   const { id } = useParams();
   let navigate = useNavigate();
-  const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false);
+  const [ETH, setETH] = useState();
+  const [BNB, setBNB] = useState();
+
+  const getETH = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setETH(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getBNB = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true"
+      );
+      setBNB(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     props.getOneProduct(id);
+    getETH();
+    getBNB();
   }, [reload]);
-
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
+  }
   function buy() {
-    const userId = props.user?.user?.id
-    props.addToBasket(id, userId)
-    navigate('/basket')
+    const userId = props.user?.user?.id;
+    props.addToBasket(id, userId);
+    navigate("/basket");
   }
   async function fav(productId) {
-    { props.user?.user === null ? navigate('/signin') : await props.likeDislike(productId) }
+    {
+      props.user?.user === null
+        ? navigate("/signin")
+        : await props.likeDislike(productId);
+    }
 
-
-    setReload(!reload)
-    console.log(props.user?.user)
+    setReload(!reload);
+    console.log(props.user?.user);
   }
-  console.log(props.oneProduct?.likes?.includes(props.user?.user?.id))
-  console.log(props.user?.user)
+  console.log(props.oneProduct?.likes?.includes(props.user?.user?.id));
+  console.log(props.user?.user);
   return (
     <DivFather>
       <FatherDetails>
@@ -75,10 +106,11 @@ function DetailsProducts(props) {
             <CategoryDetails>{props.oneProduct?.category}</CategoryDetails>
 
             <FavContainer onClick={() => fav(props.oneProduct?._id)}>
-              {props.oneProduct?.likes?.includes(props.user?.user?.id) ?
-                <FavoriteIcon style={{ color: "red" }} /> :
+              {props.oneProduct?.likes?.includes(props.user?.user?.id) ? (
+                <FavoriteIcon style={{ color: "red" }} />
+              ) : (
                 <FavoriteBorderIcon />
-              }
+              )}
               <CounterFav>{props.oneProduct?.likes?.length}</CounterFav>
             </FavContainer>
           </ConteinerTitleAndLike>
@@ -88,15 +120,23 @@ function DetailsProducts(props) {
               <DivPrice>
                 <IconEther
                   style={{
-                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
-                      }')`,
+                    backgroundImage: `url('${
+                      process.env.PUBLIC_URL + "/assets/IconEth.png"
+                    }')`,
                   }}
                 />
                 <EtherDetails>
                   {props.oneProduct?.price} {props.oneProduct?.token}{" "}
                 </EtherDetails>
               </DivPrice>
-              <ArMoney>≈ ARS$ 46,828.55 "ficticio"</ArMoney>
+              <ArMoney>
+                ≈{" "}
+                {props.oneProduct?.token === "ETH"
+                  ? financial(props.oneProduct?.price * ETH?.ethereum.usd) + " "
+                  : financial(props.oneProduct?.price * BNB?.binancecoin.usd) +
+                    " "}{" "}
+                USD
+              </ArMoney>
             </PriceDetails>
             <BtnDetails>
               <BtnBuy onClick={buy}>BUY</BtnBuy>
@@ -161,14 +201,14 @@ function DetailsProducts(props) {
           </Accordion> */}
         </HeaderDetails2>
       </FatherDetails>
-    </DivFather >
+    </DivFather>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
     oneProduct: state.ProductReducer.oneProduct,
-    user: state.UserReducer.user
+    user: state.UserReducer.user,
   };
 };
 
@@ -176,6 +216,5 @@ const mapDispatchToProps = {
   getOneProduct: ProductActions.getOneProduct,
   addToBasket: UserActions.addToBasket,
   likeDislike: ProductActions.likeDislike,
-
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsProducts);

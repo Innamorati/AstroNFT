@@ -51,14 +51,11 @@ function DetailsProducts(props) {
     navigate('/basket')
   }
   async function fav(productId) {
+
     { props.user?.user === null ? navigate('/signin') : await props.likeDislike(productId) }
 
-
     setReload(!reload)
-    console.log(props.user?.user)
   }
-  console.log(props.oneProduct?.likes?.includes(props.user?.user?.id))
-  console.log(props.user?.user)
   return (
     <DivFather>
       <FatherDetails>

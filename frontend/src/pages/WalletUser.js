@@ -30,14 +30,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function WalletUser(props) {
-  console.log(props);
+
   const [BTC, setBTC] = useState();
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
 
-  console.log(BTC);
-  console.log(ETH);
-  console.log(BNB);
+
 
   const getBTC = async () => {
     try {
@@ -88,8 +86,8 @@ function WalletUser(props) {
             <Title2>
               {financial(
                 BTC?.bitcoin.usd * 6 +
-                  ETH?.ethereum.usd * 3 +
-                  BNB?.binancecoin.usd * 21
+                ETH?.ethereum.usd * 3 +
+                BNB?.binancecoin.usd * 21
               )}
               {"  "}
               USD
@@ -108,9 +106,8 @@ function WalletUser(props) {
               <ConteinCoin>
                 <Coin
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/btc.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/btc.png"
+                      }')`,
                     backgroundPosition: "center center",
                     objectFit: "contain",
                     backgroundSize: "cover",
@@ -128,9 +125,8 @@ function WalletUser(props) {
               <ConteinCoin>
                 <Coin
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/eth.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/eth.png"
+                      }')`,
                     backgroundPosition: "center center",
                     objectFit: "contain",
                     backgroundSize: "cover",
@@ -150,9 +146,8 @@ function WalletUser(props) {
               <ConteinCoin>
                 <Coin
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/bnb.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/bnb.png"
+                      }')`,
                     backgroundPosition: "center center",
                     objectFit: "contain",
                     backgroundSize: "cover",
@@ -173,9 +168,8 @@ function WalletUser(props) {
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/product1.png"
+                }')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
@@ -192,9 +186,8 @@ function WalletUser(props) {
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/product1.png"
+                }')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
@@ -211,9 +204,8 @@ function WalletUser(props) {
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/product1.png"
+                }')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",
@@ -230,9 +222,8 @@ function WalletUser(props) {
         <DivNfts>
           <ProductWallet
             style={{
-              backgroundImage: `url('${
-                process.env.PUBLIC_URL + "/assets/product1.png"
-              }')`,
+              backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/product1.png"
+                }')`,
               objectFit: "contain",
               backgroundPosition: "center center",
               backgroundSize: "cover",

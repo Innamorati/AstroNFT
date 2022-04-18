@@ -20,7 +20,6 @@ function FacebookSignUp(props) {
       from: "facebook",
       image: res.picture.data.url
     };
-    console.log(data)
     await props.userSignUp(data);
   };
 

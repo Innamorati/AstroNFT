@@ -38,7 +38,6 @@ function Product(props) {
   const [BNB, setBNB] = useState();
   const [Img, setImg] = useState([]);
 
-  console.log(Img.results);
 
   const getImgUser = async () => {
     try {
@@ -79,7 +78,6 @@ function Product(props) {
 
   const addBasket = (id) => {
     const userId = props.user?.user?.id;
-    console.log(props.user.user);
     const searchNftInBasket = props.user?.user?.basket.filter(
       (filter) => filter.nftId._id === id
     );
@@ -87,7 +85,7 @@ function Product(props) {
       userId === undefined
         ? navigate("/signin")
         : searchNftInBasket.length === 1
-        ? dispatch({
+          ? dispatch({
             type: "user",
             payload: {
               view: true,
@@ -95,10 +93,10 @@ function Product(props) {
               user: props.user.user,
             },
           })
-        : props.addToBasket(id, userId);
+          : props.addToBasket(id, userId);
     }
   };
-  console.log(props);
+
 
   function financial(x) {
     return Number.parseFloat(x).toFixed(2);
@@ -110,7 +108,7 @@ function Product(props) {
         props.filteredProducts.map((product) => (
           <ConteinerProduct>
             {product.file.split(".")[3] === "png" ||
-            product.file.split(".")[3] === "gif" ? (
+              product.file.split(".")[3] === "gif" ? (
               <ItemProductImage src={product.file} />
             ) : (
               <ItemProductVideo controls>
@@ -122,9 +120,8 @@ function Product(props) {
               <DivPriceETH>
                 <IconEth
                   style={{
-                    backgroundImage: `url('${
-                      process.env.PUBLIC_URL + "/assets/IconEth.png"
-                    }')`,
+                    backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/IconEth.png"
+                      }')`,
                   }}
                 />
 

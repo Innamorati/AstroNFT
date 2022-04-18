@@ -18,7 +18,6 @@ const ProductReducer = (state = initialState, action) => {
         case 'filter_products':
             let { products, search, categories, fileType, sort } = action.payload;
             let filtered = [];
-            console.log(categories, fileType, sort);
 
             if (search.length) {
                 if (!categories) {

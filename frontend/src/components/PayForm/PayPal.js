@@ -9,11 +9,7 @@ function PayPal(props) {
     const [orderID, setOrderID] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [products, setProducts] = useState([])
-    console.log(...products)
 
-    console.log(1, orderID);
-    console.log(2, success);
-    console.log(3, ErrorMessage);
 
     useEffect(() => {
 
@@ -46,7 +42,6 @@ function PayPal(props) {
 
     const createOrder = (data, actions) => {
         //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        console.log(data)
         return actions.order.create({
             // purchase_units: [
             //     {
@@ -93,8 +88,8 @@ function PayPal(props) {
                     description: "Green XL",
                     sku: "sku01",
                     unit_amount: {
-                         currency_code: "USD",
-                         value: "90.00"
+                        currency_code: "USD",
+                        value: "90.00"
                     },
                     tax: {
                         currency_code: "USD",
@@ -103,13 +98,13 @@ function PayPal(props) {
                     quantity: "1",
                     category: "PHYSICAL_GOODS"
                 },
-                    {
+                {
                     name: "Shoes",
                     description: "Running, Size 10.5",
                     sku: "sku02",
                     unit_amount: {
-                         currency_code: "USD",
-                         value: "45.00"
+                        currency_code: "USD",
+                        value: "45.00"
                     },
                     tax: {
                         currency_code: "USD",
@@ -139,7 +134,6 @@ function PayPal(props) {
         });
     };
     const onApprove = (data, actions) => { //recibo el resultado de mi operacion
-        console.log(data)
         return actions.order.capture()
             .then(function (details) {
                 const { payer } = details;
@@ -147,7 +141,6 @@ function PayPal(props) {
                 console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
                 var transaction = details.purchase_units[0].payments.captures[0];
                 alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-                console.log(details)
                 setOrderID(transaction.id)
             });
     };

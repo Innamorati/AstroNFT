@@ -162,7 +162,6 @@ const UserControllers = {
           fileType: 1,
           token: 1,
         });
-      console.log(existingUser);
       if (!existingUser) {
         res.json({
           success: false,
@@ -283,21 +282,8 @@ const UserControllers = {
     const id = req.body.id;
 
     try {
-      const basketAdd = await usuario
-        .findOneAndUpdate(
-          { _id: userId },
-          { $push: { basket: { nftId: id } } },
-          { new: true }
-        )
-        .populate("basket.nftId", {
-          price: 1,
-          name: 1,
-          file: 1,
-          category: 1,
-          fileType: 1,
-          token: 1,
-        });
-      console.log(basketAdd);
+      const basketAdd = await usuario.findOneAndUpdate({ _id: userId }, { $push: { basket: { nftId: id } } }, { new: true })
+        .populate("basket.nftId", { price: 1, name: 1, file: 1, category: 1, fileType: 1, token: 1, });
       res.json({ success: true, response: { message: " Nft add to basket" } });
     } catch (error) {
       console.log(error);
@@ -307,21 +293,11 @@ const UserControllers = {
   deleteToBasket: async (req, res) => {
     const id = req.params.id;
     try {
-      const basketDelete = await usuario.findOneAndUpdate(
-        { "basket._id": id },
-        { $pull: { basket: { _id: id } } },
-        { new: true }
-      );
-      res.json({
-        success: true,
-        response: { message: "Nft delete to basket" },
-      });
+      const basketDelete = await usuario.findOneAndUpdate({ "basket._id": id }, { $pull: { basket: { _id: id } } }, { new: true });
+      res.json({ success: true, response: { message: "Nft delete to basket" }, });
     } catch (error) {
       console.log(error);
-      res.json({
-        success: false,
-        response: { message: "Algo salio mal intente en unos minutos" },
-      });
+      res.json({ success: false, response: { message: "Algo salio mal intente en unos minutos" }, });
     }
   },
 };

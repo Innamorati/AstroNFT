@@ -25,7 +25,6 @@ export const SingUp = (props) => {
             from: "signup"
         }
         props.userSingUp(data)
-        console.log(data)
     }
 
 

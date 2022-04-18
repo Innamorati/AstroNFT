@@ -25,7 +25,6 @@ const ProductActions = {
   getOneProduct: (id) => {
     return async (dispatch, getState) => {
       const res = await axios.get("https://astronft.herokuapp.com/api/details/" + id);
-      console.log(res);
       dispatch({ type: "one_product", payload: res.data.response });
     };
   },
@@ -54,7 +53,6 @@ const ProductActions = {
     return async () => {
       try {
         let response = await axios.put(`http://astronft.herokuapp.com/LikeDislike/${productId}`, {}, { headers: { 'Authorization': 'Bearer ' + token } })
-        console.log(response.data.success)
         return response
       }
       catch (error) {

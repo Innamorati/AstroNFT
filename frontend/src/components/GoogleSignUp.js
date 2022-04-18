@@ -7,7 +7,6 @@ import { GoogleButton } from "../styles/StyleSign";
 function GoogleSignUp(props) {
 
   const responseGoogle = (response) => {
-    console.log(response);
     const data = {
       firstName: response.profileObj.givenName,
       lastName: response.profileObj.familyName,
@@ -16,12 +15,10 @@ function GoogleSignUp(props) {
       from: "google",
       image: response.profileObj.imageUrl,
     }
-    console.log(response)
     props.userSignUp(data)
   }
 
 
-  console.log(props)
   return (
     <GoogleButton>
       <GoogleLogin

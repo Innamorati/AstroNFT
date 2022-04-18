@@ -7,7 +7,6 @@ import { FacebookButton } from '../styles/StyleSign';
 function FacebookSignIn(props) {
 
   const responseFacebook = async (res) => {
-    console.log(res);
 
     const data = {
       email: res.email,

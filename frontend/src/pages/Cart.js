@@ -26,6 +26,7 @@ import {
   ArsMoney,
   ButtonMethod2,
   BtnCart2,
+  BtnCart3,
 } from "../styles/StyleCartProducts";
 import { connect } from "react-redux";
 import PayPal from "../components/PayForm/PayPal";
@@ -35,15 +36,17 @@ import UserActions from "../redux/actions/UserActions";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link as LinkRouter } from "react-router-dom";
+import DeleteIcon from '@mui/icons-material/Delete';
+import Delete from "@mui/icons-material/Delete";
+import PaidIcon from '@mui/icons-material/Paid';
 
 function Cart(props) {
-  console.log(props.user?.user?.basket);
 
   const [ETH, setETH] = useState();
   const [BNB, setBNB] = useState();
+
   const deleteNft = (id) => {
     props.delteNftToBasket(id);
-    console.log(id);
   };
   const getETH = async () => {
     try {
@@ -83,8 +86,6 @@ function Cart(props) {
       Price.push(Number(financial(item.nftId.price * ETH?.ethereum.usd)));
     }
   });
-  console.log(Price.reduce((a, b) => a + b, 0));
-
   return (
     <DivGeneral>
       <ContainerCart>
@@ -113,9 +114,9 @@ function Cart(props) {
                     ≈
                     {products.nftId.token === "ETH"
                       ? financial(products.nftId.price * ETH?.ethereum.usd) +
-                        " "
+                      " "
                       : financial(products.nftId.price * BNB?.binancecoin.usd) +
-                        " "}
+                      " "}
                     USD
                   </ArsMoney>
                 </PrecioArg>
@@ -138,9 +139,8 @@ function Cart(props) {
           <CardProducts>
             <ImageProducts
               style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/errorProducts.png"
-                }')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/errorProducts.png"
+                  }')`,
                 backgroundPosition: "center center",
               }}
             />
@@ -149,52 +149,23 @@ function Cart(props) {
               <CategoryProducts></CategoryProducts>
             </DivTitle>
             <PrecioArg>
-              <LinkRouter to={`/products`}>
-                <ButtonMethod2>
-                  <BtnCart2>Go to Store</BtnCart2>
-                </ButtonMethod2>
-              </LinkRouter>
+              <ButtonMethod2>
+                <LinkRouter to={`/products`}>
+                  <BtnCart3>Go to Store</BtnCart3>
+                </LinkRouter>
+              </ButtonMethod2>
             </PrecioArg>
           </CardProducts>
         )}
         <Total price={Price.reduce((a, b) => a + b, 0)} />
-
-        <HeaderCart2>Method</HeaderCart2>
-        <Method>
-          <CardProducts2>
-            <ImagePay
-              style={{
-                backgroundImage: `url('${
-                  process.env.PUBLIC_URL + "/assets/Paypal.png"
-                }')`,
-              }}
-            />
-            <DivTitlePay>
-              <TitleProducts>Paypal</TitleProducts>
-              <CategoryProducts>Debit or Credit Card</CategoryProducts>
-              <CategoryProducts>Paypal Credit</CategoryProducts>
-            </DivTitlePay>
-            <DivTitlePay>
-              <input
-                className="InputCheckBox"
-                type="radio"
-                name="option"
-                id="box1"
-              />
-              <label for="box1"></label>
-            </DivTitlePay>
-          </CardProducts2>
-        </Method>
         <ButtonMethod>
-          <BtnCart>Purchase</BtnCart>
         </ButtonMethod>
-        <PayPal sx={{marginTop:"1rem", fontSize:"large", width:"500px"}} /> 
+        <PayPal sx={{ marginTop: "1rem", fontSize: "large", width: "500px" }} />
       </ContainerCart>
       <ImgAstro
         style={{
-          backgroundImage: `url('${
-            process.env.PUBLIC_URL + "/assets/AstroCart.png"
-          }')`,
+          backgroundImage: `url('${process.env.PUBLIC_URL + "/assets/AstroCart.png"
+            }')`,
         }}
       />
     </DivGeneral>
@@ -203,6 +174,7 @@ function Cart(props) {
 const mapDispatchToProps = {
   getAllProducts: ProductActions.getAllProducts,
   delteNftToBasket: UserActions.delteNftToBasket,
+  deleteAllBasket: UserActions.deleteAllBasket,
 };
 const mapStateToProps = (state) => {
   return {

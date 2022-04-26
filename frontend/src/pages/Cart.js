@@ -158,7 +158,8 @@ function Cart(props) {
           </CardProducts>
         )}
         <Total price={Price.reduce((a, b) => a + b, 0)} />
-        <PayPal sx={{ marginTop: "1rem", fontSize: "large", width: "500px" }} />
+        {/*         <PayPal sx={{ marginTop: "1rem", fontSize: "large", width: "500px" }} />
+         */}
       </ContainerCart>
       <ImgAstro
         style={{
